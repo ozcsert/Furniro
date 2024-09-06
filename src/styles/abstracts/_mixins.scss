@@ -4,7 +4,8 @@
   justify-content: $justify;
   align-items: $align;
 }
-//example use  @include flex-center(column, space-between, center);
+//ozellestirerek kullanmak icin
+// @include flex-center(column, space-between, center);
 
 @mixin center {
   margin: 0 auto;
@@ -30,3 +31,30 @@
 @mixin transition($property: all, $duration: 0.3s, $timing: ease) {
   transition: $property $duration $timing;
 }
+
+@mixin respond-to($breakpoint) {
+  @if $breakpoint == small {
+    @media (max-width: 400px) {
+      @content;
+    }
+  } @else if $breakpoint == medium {
+    @media (min-width: 601px) and (max-width: 899px) {
+      @content;
+    }
+  } @else if $breakpoint == large {
+    @media (min-width: 900px) {
+      @content;
+    }
+  }
+}
+//.h1{
+
+// @include respond-to(small) {
+//   font-size:$fnt-size-xs;
+// }
+
+// @include respond-to(medium) {
+//   font-size: $fnt-size-s ;
+// }
+
+//}
