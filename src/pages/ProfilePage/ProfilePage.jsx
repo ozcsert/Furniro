@@ -1,7 +1,10 @@
 const ProfilPage = () => {
+  return (
     <>
-      <p> Profil </p>
-    </>
+    <p> Profil </p>
+   </> 
+  )
+    
 }
 
 export default ProfilPage;

@@ -1,7 +1,9 @@
 const Navbar = () => {
+  return(
     <>
       <p> Navbar</p>
     </>
+  )
 }
 
-export default NavbarPage;
+export default Navbar;

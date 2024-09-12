@@ -1,7 +1,10 @@
 const ComparisonPage = () => {
+  return (
     <>
       <p> Comparison </p>
     </>
+  )
+
 }
 
-export default ComparisonPage;
+export default ComparisonPage;
