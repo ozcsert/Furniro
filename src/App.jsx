@@ -1,14 +1,14 @@
 import React from "react";
 import { HashRouter as Router, Routes, Route } from "react-router-dom";
-import HomePage from './pages/HomePage/HomePage';
-import CartPage from './pages/CartPage/CartPage';
-import ContactPage from './pages/ContactPage/ContactPage';
-import BlogPage from './pages/BlogPage/BlogPage';
-import CheckoutPage from './pages/CheckoutPage/CheckoutPage';
-import ComparisonPage from './pages/ComparisonPage/ComparisonPage';
-import ProfilePage from './pages/ProfilePage/ProfilePage';
-import ShopPage from './pages/ShopPage/ShopPage';
-import SingleProductPage from './pages/SingleProductPage/SingleProductPage';
+import HomePage from './pages/HomePage';
+import CartPage from './pages/CartPage';
+import ContactPage from './pages/ContactPage';
+import BlogPage from "./pages/BlogPage";
+import CheckoutPage from './pages/CheckoutPage';
+import ComparisonPage from './pages/ComparisonPage';
+import ProfilePage from './pages/ProfilePage';
+import ShopPage from './pages/ShopPage';
+import SingleProductPage from './pages/SingleProductPage';
 import { Layout } from './Layout';
 
 const App = () => {
@@ -23,7 +23,7 @@ const App = () => {
             <Route path="/cart" element={<CartPage />} />
             <Route path="/blog" element={<BlogPage />} />
             <Route path="/checkout" element={<CheckoutPage />} />
-            <Route path="/comparison/:id1/:id2" element={<ComparisonPage />} />
+            <Route path="/comparison/:ids" element={<ComparisonPage />} />
             <Route path="/profile" element={<ProfilePage />} />
             <Route path="/shop" element={<ShopPage />} />
             <Route path="/product/:id" element={<SingleProductPage />} />
