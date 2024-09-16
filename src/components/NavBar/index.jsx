@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 import "./style.scss"
-import { NavbarLinks } from "./NavLinks"
+import { Links } from "../Links/index.jsx"
 
 const NavBar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -8,6 +8,13 @@ const NavBar = () => {
   const toggleMenu = () => {
     setIsMenuOpen((prev) => !prev)
   }
+
+  const links = [
+    { path: "/", name: "Home" },
+    { path: "/shop", name: "Shop" },
+    { path: "/contact", name: "Contact" },
+    { path: "/about", name: "About" },
+  ]
 
   return (
     <div>
@@ -19,7 +26,8 @@ const NavBar = () => {
           <p className="n-content">Shop</p>
           <p className="n-content">About</p>
           <p className="n-content">Contact</p> */}
-        <NavbarLinks
+        <Links
+          links={links}
           className={`n-hamburger-menu ${isMenuOpen ? "active" : ""}`}
         />
         {/* </div> */}
