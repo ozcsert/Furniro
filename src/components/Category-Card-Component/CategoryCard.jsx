@@ -1,8 +1,19 @@
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import './CategoryCard.scss';
+import Dining from '../../assets/Home/dining.png';
+import Living from '../../assets/Home/living.png';
+import Bedroom from '../../assets/Home/bedroom.png';
 
-const CategoryCard = ({ title, description, categories }) => {
+const CategoryCard = ({
+  title = 'Browse The Range',
+  description = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+  categories = [
+    { name: 'Dining', image: Dining },
+    { name: 'Living', image: Living },
+    { name: 'Bedroom', image: Bedroom },
+  ]
+}) => {
   return (
     <div className="category-card">
       <h2 className="category-card__title">{title}</h2>
@@ -22,14 +33,14 @@ const CategoryCard = ({ title, description, categories }) => {
 };
 
 CategoryCard.propTypes = {
-  title: PropTypes.string.isRequired,
-  description: PropTypes.string.isRequired,
+  title: PropTypes.string,
+  description: PropTypes.string,
   categories: PropTypes.arrayOf(
     PropTypes.shape({
       name: PropTypes.string.isRequired,
       image: PropTypes.string.isRequired,
     })
-  ).isRequired,
+  ),
 };
 
 export default CategoryCard;
