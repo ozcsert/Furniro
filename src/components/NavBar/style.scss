@@ -1,5 +1,4 @@
-@import "../../styles/abstracts/typography";
-@import "../../styles/abstracts/colors";
+@import "../../styles/abstracts/variables";
 
 
 .navbar-section{
@@ -141,7 +140,7 @@
     }
 }
 
-@media (max-width: 400px) {
+@media (max-width: 500px) {
     .navbar-section {
         flex-direction: column;
         gap: 30px;
