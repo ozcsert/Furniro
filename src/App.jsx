@@ -10,8 +10,12 @@ import ProfilePage from './pages/ProfilePage';
 import ShopPage from './pages/ShopPage';
 import SingleProductPage from './pages/SingleProductPage';
 import { Layout } from './Layout';
+import { useState } from "react"
+import "./App.css"
 
-const App = () => {
+function App() {
+  const [count, setCount] = useState(0)
+
   return (
 
     <>
