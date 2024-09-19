@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import './CategoryCard.scss';
+import './style.scss';
 import Dining from '../../assets/Home/dining.png';
 import Living from '../../assets/Home/living.png';
 import Bedroom from '../../assets/Home/bedroom.png';
