@@ -17,7 +17,6 @@ function App() {
   const [count, setCount] = useState(0)
 
   return (
-
     <>
       <Router>
         <Routes>
@@ -35,8 +34,7 @@ function App() {
         </Routes>
       </Router>
     </>
-
   )
 }
 
-export default App;
+export default App
