@@ -1,0 +1,22 @@
+@import "../../styles/abstracts/colors";
+
+.custom-button {
+  background-color: transparent;
+  border: none;
+  color: $clr-gold;
+  font-size: 24px;
+  font-weight: bold;
+  cursor: pointer;
+  padding: 10px 48px;
+  transition: color 0.3s ease;
+  border: 1px solid;
+  display: flex;
+
+  &:hover {
+    color: $clr-gold;
+  }
+
+  &:focus {
+    outline: none;
+  }
+}
