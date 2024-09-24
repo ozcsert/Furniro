@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import { Link } from "react-router-dom";
 
-export const NavLinks = ({ className }) => {
+ const NavLinkComponent = ({ className }) => {
   const links = [
     { path: "/", name: "Home" },
     { path: "/shop", name: "Shop" },
@@ -19,3 +19,6 @@ export const NavLinks = ({ className }) => {
     </ul>
   );
 };
+
+
+export default NavLinkComponent;
