@@ -1,6 +1,7 @@
-import { useState } from "react";
-import FooterNavComponent from "../FooterNavComponent";
 import "./styles.scss"
+import {  useState } from "react";
+import FooterNavComponent from "../FooterNavComponent";
+
 
 const footerLinks = [
   { path: "/", name: "Home" },
@@ -23,6 +24,7 @@ const Footer = () => {
     event.preventDefault();
     alert('Email submitted:', email);
   };
+
   
   return(
     <footer>

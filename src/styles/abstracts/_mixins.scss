@@ -18,20 +18,6 @@
   transform: translate(-50%, -50%);
 }
 
-@mixin box-shadow(
-  $x: 0px,
-  $y: 2px,
-  $blur: 8px,
-  $spread: 0px,
-  $color: rgba(0, 0, 0, 0.2)
-) {
-  box-shadow: $x $y $blur $spread $color;
-}
-
-@mixin transition($property: all, $duration: 0.3s, $timing: ease) {
-  transition: $property $duration $timing;
-}
-
 @mixin respond-to($breakpoint) {
   @if $breakpoint == small {
     @media (max-width: 400px) {

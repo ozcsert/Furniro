@@ -1,8 +1,6 @@
 @import "../../styles/styles.scss";
 
 footer {
-    @include flex-center(column, space-between, center);
-    @include center;
     gap:20px;
     max-width: 1440px;
     min-height: 570px;
@@ -12,21 +10,23 @@ footer {
     font-size: $fnt-size-s;
     color: white;
     font-weight: 700;
+    @include flex-center(column, space-between, center);
+    @include center;
     h2 {
         font-size: $fnt-size-xlg;
     }
     section {
-        @include flex-center(row, space-between, start);
         flex-wrap: wrap;
         width: 80%;
         gap:30px;
         text-align: start;
         line-height: 24px;
+        @include flex-center(row, space-between, start);
         div {
             max-width: 300px;
-            @include flex-center(column, center, start);
             font-weight: 400;
             gap:30px;
+            @include flex-center(column, center, start);
              @include respond-to(medium) {
                 gap:15px;
              }
@@ -50,8 +50,8 @@ footer {
                  }
             }
             form {
-                @include flex-center(row, center, start);
                 gap:30px;
+                @include flex-center(row, center, start);
                  @include respond-to(large) {
                      flex-direction: column;
                   }
@@ -63,11 +63,11 @@ footer {
         }
     }
     .ftr__bttm-info {
-        @include flex-center(row, center, end);
         width: 85%;
         height: 54px;
         border-top: 1px solid white;
         font-weight: 400;
+        @include flex-center(row, center, end);
 }
 }
 
