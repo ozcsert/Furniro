@@ -1,0 +1,73 @@
+@import "../../styles/styles.scss";
+
+footer {
+    @include flex-center(column, space-between, center);
+    @include center;
+    gap:20px;
+    max-width: 1440px;
+    min-height: 570px;
+    padding: 40px 0px;
+    background-color:$text-primary;
+    font-family: $fnt-poppins;
+    font-size: $fnt-size-s;
+    color: white;
+    font-weight: 700;
+    h2 {
+        font-size: $fnt-size-xlg;
+    }
+    section {
+        @include flex-center(row, space-between, start);
+        flex-wrap: wrap;
+        width: 80%;
+        gap:30px;
+        text-align: start;
+        line-height: 24px;
+        div {
+            max-width: 300px;
+            @include flex-center(column, center, start);
+            font-weight: 400;
+            gap:30px;
+             @include respond-to(medium) {
+                gap:15px;
+             }
+             @include respond-to(large) {
+                min-width: 300px;
+             }
+             @include respond-to(medium) {
+                min-width: 200px;
+             }
+            h4 {
+                font-size: $fnt-size-m;
+                border-bottom: 1px solid $clr-coral;
+                padding-bottom: 4px;
+                font-weight: 700;
+                display: inline-block;
+            }
+            li {
+                margin-bottom: 30px;
+                @include respond-to(medium) {
+                    margin-bottom: 15px;
+                 }
+            }
+            form {
+                @include flex-center(row, center, start);
+                gap:30px;
+                 @include respond-to(large) {
+                     flex-direction: column;
+                  }
+                button {
+                    color: white;
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+    .ftr__bttm-info {
+        @include flex-center(row, center, end);
+        width: 85%;
+        height: 54px;
+        border-top: 1px solid white;
+        font-weight: 400;
+}
+}
+
