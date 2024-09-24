@@ -1,0 +1,18 @@
+@import "../../styles/abstracts/colors";
+
+.buy-now-button {
+  background-color: $clr-gold;
+  color: white;
+  padding: 25px 50px;
+  border: none;
+  border-radius: 5px;
+  font-size: 24px;
+  font-weight: 700px;
+  cursor: pointer;
+  line-height: 24px;
+  font-family: "Poppins", sans-serif;
+
+  &:hover {
+    background-color: #a06932;
+  }
+}
