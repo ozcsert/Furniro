@@ -1,10 +1,3 @@
-<<<<<<< HEAD
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
-import "./App.css";
-import Homepage from "../src/pages/Homepage";
-=======
 import React from "react";
 import { HashRouter as Router, Routes, Route } from "react-router-dom";
 import HomePage from './pages/HomePage';
@@ -18,14 +11,10 @@ import ShopPage from './pages/ShopPage';
 import SingleProductPage from './pages/SingleProductPage';
 import { Layout } from './Layout';
 import "./App.css";
->>>>>>> develop
 
 function App() {
   return (
     <>
-<<<<<<< HEAD
-      <Homepage />
-=======
       <Router>
         <Routes>
           <Route element={<Layout />}>
@@ -41,7 +30,6 @@ function App() {
           </Route>
         </Routes>
       </Router>
->>>>>>> develop
     </>
   );
 }

@@ -4,10 +4,11 @@ import { useState } from "react";
 import Modal from "react-modal";
 import UserImg from "../../assets/icons/user-icon.svg";
 import SearchImg from "../../assets/icons/search-icon.svg";
-import HearhImg from "../../assets/icons/hearth-icon.svg";
+import HeartImg from "../../assets/icons/heart-icon.svg";
 import CartImg from "../../assets/icons/cart-icon.svg";
 import CloseImg from "../../assets/icons/close-icon.svg";
 import LineImg from "../../assets/images/line.svg";
+import { NavLink } from "react-router-dom";
 
 const customStyles = {
   overlay: {
@@ -32,6 +33,7 @@ Modal.setAppElement("#root");
 const NavbarActions = () => {
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [selectedContent, setSelectedContent] = useState(null);
+  const [searchBarIsOpen, setSearchBarIsOpen] = useState(false);
 
   const openModal = (content) => {
     setSelectedContent(content);
@@ -43,63 +45,11 @@ const NavbarActions = () => {
     setSelectedContent(null);
   };
 
-  const modalContent = {
-    User: (
-      <div className="modal-content">
-        <div className="modal-header">
-          <h5 className="modal-title">User</h5>
-          <div className="close-img-box">
-            <img
-              className="close-img"
-              src={CloseImg}
-              alt=""
-              onClick={closeModal}
-            />
-          </div>
-        </div>
-        <div className="line-box">
-          <img className="line-img" src={LineImg} alt="" />
-        </div>
-        <div></div>
-        <div className="line-box">
-          <img className="line-img" src={LineImg} alt="" />
-        </div>
-      </div>
-    ),
-    Search: (
-      <div className="modal-content">
-        <div className="modal-header">
-          <h5 className="modal-title">Search</h5>
-          <div className="close-img-box">
-            <img
-              className="close-img"
-              src={CloseImg}
-              alt=""
-              onClick={closeModal}
-            />
-          </div>
-        </div>
-        <div className="line-box">
-          <img className="line-img" src={LineImg} alt="" />
-        </div>
-        <div className="search-content-box">
-          <div className="search-input-and-img-box">
-            <input
-              className="search-input"
-              type="search"
-              placeholder="What are you looking for?"
-            />
+  const searchBarHandler = () => {
+    setSearchBarIsOpen(!searchBarIsOpen);
+  };
 
-            <div className="search-img-box">
-              <img src={SearchImg} alt="" />
-            </div>
-          </div>
-        </div>
-        <div className="line-box">
-          <img className="line-img" src={LineImg} alt="" />
-        </div>
-      </div>
-    ),
+  const modalContent = {
     Heart: (
       <div className="modal-content">
         <div className="modal-header">
@@ -156,21 +106,44 @@ const NavbarActions = () => {
 
   return (
     <div className="navbar-actions">
+      <NavLink className="actions-btns" to="/profile">
+        <img src={UserImg} alt="" onClick={() => openModal("User")} />
+      </NavLink>
+      {!searchBarIsOpen ? (
+        <img
+          className="actions-btns"
+          src={SearchImg}
+          alt=""
+          onClick={() => searchBarHandler()}
+        />
+      ) : (
+        <div className="search-container">
+          <img
+            className="actions-btns"
+            src={CloseImg}
+            alt=""
+            onClick={() => searchBarHandler()}
+          />
+
+          <div className="search-bar">
+            <div className="search-content-box">
+              <div className="search-input-and-img-box">
+                <input
+                  className="search-input"
+                  type="search"
+                  placeholder="What are you looking for?"
+                />
+                <div className="search-img-box">
+                  <img src={SearchImg} alt="" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
       <img
         className="actions-btns"
-        src={UserImg}
-        alt=""
-        onClick={() => openModal("User")}
-      />
-      <img
-        className="actions-btns"
-        src={SearchImg}
-        alt=""
-        onClick={() => openModal("Search")}
-      />
-      <img
-        className="actions-btns"
-        src={HearhImg}
+        src={HeartImg}
         alt=""
         onClick={() => openModal("Heart")}
       />
