@@ -1,21 +1,21 @@
 import React from "react";
 import { HashRouter as Router, Routes, Route } from "react-router-dom";
-import HomePage from './pages/HomePage';
-import CartPage from './pages/CartPage';
-import ContactPage from './pages/ContactPage';
+import HomePage from "./pages/HomePage";
+import CartPage from "./pages/CartPage";
+import ContactPage from "./pages/ContactPage";
 import BlogPage from "./pages/BlogPage";
-import CheckoutPage from './pages/CheckoutPage';
-import ComparisonPage from './pages/ComparisonPage';
-import ProfilePage from './pages/ProfilePage';
-import ShopPage from './pages/ShopPage';
-import SingleProductPage from './pages/SingleProductPage';
-import { Layout } from './Layout';
+import CheckoutPage from "./pages/CheckoutPage";
+import ComparisonPage from "./pages/ComparisonPage";
+import ProfilePage from "./pages/ProfilePage";
+import ShopPage from "./pages/ShopPage";
+import SingleProductPage from "../src/components/SingleProductPage/index";
+import { Layout } from "./Layout";
 import "./App.css";
 
 function App() {
   return (
     <>
-      <Router>
+      {/* <Router>
         <Routes>
           <Route element={<Layout />}>
             <Route path="/" element={<HomePage />} />
@@ -29,9 +29,10 @@ function App() {
             <Route path="/product/:id" element={<SingleProductPage />} />
           </Route>
         </Routes>
-      </Router>
+      </Router> */}
+      <SingleProductPage />
     </>
-  )
+  );
 }
 
-export default App
+export default App;
