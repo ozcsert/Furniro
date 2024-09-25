@@ -1,0 +1,22 @@
+@import "../../styles/abstracts/colors";
+
+// ProductAlbum.scss
+.product-album {
+  display: flex;
+  flex-direction: column;
+  margin-right: 20px;
+  background-color: #fcf8f3;
+
+  img {
+    width: 100px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease-in-out;
+    background-color: #fcf8f3;
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+}

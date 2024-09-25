@@ -1,0 +1,33 @@
+@import "../../styles/abstracts/colors";
+
+// SingleProductPage.scss
+.single-product-page {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  max-width: 1200px;
+  margin: auto;
+
+  .main-image {
+    width: 400px;
+    border-radius: 5px;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.2);
+  }
+}
+
+@media (max-width: 768px) {
+  .single-product-page {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .main-image {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  .product-details {
+    padding-left: 0;
+    text-align: center;
+  }
+}

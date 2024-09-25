@@ -1,0 +1,144 @@
+@import "../../styles/abstracts/colors";
+
+.product-details {
+  h1 {
+    font-size: 36px;
+    font-weight: bold;
+    color: $text-primary;
+    display: flex;
+  }
+
+  .product-price {
+    font-size: 24px;
+    color: $text-secondary;
+    margin-bottom: 10px;
+    display: flex;
+    padding: 7px;
+  }
+
+  .reviews {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    color: $text-secondary;
+
+    .star-rating {
+      margin-right: 10px;
+    }
+
+    span {
+      color: $text-secondary;
+    }
+  }
+
+  .description {
+    margin: 20px 0;
+    font-size: 16px;
+    line-height: 1.5;
+    color: $text-primary;
+  }
+
+  .color-label {
+    font-size: 14px;
+    color: $text-secondary;
+    margin-bottom: 5px;
+    display: flex;
+  }
+
+  .color-options {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+
+    .color-option {
+      width: 25px;
+      height: 25px;
+      border-radius: 50%;
+      cursor: pointer;
+      border: 1px solid $text-secondary;
+      transition: border-color 0.3s ease;
+
+      &:hover {
+        border-color: $text-primary;
+      }
+    }
+  }
+
+  .quantity-add-to-cart,
+  .compare {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+
+    .quantity-control {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+
+      button {
+        width: 30px;
+        height: 30px;
+        border: 1px solid $text-secondary;
+        background-color: $text-third;
+        font-size: 16px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+
+        &:hover {
+          background-color: $text-third;
+        }
+      }
+
+      span {
+        font-size: 16px;
+        font-weight: bold;
+        color: $text-primary;
+      }
+    }
+
+    .add-to-cart,
+    .compare {
+      padding: 10px 20px;
+      border: 1px solid $text-primary;
+      background-color: $text-third;
+      cursor: pointer;
+      font-size: 16px;
+      transition: background-color 0.3s ease;
+
+      &:hover {
+        background-color: $text-primary;
+        color: $text-third;
+      }
+    }
+  }
+  .product-meta {
+    p {
+      font-size: 0.9rem;
+      color: $text-secondary;
+      display: flex;
+      padding: 10px;
+
+      strong {
+        color: $text-primary;
+      }
+    }
+  }
+
+  .socials {
+    display: flex;
+    gap: 0.5rem;
+
+    span {
+      color: $text-primary;
+    }
+
+    a {
+      color: $clr-teal;
+      font-size: 1.5rem;
+
+      &:hover {
+        color: $clr-coral;
+      }
+    }
+  }
+}
