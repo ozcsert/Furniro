@@ -1,4 +1,4 @@
-import '../Herosection/Herosection.css';
+import '../Herosection/style.scss';
 function Herosection() {
     return (
         <div className="herosection-main" >
