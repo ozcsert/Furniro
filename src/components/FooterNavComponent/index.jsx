@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import { Link } from "react-router-dom"
 
-const FooterNavComponent = ({ title, links } ) => {
+const FooterNavComponent = ({ title, links }) => {
   return (
     <div>
       <h4>{title}</h4>
@@ -15,6 +15,5 @@ const FooterNavComponent = ({ title, links } ) => {
     </div>
   )
 }
-
 
 export default FooterNavComponent

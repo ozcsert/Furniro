@@ -1,7 +1,6 @@
 import "./styles.scss"
-import {  useState } from "react";
-import FooterNavComponent from "../FooterNavComponent";
-
+import { useState } from "react"
+import FooterNavComponent from "../FooterNavComponent"
 
 const footerLinks = [
   { path: "/", name: "Home" },
@@ -16,31 +15,28 @@ const helpLinks = [
   { path: "/privacy", name: "Privacy Policy" },
 ]
 
-
 const Footer = () => {
-  const [email, setEmail] = useState('');
+  const [email, setEmail] = useState("")
 
   const handleSubmit = (event) => {
-    event.preventDefault();
-    alert('Email submitted:', email);
-  };
+    event.preventDefault()
+    alert("Email submitted:", email)
+  }
 
-  
-  return(
+  return (
     <footer>
-      <h2 >Furniro.</h2>
+      <h2>Furniro.</h2>
       <section>
-        <FooterNavComponent title="LINKS" links={footerLinks}/>
-        <FooterNavComponent title="HELP" links={helpLinks}/>
+        <FooterNavComponent title="LINKS" links={footerLinks} />
+        <FooterNavComponent title="HELP" links={helpLinks} />
         <div className="ftr__location">
           <h4>LOCATION</h4>
-          <p>400 University Drive Suite 200 Coral Gables,
-          </p>
+          <p>400 University Drive Suite 200 Coral Gables,</p>
           <p>FL 33134 USA</p>
         </div>
-        <div >
-          <h4>NEWSLETTER</h4>
+        <div>
           <form onSubmit={handleSubmit}>
+            <h4>NEWSLETTER</h4>
             <input
               type="email"
               id="email"
@@ -55,10 +51,10 @@ const Footer = () => {
         </div>
       </section>
       <div className="ftr__bttm-info">
-        <p>2023 Furniro. All rights reserved.</p>
+        <p>@2023 Furniro. All rights reserved.</p>
       </div>
     </footer>
   )
 }
 
-export default Footer;  
+export default Footer
