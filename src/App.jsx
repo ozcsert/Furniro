@@ -10,7 +10,6 @@ import ProfilePage from './pages/ProfilePage';
 import ShopPage from './pages/ShopPage';
 import SingleProductPage from './pages/SingleProductPage';
 import { Layout } from './Layout';
-import "./App.css";
 
 function App() {
   return (
