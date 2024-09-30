@@ -1,8 +1,8 @@
 import React from "react";
 import { HashRouter as Router, Routes, Route } from "react-router-dom";
-import HomePage from './pages/HomePage';
-import CartPage from './pages/CartPage';
-import ContactPage from './pages/ContactPage';
+import HomePage from "./pages/HomePage";
+import CartPage from "./pages/CartPage";
+import ContactPage from "./pages/ContactPage";
 import BlogPage from "./pages/BlogPage";
 import CheckoutPage from './pages/CheckoutPage';
 import ComparisonPage from './pages/ComparisonPage';
