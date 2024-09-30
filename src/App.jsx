@@ -1,3 +1,4 @@
+import React from "react"
 import { HashRouter as Router, Routes, Route } from "react-router-dom"
 import HomePage from "./pages/HomePage"
 import CartPage from "./pages/CartPage"
@@ -9,6 +10,9 @@ import ProfilePage from "./pages/ProfilePage"
 import ShopPage from "./pages/ShopPage"
 import SingleProductPage from "./pages/SingleProductPage"
 import { Layout } from "./Layout"
+import FeatureCard from "./components/FeatureCard"
+import "./App.css"
+import FeatureSection from "./components/FeaturesSection"
 
 function App() {
   return (
@@ -28,6 +32,7 @@ function App() {
           </Route>
         </Routes>
       </Router>
+      <FeatureSection />
     </>
   )
 }

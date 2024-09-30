@@ -1,10 +1,13 @@
-import Herosection from "../../components/Herosection"
+import Herosection from "../../components/Herosection/index.jsx"
 
-const Homepage = () => {
+const HomePage = () => {
   return (
-    <div>
+    <>
+      <FilterComponent />
+      <p> Home </p>
       <Herosection />
-    </div>
+    </>
   )
 }
-export default Homepage
+
+export default HomePage
