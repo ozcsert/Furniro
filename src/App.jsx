@@ -4,12 +4,12 @@ import HomePage from "./pages/HomePage";
 import CartPage from "./pages/CartPage";
 import ContactPage from "./pages/ContactPage";
 import BlogPage from "./pages/BlogPage";
-import CheckoutPage from "./pages/CheckoutPage";
-import ComparisonPage from "./pages/ComparisonPage";
-import ProfilePage from "./pages/ProfilePage";
-import ShopPage from "./pages/ShopPage";
-import SingleProductPage from "./pages/SingleProductPage";
-import { Layout } from "./Layout";
+import CheckoutPage from './pages/CheckoutPage';
+import ComparisonPage from './pages/ComparisonPage';
+import ProfilePage from './pages/ProfilePage';
+import ShopPage from './pages/ShopPage';
+import SingleProductPage from './pages/SingleProductPage';
+import { Layout } from './Layout';
 
 function App() {
   return (
@@ -33,4 +33,4 @@ function App() {
   );
 }
 
-export default App
+export default App;
