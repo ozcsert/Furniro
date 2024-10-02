@@ -175,8 +175,7 @@
 @media (max-width:700px) {
     .herosection-info {
         border-radius: 0px !important;
-        right: 0% !important;
-        max-width: none;
+        left: 2%;
     }
 }
 
@@ -192,6 +191,7 @@
         .herosection-info {
             top: 32%;
             position: relative;
+            left: 0%;
 
             .herosection-subtitle {
                 font-size: 12px;
