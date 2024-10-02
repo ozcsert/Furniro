@@ -107,3 +107,52 @@
     }
   }
 }
+<<<<<<< HEAD
+=======
+
+@media (max-width:700px) {
+    .herosection-info {
+        border-radius: 0px !important;
+        left: 2%;
+    }
+}
+
+@media (max-width:500px) {
+    .herosection-main {
+        padding: 50px 0px;
+
+        .herosection-background {
+            height: 400px;
+            background-position: 47% 50%;
+        }
+
+        .herosection-info {
+            top: 32%;
+            position: relative;
+            left: 0%;
+
+            .herosection-subtitle {
+                font-size: 12px;
+            }
+
+            .herosection-title {
+                font-size: 30px;
+            }
+
+            .herosection-text {
+                font-size: 14px;
+            }
+
+            .herosection-info-btn {
+                width: 100%;
+                height: 100%;
+                max-width: 135px;
+                max-height: 55px;
+                font-size: 12px;
+                font-weight: 700;
+                padding: 15px;
+            }
+        }
+    }
+}
+>>>>>>> 4482c85 ([SE-69] - HeroSection)
