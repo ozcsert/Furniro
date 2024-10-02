@@ -3,7 +3,7 @@
 footer {
   position: absolute;
   bottom: 0;
-  width: 100%;  
+  width: 100%;
   min-height: 430px;
   padding: 30px 0px;
   gap: 20px;
@@ -103,28 +103,3 @@ footer {
     width: 135px;
   }
 }
-
-// @media screen and (max-width: 680px) {
-//   footer section div {
-//     -width: 140px;
-//   }
-// }
-
-// @media screen and (max-width: 541px) {
-//   footer section .ftr__location {
-//     background-color: red;
-//     width: 100px;
-//   }
-// }
-
-// // @media screen and (max-width: 665px) {
-//   .ftr__location {
-//     max-width: 50px;
-//   }
-// }
-
-// @media screen and (max-width: 440px) {
-//   .ftr__location {
-//     max-width: 10px;
-//   }
-// }
