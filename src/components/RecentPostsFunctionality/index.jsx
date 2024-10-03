@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import "../RecentPostsFunctionality/style.scss"
 import { news } from "./data"
 
@@ -15,34 +16,12 @@ const RecentPostsFunctionality = () => {
               <p className="recent-post-info-right-calender">{e.date}</p>
 =======
 
+=======
+import "../RecentPostsFunctionality/style.scss";
+import { news } from "./data";
+>>>>>>> a89e8ab ([SE-25] - fix responsiveness and move data out to a sep file)
 
 const RecentPostsFunctionality = () => {
-    const news = [{
-        img: recentPostsimg1,
-        text: "Going all-in with millennial design",
-        date: "13 Jun 2024",
-    },
-    {
-        img: recentPostsimg2,
-        text: "Exploring new ways of decorating",
-        date: "22 Aug 2024",
-    },
-    {
-        img: recentPostsimg3,
-        text: "Handmade pieces that took time to make",
-        date: "02 Jun 2024",
-    },
-    {
-        img: recentPostsimg4,
-        text: "Modern home in Milan",
-        date: "05 May 2024",
-    },
-    {
-        img: recentPostsimg5,
-        text: "Colorful office redesign",
-        date: "26 Sep 2024",
-    },
-    ]
     return (
         <div className="recent-post-main">
             <div className="recent-post-include">
