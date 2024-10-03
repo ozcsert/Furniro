@@ -6,7 +6,8 @@ import recentPostsimg4 from "../../assets/images/recentPostsimg4.png";
 import recentPostsimg5 from "../../assets/images/recentPostsimg5.png";
 
 
-function RecentPostsFunctionality() {
+
+const RecentPostsFunctionality = () => {
     const news = [{
         img: recentPostsimg1,
         text: "Going all-in with millennial design",
@@ -31,14 +32,14 @@ function RecentPostsFunctionality() {
         img: recentPostsimg5,
         text: "Colorful office redesign",
         date: "26 Sep 2024",
-    },]
+    },
+    ]
     return (
         <div className="recent-post-main">
             <div className="recent-post-include">
                 <h2 className="recent-post-text">Recent Post</h2>
-                {news.map((e) => (
-                    // eslint-disable-next-line react/jsx-key
-                    <div className="recent-post-info">
+                {news.map((e, index) => (
+                    <div className="recent-post-info" key={index}>
                         <img className="recent-post-info-img" src={e.img} />
                         <div className="recent-post-info-right">
                             <p className="recent-post-info-right-text">{e.text}</p>
