@@ -34,11 +34,12 @@
           align-items: center;
           gap: 10px;
           font-family: Poppins;
-          font-size: 16px;
+          // font-size: 16px;
+          font-size: clamp(0.667rem, 0.174rem + 4.923vw, 1.067rem);
           font-weight: 500;
           line-height: 10px;
           text-align: left;
-          color: #3a3a3a;
+          color: #3A3A3A;
 
           span {
             display: grid;
@@ -59,7 +60,9 @@
         cursor: pointer;
       }
     }
-
+.filter-component-section-room-sub-title{
+ margin: 0 10px;
+}
     &-room-checkbox {
       max-width: 260px;
       padding: 5px 10px;
@@ -69,6 +72,14 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
+        p{
+          font-family: Poppins;
+// font-size: 14px;
+font-size: clamp(0.533rem, 0.041rem + 4.923vw, 0.933rem);
+font-weight: 500;
+line-height: 10px;
+color: #3A3A3A;
+        }
 
         .checkmark {
           height: 20px;
