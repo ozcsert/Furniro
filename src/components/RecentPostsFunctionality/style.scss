@@ -5,6 +5,7 @@
     .recent-post-include {
         max-width: 269px;
         margin: 16px auto;
+        padding: 10px;
 
         .recent-post-text {
             font-size: 24px;
@@ -39,6 +40,23 @@
                     padding: 3px 0px;
                 }
             }
+        }
+    }
+}
+
+@media (max-width:600px) {
+    .recent-post-info-img {
+        width: 60px;
+        height: 60px;
+    }
+
+    .recent-post-info-right {
+        .recent-post-info-right-text {
+            font-size: 12px;
+        }
+
+        .recent-post-info-right-calender {
+            font-size: 10px;
         }
     }
 }

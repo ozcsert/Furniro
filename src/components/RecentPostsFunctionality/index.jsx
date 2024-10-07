@@ -5,12 +5,21 @@ import recentPostsimg3 from "../../assets/images/recentPostsimg3.png"
 import recentPostsimg4 from "../../assets/images/recentPostsimg4.png"
 import recentPostsimg5 from "../../assets/images/recentPostsimg5.png"
 
+<<<<<<< HEAD
 function RecentPostsFunctionality() {
   const news = [
     {
       img: recentPostsimg1,
       text: "Going all-in with millennial design",
       date: "13 Jun 2024",
+=======
+
+const RecentPostsFunctionality = () => {
+    const news = [{
+        img: recentPostsimg1,
+        text: "Going all-in with millennial design",
+        date: "13 Jun 2024",
+>>>>>>> 79364c2 ([SE-25] - Recent-Posts)
     },
     {
       img: recentPostsimg2,
@@ -28,6 +37,7 @@ function RecentPostsFunctionality() {
       date: "05 May 2024",
     },
     {
+<<<<<<< HEAD
       img: recentPostsimg5,
       text: "Colorful office redesign",
       date: "26 Sep 2024",
@@ -44,6 +54,26 @@ function RecentPostsFunctionality() {
             <div className="recent-post-info-right">
               <p className="recent-post-info-right-text">{e.text}</p>
               <p className="recent-post-info-right-calender">{e.date}</p>
+=======
+        img: recentPostsimg5,
+        text: "Colorful office redesign",
+        date: "26 Sep 2024",
+    },
+    ]
+    return (
+        <div className="recent-post-main">
+            <div className="recent-post-include">
+                <h2 className="recent-post-text">Recent Post</h2>
+                {news.map((e, index) => (
+                    <div className="recent-post-info" key={index}>
+                        <img className="recent-post-info-img" src={e.img} />
+                        <div className="recent-post-info-right">
+                            <p className="recent-post-info-right-text">{e.text}</p>
+                            <p className="recent-post-info-right-calender">{e.date}</p>
+                        </div>
+                    </div>)
+                )}
+>>>>>>> 79364c2 ([SE-25] - Recent-Posts)
             </div>
           </div>
         ))}
