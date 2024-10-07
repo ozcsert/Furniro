@@ -8,14 +8,12 @@ import CheckoutPage from "./pages/CheckoutPage";
 import ComparisonPage from "./pages/ComparisonPage";
 import ProfilePage from "./pages/ProfilePage";
 import ShopPage from "./pages/ShopPage";
-import SingleProductPage from "../src/components/SingleProductPage/index";
 import { Layout } from "./Layout";
-import "./App.css";
 
 function App() {
   return (
     <>
-      {/* <Router>
+      <Router>
         <Routes>
           <Route element={<Layout />}>
             <Route path="/" element={<HomePage />} />
@@ -29,8 +27,7 @@ function App() {
             <Route path="/product/:id" element={<SingleProductPage />} />
           </Route>
         </Routes>
-      </Router> */}
-      <SingleProductPage />
+      </Router>
     </>
   );
 }
