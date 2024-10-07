@@ -6,8 +6,7 @@
   border: 1px solid #f1f1f1;
   border-radius: 10px;
   align-items: center;
-  gap: 10px;
-  padding: 10px 15px;
+ padding: 10px 0;
 
   hr {
     border: none;
@@ -23,19 +22,21 @@
       display: flex;
       justify-content: space-between;
       width: 100%;
-      padding: 10px 15px;
+      padding: 5px 15px;
 
       &-title {
         display: flex;
+        align-items: center;
         width: 100%;
 
         p {
           display: flex;
+          align-items: center;
           gap: 10px;
           font-family: Poppins;
           font-size: 16px;
           font-weight: 500;
-          line-height: 19.2px;
+          line-height: 10px;
           text-align: left;
           color: #3a3a3a;
 
@@ -61,7 +62,7 @@
 
     &-room-checkbox {
       max-width: 260px;
-      padding: 10px;
+      padding: 5px 10px;
       margin: 0 auto;
 
       label {
