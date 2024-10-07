@@ -1,4 +1,4 @@
-
+import Herosection from "../../components/Herosection/index.jsx";
 const HomePage = () => {
   return (
     <>
@@ -8,4 +8,4 @@ const HomePage = () => {
 
 }
 
-export default HomePage;
+export default HomePage
