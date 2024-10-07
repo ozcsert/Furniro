@@ -5,23 +5,30 @@ import AsgardSofaL from "../../assets/Product/extras/Asgaard-SofaL.svg"
 import { useState } from "react"
 
 export const Tab = ({ product }) => {
-  const [selectedTab, setSelectedTab] = useState()
+  const [selectedTab, setSelectedTab] = useState("Description")
 
   const renderTabContent = () => {
     switch (selectedTab) {
       case "Description":
         return (
           <>
-            <div className="tab__descriptions">
-              <p>{product.extras.detailedDescriptions[0]}</p>
-              <p>{product.extras.detailedDescriptions[1]}</p>
+            <div className="tab__extras">
+              {Object.entries(product.extras.detailedDescriptions).map(
+                ([value], index) => (
+                  <>
+                    <p key={index}>
+                      {product.extras.detailedDescriptions[value]}
+                    </p>
+                  </>
+                )
+              )}
             </div>
           </>
         )
       case "Additional Information":
         return (
           <>
-            <div className="tab__descriptions">
+            <div className="tab__extras">
               <div className="table-container">
                 <table className="responsive-table">
                   <tbody>
@@ -42,14 +49,34 @@ export const Tab = ({ product }) => {
       case "Reviews":
         return (
           <>
-            <div className="tab__descriptions">
-              <p>{product.extras.reviews.Alice}</p>
+            <div className="tab__extras">
+              {/* <p>{product.extras.reviews.Alice}</p> */}
+              {Object.entries(product.extras.reviews).map(([value], index) => (
+                <div key={index} className="tab__review">
+                  <div className="reviews__meta">
+                    <h4>{product.extras.reviews[value].name}</h4>
+                    <p>{product.extras.reviews[value].date}</p>
+                  </div>
+                  <p>{product.extras.reviews[value].message}</p>
+                </div>
+              ))}
             </div>
           </>
         )
       default:
         return "Section could not have been rendered"
     }
+  }
+
+  const calculateReviewCount = () => {
+    const reviews = product.extras.reviews
+    let reviewCount = 0
+
+    reviews.forEach(() => {
+      reviewCount += 1
+    })
+
+    return reviewCount
   }
 
   return (
@@ -74,7 +101,7 @@ export const Tab = ({ product }) => {
             className={selectedTab === "Reviews" ? "toggle-color " : ""}
             onClick={() => setSelectedTab("Reviews")}
           >
-            Reviews
+            Reviews [{calculateReviewCount()}]
           </h3>
         </div>
         {renderTabContent()}
