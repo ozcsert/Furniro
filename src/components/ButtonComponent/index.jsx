@@ -83,33 +83,6 @@ const ButtonComponent = () => {
       textColor: "var(--text-primary)",
     },
   ];
-
-  // map Kullanımı
-  return (
-    <div className="buttons-container">
-      {buttons.map((button, index) => (
-        <SingleButton
-          key={index}
-          btnType={button.btnType}
-          btnName={button.btnName}
-          bgColor={button.bgColor}
-          textColor={button.textColor}
-        />
-      ))}
-      <div className="pagination">
-        {paginationButtons.map((button, index) => (
-          <SingleButton
-            key={index}
-            btnType={button.btnType}
-            btnName={button.btnName}
-            currentPage={button.currentPage}
-            bgColor={button.bgColor}
-            textColor={button.textColor}
-          />
-        ))}
-      </div>
-    </div>
-  );
 };
 
 export default ButtonComponent;
