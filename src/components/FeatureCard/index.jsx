@@ -5,7 +5,6 @@ import shippingIcon from "../../../public/shipping.svg";
 import supportIcon from "../../../public/customer-support.svg";
 import "./style.scss";
 
-// Her bir kartı temsil eden ayrı bir bileşen
 const Card = ({ icon, title, description }) => {
   return (
     <div className="card">
@@ -16,7 +15,6 @@ const Card = ({ icon, title, description }) => {
   );
 };
 
-// Kapsayıcı bileşen
 const FeatureCard = () => {
   return (
     <div className="feature-card">
