@@ -10,9 +10,13 @@ import ProfilePage from "./pages/ProfilePage"
 import ShopPage from "./pages/ShopPage"
 import SingleProductPage from "./pages/SingleProductPage"
 import { Layout } from "./Layout"
+<<<<<<< HEAD
 import FeatureCard from "./components/FeatureCard"
 import "./App.css"
 import FeatureSection from "./components/FeaturesSection"
+=======
+import "./App.css"
+>>>>>>> a2fc7a6 ([SE-29] - merge conflict solved)
 
 function App() {
   return (
