@@ -36,7 +36,7 @@
     gap: clamp(12px, 2.5vw, 40px);
     color: $text-secondary;
     font-size: clamp($fnt-size-xxs, 1.6vw, $fnt-size-lg);
-    line-height: 24px;
+    line-height: clamp(24px, 2vw, 36px);
     font-weight: 300;
 
     .table-container {
