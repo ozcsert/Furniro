@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 import Herosection from "../../components/Herosection"
 
 const Homepage = () => {
@@ -8,11 +9,13 @@ const Homepage = () => {
     </div>
 =======
 import Herosection from "../../components/Herosection/Herosection.jsx";
+=======
+import Herosection from "../../components/Herosection/index.jsx";
+>>>>>>> 9e27ce6 ([SE-69] - Hero Section finish)
 const HomePage = () => {
   return (
     <>
       <p> Home </p>
-      <Herosection />
     </>
 >>>>>>> fa44820 ([SE-69] - Herosection Finish)
   )
