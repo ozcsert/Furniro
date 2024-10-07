@@ -9,8 +9,10 @@ const Card = ({ icon, title, description }) => {
   return (
     <div className="card">
       <img src={icon} alt={title} className="card-icon" />
-      <h3>{title}</h3>
-      <p>{description}</p>
+      <div className="card-text">
+        <h3 className="card-title">{title}</h3>
+        <p className="card-description">{description}</p>
+      </div>
     </div>
   );
 };
@@ -20,23 +22,23 @@ const FeatureCard = () => {
     <div className="feature-card">
       <Card
         icon={trophyIcon}
-        title="Yüksek Kalite"
-        description="En iyi malzemelerden üretilmiştir"
+        title="High Quality"
+        description="crafted from top materials"
       />
       <Card
         icon={guaranteeIcon}
-        title="Garanti Koruması"
-        description="2 yıldan fazla"
+        title="Warranty Protection"
+        description="Over 2 years"
       />
       <Card
         icon={shippingIcon}
-        title="Ücretsiz Kargo"
-        description="150 $ üzeri siparişler"
+        title="Free Shipping"
+        description="Order over 150 $"
       />
       <Card
         icon={supportIcon}
-        title="7/24 Destek"
-        description="Özel müşteri desteği"
+        title="24 / 7 Support"
+        description="Dedicated support"
       />
     </div>
   );
