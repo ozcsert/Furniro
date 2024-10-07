@@ -12,12 +12,11 @@ import SingleProductPage from "./pages/SingleProductPage";
 import { Layout } from "./Layout";
 import FeatureCard from "./components/FeatureCard";
 import "./App.css";
-import FeatureSection from "./components/FeaturesSection";
 
 function App() {
   return (
     <>
-      {/* <Router>
+      <Router>
         <Routes>
           <Route element={<Layout />}>
             <Route path="/" element={<HomePage />} />
@@ -31,8 +30,7 @@ function App() {
             <Route path="/product/:id" element={<SingleProductPage />} />
           </Route>
         </Routes>
-      </Router> */}
-      <FeatureSection />
+      </Router>
     </>
   );
 }
