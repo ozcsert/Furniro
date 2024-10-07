@@ -14,12 +14,11 @@ export const Tab = ({ product }) => {
           <>
             <div className="tab__extras">
               {Object.entries(product.extras.detailedDescriptions).map(
-                ([value], index) => (
-                  <>
-                    <p key={index}>
-                      {product.extras.detailedDescriptions[value]}
-                    </p>
-                  </>
+                // eslint-disable-next-line no-unused-vars
+                ([key, value], index) => (
+                  <div key={index}>
+                    <p>{value}</p>
+                  </div>
                 )
               )}
             </div>
@@ -35,7 +34,8 @@ export const Tab = ({ product }) => {
                     {Object.entries(product.extras.specifications).map(
                       ([key, value], index) => (
                         <tr key={index}>
-                          <th>{key.charAt(0).toUpperCase() + key.slice(1)}</th>{" "}
+                          <th>{key.charAt(0).toUpperCase() + key.slice(1)}</th>
+                          {""}
                           <td>{value}</td>
                         </tr>
                       )
@@ -50,16 +50,18 @@ export const Tab = ({ product }) => {
         return (
           <>
             <div className="tab__extras">
-              {/* <p>{product.extras.reviews.Alice}</p> */}
-              {Object.entries(product.extras.reviews).map(([value], index) => (
-                <div key={index} className="tab__review">
-                  <div className="reviews__meta">
-                    <h4>{product.extras.reviews[value].name}</h4>
-                    <p>{product.extras.reviews[value].date}</p>
+              {Object.entries(product.extras.reviews).map(
+                // eslint-disable-next-line no-unused-vars
+                ([key, value], index) => (
+                  <div key={index} className="tab__review">
+                    <div className="reviews__meta">
+                      <h4>{value.name}</h4>
+                      <p>{value.date}</p>
+                    </div>
+                    <p>{value.message}</p>
                   </div>
-                  <p>{product.extras.reviews[value].message}</p>
-                </div>
-              ))}
+                )
+              )}
             </div>
           </>
         )
