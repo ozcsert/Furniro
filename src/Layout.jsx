@@ -12,7 +12,6 @@ export function Layout() {
                 <Outlet />
             </main>
             <Footer />
-            <RecentPostsFunctionality />
         </>
     )
 }
