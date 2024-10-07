@@ -25,6 +25,11 @@
     .star-rating {
       margin-right: 10px;
     }
+    .bracket {
+      padding-block: 20px;
+      padding-left: 20px;
+      border-left: 1px solid gray;
+    }
 
     span {
       color: $text-secondary;
@@ -36,6 +41,8 @@
     font-size: 16px;
     line-height: 1.5;
     color: $text-primary;
+    text-align: left;
+    max-width: 52ch;
   }
 
   .color-label {
@@ -74,11 +81,13 @@
       display: flex;
       align-items: center;
       gap: 10px;
+      border: 2px solid $text-secondary;
+      padding: 10px 10px;
+      border-radius: 10px;
 
       button {
         width: 30px;
         height: 30px;
-        border: 1px solid $text-secondary;
         background-color: $text-third;
         font-size: 16px;
         cursor: pointer;

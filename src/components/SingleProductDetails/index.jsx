@@ -15,7 +15,8 @@ const ProductDetails = () => {
             style={{ width: "100px", height: "20px" }} // Gerekirse boyutlandırın
           />
         </div>
-        <span> | 5 Customer Review</span>
+        <span className="bracket"></span>
+        <span>5 Customer Review</span>
       </div>
       <p className="description">
         Setting the bar as one of the loudest speakers in its class, the Kilburn
@@ -59,13 +60,13 @@ const ProductDetails = () => {
       </div>
       <div className="socials">
         <span>Share:</span>
-        <a href="#facebook">
+        <a href="https://www.facebook.com/">
           <img src="public/Furniture/facebook.svg" alt="Facebook" />
         </a>
-        <a href="#linkedin">
+        <a href="https://www.linkedin.com/">
           <img src="public/Furniture/linkedin.svg" alt="LinkedIn" />
         </a>
-        <a href="#twitter">
+        <a href="https://x.com/?lang=tr">
           <img src="public/Furniture/twitter.svg" alt="Twitter" />
         </a>
       </div>
