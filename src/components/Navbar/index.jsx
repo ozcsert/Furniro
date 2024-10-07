@@ -1,38 +1,40 @@
-import { useState } from "react";
-import "./style.scss";
-import navbarlogo from "../../assets/images/navbarlogo.png";
-import NavLinkComponent  from "../NavLinkComponent";
-
+import { useState } from "react"
+import "./style.scss"
+import navbarlogo from "../../assets/images/navbarlogo.png"
+import NavLinkComponent from "../NavLinkComponent"
+import NavbarActions from "../NavbarActions"
 const NavBar = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false)
 
   const toggleMenu = () => {
-    setIsMenuOpen((prev) => !prev);
-  };
+    setIsMenuOpen((prev) => !prev)
+  }
 
   return (
     <div>
       <section className="navbar-section">
-      <div className="n-logo">
-            <img className="logo-img" src={navbarlogo} alt="logo" />
-      </div>
-      <div className="n-div">
-        <NavLinkComponent className={`n-hamburger-menu ${isMenuOpen ? "active" : ""}`} />
+        <div className="n-logo">
+          <img className="logo-img" src={navbarlogo} alt="logo" />
+        </div>
+        <div className="n-div">
+          <NavLinkComponent
+            className={`n-hamburger-menu ${isMenuOpen ? "active" : ""}`}
+          />
           <div
             className={`hamburger-icon ${isMenuOpen ? "open" : ""}`}
             onClick={toggleMenu}
           >
-          <div className="bar" />
-          <div className="bar" />
-          <div className="bar" />
+            <div className="bar" />
+            <div className="bar" />
+            <div className="bar" />
+          </div>
         </div>
-      </div>
-      <div className="action-component">
-        <p>action component</p>
-      </div>
+        <div className="action-component">
+          <NavbarActions />
+        </div>
       </section>
     </div>
-  );
-};
+  )
+}
 
 export default NavBar
