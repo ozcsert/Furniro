@@ -51,7 +51,7 @@ function FilterComponent() {
           </div>
 
           {openRooms[roomIndex] && (
-            <div>
+            <div className="filter-component-section-room-sub-title">
               {roomData.furniture.map((furnitureItem, furnitureIndex) => (
                 <div
                   key={furnitureIndex}
