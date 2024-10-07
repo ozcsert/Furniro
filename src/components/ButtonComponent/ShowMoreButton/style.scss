@@ -1,0 +1,29 @@
+@import "../../../styles/abstracts/colors";
+
+.showMoreButton {
+  padding: 15px 120px;
+  background-color: $text-third;
+  color: $clr-gold;
+  border: 2px solid $clr-gold;
+  border-radius: 5px;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease,
+    border-color 0.3s ease;
+  font-family: "Poppins", sans-serif;
+
+  &:hover {
+    background-color: $clr-orange;
+    color: $text-third;
+  }
+
+  &:active {
+    transform: scale(0.95);
+  }
+
+  &.active {
+    background-color: $clr-orange;
+    color: $text-third;
+  }
+}
