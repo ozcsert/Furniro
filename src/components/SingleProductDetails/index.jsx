@@ -1,26 +1,20 @@
 // ProductDetails.js
-import React, { useState } from "react";
-import { Rating } from "react-simple-star-rating";
+import React from "react";
 import "./style.scss";
 
 const ProductDetails = () => {
-  const [rating, setRating] = useState(0);
-
-  const handleRating = (rate) => {
-    setRating(rate);
-  };
-
   return (
     <div className="product-details">
       <h1 className="product-title">Asgaard sofa</h1>
       <p className="product-price">$250.000</p>
       <div className="reviews">
-        <Rating
-          onClick={handleRating}
-          ratingValue={rating}
-          size={20}
-          fillColor="#FF9900"
-        />
+        <div className="rating">
+          <img
+            src="public/Furniture/productStars.svg" // 4.5 yıldız içeren SVG
+            alt="Stars"
+            style={{ width: "100px", height: "20px" }} // Gerekirse boyutlandırın
+          />
+        </div>
         <span> | 5 Customer Review</span>
       </div>
       <p className="description">
