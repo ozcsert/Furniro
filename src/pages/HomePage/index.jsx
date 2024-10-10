@@ -1,11 +1,9 @@
-import React from "react";
-import NavbarActions from "../../components/NavbarActions";
-
-const Homepage = () => {
+const HomePage = () => {
   return (
-    <div>
-      <NavbarActions />
-    </div>
+    <>
+      <p> Home </p>
+    </>
   );
 };
-export default Homepage;
+
+export default HomePage;
