@@ -1,12 +1,9 @@
 @import "../../../styles/abstracts/colors";
 
-.showMoreButton {
-  padding: 15px 120px;
-  background-color: $text-third;
-  color: $clr-gold;
-  border: 2px solid $clr-gold;
+.generalButtons {
+  padding: 15px 30px;
+  color: $text-third;
   border-radius: 5px;
-  font-size: 18px;
   font-weight: 600;
   cursor: pointer;
   transition: background-color 0.3s ease, transform 0.2s ease,
