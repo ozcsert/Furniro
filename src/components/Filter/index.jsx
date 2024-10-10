@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./styles.scss";
-import { furnitureData } from "./furnitureData";
+import { furnitureData } from "../../data/furnitureData";
 
 function FilterComponent() {
   const [selectedFurnitureCount, setSelectedFurnitureCount] = useState({});
