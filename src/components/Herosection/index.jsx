@@ -8,7 +8,7 @@ function Herosection() {
         <h1 className="herosection-title">Discover Our </h1>
         <h1 className="herosection-title">New Collection</h1>
         <p className="herosection-text">
-          Explore Furniro's latest collection, where elegance meets innovation.
+          Explore Furniros latest collection, where elegance meets innovation.
           Elevate your space with our brand-new, stylish furniture pieces.
           Redefine your home with the latest trends and timeless classics. Shop
           now!
