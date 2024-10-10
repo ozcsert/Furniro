@@ -2,7 +2,6 @@
 import { Link } from "react-router-dom"
 
 const FooterNavComponent = ({ title, links }) => {
-
   return (
     <div>
       <h4>{title}</h4>
