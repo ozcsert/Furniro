@@ -4,7 +4,7 @@ import React from "react";
 import bannerLogo from "../../assets/images/bannerLogo.png";
 import right from "../../assets/images/right.png";
 
-const Banner = ({ pageTitle, pageName }) => {
+const HeaderBanner = ({ pageTitle, pageName }) => {
   return (
     <div className={`banner-container`}>
       <div className="banner-content">
@@ -20,4 +20,4 @@ const Banner = ({ pageTitle, pageName }) => {
   );
 };
 
-export default Banner;
+export default HeaderBanner;
