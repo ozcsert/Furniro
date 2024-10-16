@@ -1,6 +1,6 @@
 @import "../../../styles/abstracts/colors";
 
-.generalButtons {
+.generalButton {
   padding: 15px 30px;
   color: $text-third;
   border-radius: 5px;
@@ -22,5 +22,17 @@
   &.active {
     background-color: $clr-orange;
     color: $text-third;
+  }
+
+  @media (max-width: 768px) {
+    width: 100%;
+    font-size: 14px;
+    padding: 10px 20px;
+  }
+
+  @media (max-width: 480px) {
+    width: 100%;
+    font-size: 12px;
+    padding: 8px 16px;
   }
 }

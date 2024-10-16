@@ -9,6 +9,7 @@ const GeneralButtons = ({
   fontSize = "16px",
   borderColor = "#b88e2f",
   textColor = "#b88e2f",
+  responsiveStyles = {},
 }) => {
   const [isActive, setIsActive] = useState(false);
 
@@ -22,6 +23,7 @@ const GeneralButtons = ({
         fontSize,
         border: `2px solid ${borderColor}`,
         color: textColor,
+        ...responsiveStyles,
       }}
       onClick={() => setIsActive(!isActive)}
     >

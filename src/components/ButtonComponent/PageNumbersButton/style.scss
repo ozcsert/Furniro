@@ -30,4 +30,8 @@
       color: $text-third;
     }
   }
+
+  &:active {
+    transform: scale(0.95);
+  }
 }

@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./style.scss";
 
-const PageNumbersButton = () => {
+const PageNumbersButton = ({ responsiveStyles = {} }) => {
   const [activePage, setActivePage] = useState(1);
+  const [appliedStyles, setAppliedStyles] = useState({});
 
   const pageNumbersButtons = [
     { btnName: "1", page: 1 },
@@ -19,6 +20,30 @@ const PageNumbersButton = () => {
     }
   };
 
+  useEffect(() => {
+    const handleResize = () => {
+      const width = window.innerWidth;
+      let updatedStyles = {};
+
+      if (width <= 480) {
+        updatedStyles = responsiveStyles.mobile || {};
+      } else if (width <= 768) {
+        updatedStyles = responsiveStyles.tablet || {};
+      } else {
+        updatedStyles = responsiveStyles.desktop || {};
+      }
+
+      setAppliedStyles(updatedStyles);
+    };
+
+    handleResize();
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, [responsiveStyles]);
+
   return (
     <div className="pageNumbers">
       {pageNumbersButtons.map((button, index) => (
@@ -28,6 +53,7 @@ const PageNumbersButton = () => {
             activePage === button.page ? "currentPage" : "normalPage"
           }`}
           onClick={() => handlePageClick(button.page)}
+          style={appliedStyles}
         >
           {button.btnName}
         </button>
