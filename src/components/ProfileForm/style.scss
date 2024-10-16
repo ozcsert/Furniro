@@ -1,13 +1,14 @@
 @import "../../styles/styles.scss";
 
 .profile-view-container {
+  padding: 40px 0px;
   font-family: $fnt-poppins;
   width: 42%;
   margin: 0 auto;
 
-  .profile-picture {
+  .profile-img-container {
     text-align: center;
-    margin-bottom: 30px;
+    margin-bottom: clamp(15px, 2vw, 20px);
 
     img {
       width: 120px;
@@ -15,12 +16,15 @@
       border-radius: 50%;
       object-fit: cover;
     }
-
-    p {
+    .profile__image-upload {
       margin-top: 10px;
-      color: #666;
-      font-size: $fnt-size-xs;
-      cursor: pointer;
+      label {
+        color: #666;
+        margin-top: clamp(10px, 2vw, 20px);
+
+        font-size: clamp($fnt-size-xxs, 1.5vw, $fnt-size-xs);
+        cursor: pointer;
+      }
     }
   }
   .profile-form {
@@ -29,13 +33,14 @@
     align-items: center;
 
     .form-group {
-      margin-bottom: 20px;
+      margin-bottom: clamp(10px, 2vw, 20px);
       width: 100%;
       label {
         display: block;
         margin-bottom: 10px;
         font-weight: 500;
         color: #333;
+        font-size: clamp($fnt-size-xxs, 3vw, $fnt-size-s);
       }
 
       input {
@@ -43,8 +48,8 @@
         padding: 10px;
         border: 1px solid #ddd;
         border-radius: 10px;
-        font-family: $fnt-size-s;
-        height: 60px;
+        font-size: clamp(9px, 1.5vw, $fnt-size-xs);
+        height: clamp(30px, 5vw, 60px);
         &:read-only {
           background-color: #f9f9f9;
           color: #666;
@@ -55,13 +60,13 @@
     button {
       width: 30%;
 
-      padding: 12px;
+      padding: clamp(3px, 3vw, 12px);
       background-color: #b88e2f;
       color: white;
       border: none;
       border-radius: 4px;
       cursor: pointer;
-      font-size: 16px;
+      font-size: clamp($fnt-size-xxs, 3vw, $fnt-size-s);
       font-weight: 500;
 
       &:hover {

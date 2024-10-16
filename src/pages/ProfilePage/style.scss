@@ -1,19 +1,6 @@
+@import "../../styles/styles.scss";
+
 .profile-page {
-  background-color: #fff;
-
-  // button {
-  //   width: 100%;
-  //   padding: 12px;
-  //   background-color: #b88e2f;
-  //   color: white;
-  //   border: none;
-  //   border-radius: 4px;
-  //   cursor: pointer;
-  //   font-size: 16px;
-  //   font-weight: 500;
-
-  //   &:hover {
-  //     background-color: darken(#b88e2f, 10%);
-  //   }
-  // }
+  max-width: 1440px;
+  margin: 0 auto;
 }
