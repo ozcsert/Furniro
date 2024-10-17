@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import { Link } from "react-router-dom"
+import { Link } from "react-router-dom";
 
 const FooterNavComponent = ({ title, links }) => {
   return (
@@ -13,7 +13,7 @@ const FooterNavComponent = ({ title, links }) => {
         ))}
       </ul>
     </div>
-  )
-}
+  );
+};
 
-export default FooterNavComponent
+export default FooterNavComponent;
