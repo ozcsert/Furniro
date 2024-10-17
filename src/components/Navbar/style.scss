@@ -126,18 +126,14 @@
   }
 }
 
-@media (max-width: 530px) {
+@media (max-width: 425px) {
   .menu-open {
     .hamburger-icon {
       z-index: 2;
     }
 
     .banner-container {
-      margin: -35px auto auto auto;
-      opacity: 0.6;
-      .banner-content {
-        display: none;
-      }
+      display: none;
     }
   }
 }

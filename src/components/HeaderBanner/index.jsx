@@ -4,7 +4,10 @@ import React from "react";
 import bannerLogo from "../../assets/images/bannerLogo.png";
 import right from "../../assets/images/right.png";
 
-const HeaderBanner = ({ title = "Product Comparison", name = "Product Comparison" }) => {
+const HeaderBanner = ({
+  title = "Product Comparison",
+  name = "Product Comparison",
+}) => {
   return (
     <div className={`banner-container`}>
       <div className="banner-content">

@@ -132,45 +132,13 @@
 
 @media (max-width: 425px) {
   .banner-container {
-    min-height: 250px;
-    margin: 10px auto auto auto;
-    z-index: 0;
-
-    .banner-content {
-      margin-top: 40px;
-      img.banner-logo {
-        width: 40px;
-        height: 40px;
-        margin-bottom: -15px;
-      }
-
-      h1 {
-        margin-bottom: -15px;
-
-        font-size: 24px;
-      }
-      .banner-navigate {
-        span {
-          font-size: 12px;
-          z-index: 1;
-        }
-
-        img {
-          width: 10px;
-          height: 10px;
-        }
-      }
-    }
-  }
-}
-
-@media (max-width: 425px) {
-  .banner-container {
     min-height: 200px;
     margin: 20px auto auto auto;
     z-index: 0;
 
     .banner-content {
+      margin-top: 40px;
+
       img.banner-logo {
         width: 40px;
         height: 40px;
@@ -179,7 +147,6 @@
 
       h1 {
         margin-bottom: -15px;
-
         font-size: 24px;
       }
       .banner-navigate {
