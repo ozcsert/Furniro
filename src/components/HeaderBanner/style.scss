@@ -75,6 +75,7 @@
     min-height: 300px;
     max-width: 880px;
     margin: 20px auto auto auto;
+    z-index: 0;
 
     &::before {
       content: "";
@@ -110,7 +111,8 @@
   .banner-container {
     min-height: 270px;
     max-width: 680px;
-    margin: 30px auto auto auto;
+    margin: 20px auto auto auto;
+    z-index: 0;
 
     .banner-content {
       margin-top: 80px;
@@ -131,7 +133,8 @@
 @media (max-width: 425px) {
   .banner-container {
     min-height: 250px;
-    margin: 50px auto auto auto;
+    margin: 10px auto auto auto;
+    z-index: 0;
 
     .banner-content {
       margin-top: 40px;
@@ -149,6 +152,7 @@
       .banner-navigate {
         span {
           font-size: 12px;
+          z-index: 1;
         }
 
         img {
@@ -163,7 +167,8 @@
 @media (max-width: 425px) {
   .banner-container {
     min-height: 200px;
-    margin: 30px auto auto auto;
+    margin: 20px auto auto auto;
+    z-index: 0;
 
     .banner-content {
       img.banner-logo {
@@ -180,6 +185,7 @@
       .banner-navigate {
         span {
           font-size: 12px;
+          z-index: 1;
         }
 
         img {

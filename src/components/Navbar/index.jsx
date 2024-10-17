@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./style.scss";
 import navbarlogo from "../../assets/images/navbarlogo.png";
 import NavLinkComponent  from "../NavLinkComponent";
@@ -9,6 +9,14 @@ const NavBar = () => {
   const toggleMenu = () => {
     setIsMenuOpen((prev) => !prev);
   };
+
+  useEffect(() => {
+    if (isMenuOpen) {
+      document.body.classList.add("menu-open");
+    } else {
+      document.body.classList.remove("menu-open");
+    }
+  }, [isMenuOpen]);
 
   return (
     <div>
