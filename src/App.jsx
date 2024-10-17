@@ -1,5 +1,3 @@
-import FeatureSection from "./components/FeaturesSection"
-import "./App.css"
 import { HashRouter as Router, Routes, Route } from "react-router-dom"
 import HomePage from "./pages/HomePage"
 import CartPage from "./pages/CartPage"
@@ -30,7 +28,6 @@ function App() {
           </Route>
         </Routes>
       </Router>
-      <FeatureSection />
     </>
   )
 }
