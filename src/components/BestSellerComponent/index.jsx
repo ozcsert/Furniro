@@ -23,7 +23,7 @@ const BestSellers = () => {
       <h2>Best Sellers</h2>
       <div className="clothes">
         {products.map((product) => (
-          <Link to="#" key={product.id}>
+          <Link to={`/product/${product.name}`} key={product.id}>
             <div className="product">
               <img
                 src={product.image}
