@@ -2,15 +2,37 @@ import "./style.scss";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import Img1 from "../../assets/images/FurnitureShareSection/Rectangle38.png";
-import Img2 from "../../assets/images/FurnitureShareSection/Rectangle40.png";
-import Img3 from "../../assets/images/FurnitureShareSection/Rectangle43.png";
-import Img4 from "../../assets/images/FurnitureShareSection/Rectangle45.png";
-import Img5 from "../../assets/images/FurnitureShareSection/Rectangle37.png";
-import Img6 from "../../assets/images/FurnitureShareSection/Rectangle39.png";
-import Img7 from "../../assets/images/FurnitureShareSection/Rectangle41.png";
-import Img8 from "../../assets/images/FurnitureShareSection/Rectangle44.png";
-import Img9 from "../../assets/images/FurnitureShareSection/Rectangle36.png";
+import Img1 from "../../assets/FurnitureShareSection/Furniture1.png";
+import Img2 from "../../assets/FurnitureShareSection/Furniture2.png";
+import Img3 from "../../assets/FurnitureShareSection/Furniture3.png";
+import Img4 from "../../assets/FurnitureShareSection/Furniture4.png";
+import Img5 from "../../assets/FurnitureShareSection/Furniture5.png";
+import Img6 from "../../assets/FurnitureShareSection/Furniture6.png";
+import Img7 from "../../assets/FurnitureShareSection/Furniture7.png";
+import Img8 from "../../assets/FurnitureShareSection/Furniture8.png";
+import Img9 from "../../assets/FurnitureShareSection/Furniture9.png";
+
+const images1 = [
+  { id: "one", img: Img1 },
+  { id: "two", img: Img2 },
+  { id: "three", img: Img3 },
+  { id: "four", img: Img4 },
+];
+
+const images2 = [
+  { id: "five", img: Img5 },
+  { id: "six", img: Img6 },
+  { id: "seven", img: Img7 },
+  { id: "eight", img: Img8 },
+  { id: "nine", img: Img9 },
+];
+const images3 = [
+  { id: "five", img: Img5 },
+  { id: "six", img: Img6 },
+  { id: "seven", img: Img7 },
+  { id: "eight", img: Img8 },
+  { id: "nine", img: Img9 },
+];
 
 const FurnitureShareSection = () => {
   const settings = {
@@ -56,7 +78,6 @@ const FurnitureShareSection = () => {
     ...settings,
     rtl: true,
   };
-
   return (
     <div className="share-section-container">
       <div className="title-container">
@@ -65,52 +86,27 @@ const FurnitureShareSection = () => {
       </div>
       <div className="slider-container">
         <Slider className="image-row" {...settings}>
-          <div className="img one">
-            <img className="imgs" src={Img1} alt="Image 1" />
-          </div>
-          <div className="img two">
-            <img className="imgs" src={Img2} alt="Image 2" />
-          </div>
-          <div className="img three">
-            <img className="imgs" src={Img3} alt="Image 3" />
-          </div>
-          <div className="img four">
-            <img className="imgs" src={Img4} alt="Image 4" />
-          </div>
+          {images1.map((image, index) => (
+            <div key={index} className={`img ${image.id}`}>
+              <img className="imgs" src={image.img} alt={`Image ${image.id}`} />
+            </div>
+          ))}
         </Slider>
+
         <Slider className="image-row" {...settingsRtl}>
-          <div className="img five">
-            <img className="imgs" src={Img5} alt="Image 5" />
-          </div>
-          <div className="img six">
-            <img className="imgs" src={Img6} alt="Image 6" />
-          </div>
-          <div className="img seven">
-            <img className="imgs" src={Img7} alt="Image 7" />
-          </div>
-          <div className="img eight">
-            <img className="imgs" src={Img8} alt="Image 8" />
-          </div>
-          <div className="img nine">
-            <img className="imgs" src={Img9} alt="Image 9" />
-          </div>
+          {images2.map((image, index) => (
+            <div key={index} className={`img ${image.id}`}>
+              <img className="imgs" src={image.img} alt={`Image ${image.id}`} />
+            </div>
+          ))}
         </Slider>
+
         <Slider className="image-row" {...settings}>
-          <div className="img five">
-            <img className="imgs" src={Img5} alt="Image 5" />
-          </div>
-          <div className="img six">
-            <img className="imgs" src={Img6} alt="Image 6" />
-          </div>
-          <div className="img seven">
-            <img className="imgs" src={Img7} alt="Image 7" />
-          </div>
-          <div className="img eight">
-            <img className="imgs" src={Img8} alt="Image 8" />
-          </div>
-          <div className="img nine">
-            <img className="imgs" src={Img9} alt="Image 9" />
-          </div>
+          {images3.map((image, index) => (
+            <div key={index} className={`img ${image.id}`}>
+              <img className="imgs" src={image.img} alt={`Image ${image.id}`} />
+            </div>
+          ))}
         </Slider>
       </div>
     </div>
