@@ -1,4 +1,3 @@
-// ProductAlbum.js
 import React, { useState } from "react";
 import "./style.scss";
 
@@ -7,7 +6,7 @@ const ProductAlbum = ({ images, onImageSelect }) => {
 
   const handleImageClick = (image) => {
     setSelectedImage(image);
-    onImageSelect(image); // Seçilen resmi üst component'e geri gönderiyoruz
+    onImageSelect(image);
   };
 
   return (

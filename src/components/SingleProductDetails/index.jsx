@@ -1,4 +1,3 @@
-// ProductDetails.js
 import React from "react";
 import "./style.scss";
 
@@ -10,9 +9,9 @@ const ProductDetails = () => {
       <div className="reviews">
         <div className="rating">
           <img
-            src="public/Furniture/productStars.svg" // 4.5 yıldız içeren SVG
+            src="src/assets/Furniture/productStars.svg"
             alt="Stars"
-            style={{ width: "100px", height: "20px" }} // Gerekirse boyutlandırın
+            style={{ width: "100px", height: "20px" }}
           />
         </div>
         <span className="bracket"></span>
@@ -61,13 +60,13 @@ const ProductDetails = () => {
       <div className="socials">
         <span>Share:</span>
         <a href="https://www.facebook.com/">
-          <img src="public/Furniture/facebook.svg" alt="Facebook" />
+          <img src="src/assets/Furniture/facebook.svg" alt="Facebook" />
         </a>
         <a href="https://www.linkedin.com/">
-          <img src="public/Furniture/linkedin.svg" alt="LinkedIn" />
+          <img src="src/assets/Furniture/linkedin.svg" alt="LinkedIn" />
         </a>
         <a href="https://x.com/?lang=tr">
-          <img src="public/Furniture/twitter.svg" alt="Twitter" />
+          <img src="src/assets/Furniture/twitter.svg" alt="Twitter" />
         </a>
       </div>
     </div>

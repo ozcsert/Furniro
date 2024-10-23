@@ -1,7 +1,6 @@
 @import "../../styles/abstracts/colors";
 
-// SingleProductPage.scss
-.single-product-page {
+.single-product {
   display: flex;
   justify-content: space-between;
   padding: 20px;
@@ -16,7 +15,7 @@
 }
 
 @media (max-width: 768px) {
-  .single-product-page {
+  .single-product {
     flex-direction: column;
     align-items: center;
   }
