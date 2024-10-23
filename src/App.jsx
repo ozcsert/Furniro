@@ -1,4 +1,3 @@
-import React from "react";
 import { HashRouter as Router, Routes, Route } from "react-router-dom";
 import HomePage from "./pages/HomePage";
 import CartPage from "./pages/CartPage";
@@ -8,6 +7,7 @@ import CheckoutPage from "./pages/CheckoutPage";
 import ComparisonPage from "./pages/ComparisonPage";
 import ProfilePage from "./pages/ProfilePage";
 import ShopPage from "./pages/ShopPage";
+import SingleProductPage from "./pages/SingleProductPage";
 import { Layout } from "./Layout";
 
 function App() {
