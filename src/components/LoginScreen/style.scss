@@ -3,6 +3,7 @@
     max-width: 600px;
     margin-bottom: 50px;
     font-family: "Poppins", serif;
+    padding: 0px 10px;
 
     .login-form-main {
         .login-form-main-title {
@@ -70,6 +71,16 @@
             }
         }
 
+        .sing-in-text {
+            color: #7C838A;
+            margin-bottom: 20px;
+            text-align: center;
+
+            .sing-in-login-btn {
+                color: #B88E2F;
+            }
+        }
+
         .login-form-main-btn {
             width: 164px;
             border-radius: 10px;
@@ -81,5 +92,38 @@
             padding: 10px 0px;
             cursor: pointer;
         }
+
+        .sing-in-main-btn-div {
+            display: flex;
+            justify-content: center;
+        }
+
+        .sing-in-main-btn {
+            width: 269px;
+            border-radius: 10px;
+            font-size: 20px;
+            font-weight: 500;
+            background-color: #B88E2F;
+            color: #FFFFFF;
+            margin: auto;
+            padding: 20px 0px;
+            cursor: pointer;
+        }
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .login-form-main-links {
+        flex-direction: column;
+        gap: 20px;
+        align-items: center;
+    }
+
+    .login-form-main-input-title {
+        text-align: center;
+    }
+
+    .login-form-main-input::placeholder {
+        text-align: center;
     }
 }
