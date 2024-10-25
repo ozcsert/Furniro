@@ -1,63 +1,87 @@
 .explore-card-wrapper {
-  width: 1440px;
+  width: 100%;
+  max-width: 1440px;
   height: 670px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   position: relative;
+  margin: 0 auto;
 }
 
 .products-wrapper {
-  width: 1196px;
-  height: 582px;
-  position: absolute;
-  top: 44px;
-  left: 564px;
-}
-
-.info-section {
-  width: 217px;
-  height: 130px;
-  position: absolute;
-  top: 430px;
-  left: 588px;
-  background-color: #f1f1f1;
-}
-
-.product-image {
-  margin: 10px 0 0 564px;
-  height: auto;
-  object-fit: contain;
-}
-
-.redirect-button {
-  width: 48px;
-  height: 48px;
-  position: absolute;
-  top: 512px;
-  left: 805px;
-  background-color: #b88e2f;
-  color: white;
-  border: none;
+  width: 370px;
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
-  cursor: pointer;
-}
 
-.info-top {
-  h6 {
+  .product-image {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+
+  .info-container {
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    align-items: center;
+  }
+
+  .info-section {
+    margin-top: 200px;
+    width: 217px;
+    height: 130px;
+    background-color: rgba(241, 241, 241, 0.8);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .redirect-button {
+    margin-top: 280px;
+    width: 48px;
+    height: 48px;
+    background-color: #b88e2f;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+  }
+
+  .info-top h6 {
+    display: flex;
     font-family: "Poppins", sans-serif;
     font-size: 16px;
     font-weight: 500;
     line-height: 24px;
     color: #acacac;
-    margin: 32px 0 0 10px;
+    margin-left: 5px;
   }
-}
+  .vector-divider {
+    width: 27px;
 
-.info-bottom {
-  font-family: "Poppins", sans-serif;
-  font-size: 28px;
-  font-weight: 600;
-  line-height: 33.6px;
-  white-space: nowrap;
-  text-align: center;
+    height: auto;
+  }
+  span {
+    font-family: "Poppins", sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 24px;
+    color: #acacac;
+    margin-left: 8px;
+    margin-right: 8px;
+  }
+  .info-bottom {
+    font-family: "Poppins", sans-serif;
+    font-size: 28px;
+    font-weight: 600;
+    line-height: 33.6px;
+    white-space: nowrap;
+    text-align: center;
+  }
 }
