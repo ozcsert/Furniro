@@ -3,7 +3,6 @@ import "./style.scss"
 import navbarlogo from "../../assets/images/navbarlogo.png"
 import NavLinkComponent from "../NavLinkComponent"
 import NavbarActions from "../NavbarActions"
-
 const NavBar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
