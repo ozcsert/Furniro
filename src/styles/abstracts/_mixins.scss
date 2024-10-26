@@ -1,0 +1,46 @@
+@mixin flex-center($direction: row, $justify: center, $align: center) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+}
+//ozellestirerek kullanmak icin
+// @include flex-center(column, space-between, center);
+
+@mixin center {
+  margin: 0 auto;
+}
+
+@mixin absolute-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@mixin respond-to($breakpoint) {
+  @if $breakpoint == small {
+    @media (max-width: 400px) {
+      @content;
+    }
+  } @else if $breakpoint == medium {
+    @media (max-width: 899px) {
+      @content;
+    }
+  } @else if $breakpoint == large {
+    @media (max-width: 1200px) {
+      @content;
+    }
+  }
+}
+//.h1{
+
+// @include respond-to(small) {
+//   font-size:$fnt-size-xs;
+// }
+
+// @include respond-to(medium) {
+//   font-size: $fnt-size-s ;
+// }
+
+//}
