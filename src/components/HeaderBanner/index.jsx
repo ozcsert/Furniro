@@ -3,6 +3,7 @@ import React from "react";
 
 import bannerLogo from "../../assets/images/bannerLogo.png";
 import right from "../../assets/images/right.png";
+import BreadCrumbComponent from "../BreadCrumbComponent";
 
 const HeaderBanner = ({
   title = "Product Comparison",
@@ -14,7 +15,7 @@ const HeaderBanner = ({
         <img src={bannerLogo} alt="logo" className="banner-logo" />
         <h1>{title}</h1>
         <nav className="banner-navigate">
-          <span>Home</span>
+          <BreadCrumbComponent/>
           <img src={right} alt="right-img" />
           <span className="banner-pagename">{name}</span>
         </nav>
