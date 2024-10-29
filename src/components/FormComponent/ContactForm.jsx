@@ -29,7 +29,14 @@ const ContactForm = ({ formData, handleChange }) => (
       onChange={handleChange}
       placeholder="This is optional"
     />
-   
+    <label htmlFor="subject">Subject</label>
+    <textarea
+      id="subject"
+      className="input-about"
+      placeholder="Hi! I’d like to ask about..."
+      value={formData.subject}
+      onChange={handleChange}
+    />
   </>
 );
 

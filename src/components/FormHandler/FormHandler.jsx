@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import FormComponent from '../FormComponent';
 
 const FormHandler = () => {
-  const [currentPage, ] = useState('register'); 
+  const [currentPage, ] = useState('contact'); 
 
   const handleRegisterSubmit = (formData) => {
     console.log('Kayıt verileri:', formData);
