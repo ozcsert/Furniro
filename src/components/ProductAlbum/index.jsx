@@ -11,19 +11,24 @@ const ProductAlbum = ({ images, onImageSelect }) => {
 
   return (
     <div className="product-album">
-      {images.map((image, index) => (
+      <div className="thumbnail-container">
+        {images.map((image, index) => (
+          <img
+            key={index}
+            src={image}
+            alt={`product view ${index}`}
+            onClick={() => handleImageClick(image)}
+            className={`thumbnail ${image === selectedImage ? "selected" : ""}`}
+          />
+        ))}
+      </div>
+      <div className="image-preview">
         <img
-          key={index}
-          src={image}
-          alt={`product view ${index}`}
-          onClick={() => handleImageClick(image)}
-          className="thumbnail"
-          style={{
-            cursor: "pointer",
-            marginBottom: "10px",
-          }}
+          src={selectedImage}
+          alt="Selected product view"
+          className="main-image"
         />
-      ))}
+      </div>
     </div>
   );
 };

@@ -11,11 +11,11 @@ const SingleProduct = () => {
       "Setting the bar as one of the loudest speakers in its class...",
     colors: ["#5d47c5", "#d8b061", "#413a3a"],
     images: [
-      "src/assets/Furniture/Asgaard-sofa.svg",
-      "src/assets/Furniture/Outdoor-sofa.svg",
-      "src/assets/Furniture/Outdoor-sofa-2.svg",
-      "src/assets/Furniture/Stuart-sofa.svg",
-      "src/assets/Furniture/Maya-sofa.svg",
+      "src/assets/sofa1.png",
+      "src/assets/sofa2.png",
+      "src/assets/sofa3.png",
+      "src/assets/sofa4.png",
+      "src/assets/sofa5.png",
     ],
   };
 
@@ -27,15 +27,7 @@ const SingleProduct = () => {
       style={{ display: "flex", justifyContent: "space-between" }}
     >
       <ProductAlbum images={product.images} onImageSelect={setSelectedImage} />
-      <img
-        src={selectedImage}
-        alt="Selected product"
-        style={{
-          width: "400px",
-          marginRight: "20px",
-          backgroundColor: "#fcf8f3",
-        }}
-      />
+
       <ProductDetails product={product} />
     </div>
   );
