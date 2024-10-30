@@ -1,0 +1,51 @@
+.container {
+  display: flex;
+  gap: 24px;
+  width: 100%;
+  .test-div {
+    width: 728px;
+  }
+  .carousel-container {
+    overflow: hidden;
+    width: 1168px;
+    height: 780px;
+    .carousel {
+      overflow: hidden;
+      .slick-slide {
+        width: 460px !important;
+        height: 650px !important;
+        &.slick-active {
+          &.slick-current {
+            width: 560px !important;
+            height: 780px !important;
+          }
+        }
+      }
+
+      .first-img-box {
+        padding-right: 24px;
+      }
+      .default-img-box {
+        padding-right: 24px;
+      }
+      .imgs {
+        width: 100%;
+      }
+    }
+  }
+}
+.arrow-box {
+  position: absolute;
+  width: 48px;
+  height: 48px;
+  top: 50%;
+  right: 148px;
+  .arrow-img {
+    width: 100%;
+    background-color: #fff;
+    padding: 12px;
+    border-radius: 50%;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+  }
+}
