@@ -22,7 +22,7 @@ const ExploreCard = () => {
                 <h6>
                   <span>{`0${index + 1}`}</span>
                   <img src={vector} alt="vector divider" className="vector-divider" />
-                  <span>Bed Room</span>
+                  <span>{`Bed Room ${index + 1}`}</span>
                 </h6>
               </div>
               <div className="info-bottom">
@@ -41,5 +41,6 @@ const ExploreCard = () => {
     </div>
   );
 };
+
 
 export default ExploreCard;
