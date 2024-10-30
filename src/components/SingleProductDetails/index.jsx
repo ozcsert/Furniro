@@ -1,7 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import "./style.scss";
 
 const ProductDetails = () => {
+  const [quantity, setQuantity] = useState(1);
+
+  const increaseQuantity = () => {
+    setQuantity((prevQuantity) => prevQuantity + 1);
+  };
+
+  const decreaseQuantity = () => {
+    setQuantity((prevQuantity) => (prevQuantity > 1 ? prevQuantity - 1 : 1));
+  };
+
   return (
     <div className="product-details">
       <h1 className="product-title">Asgaard sofa</h1>
@@ -39,9 +49,9 @@ const ProductDetails = () => {
       </div>
       <div className="quantity-add-to-cart">
         <div className="quantity-control">
-          <button>-</button>
-          <span>1</span>
-          <button>+</button>
+          <button onClick={decreaseQuantity}>-</button>
+          <span>{quantity}</span>
+          <button onClick={increaseQuantity}>+</button>
         </div>
         <button className="add-to-cart">Add To Cart</button>
         <button className="compare">+ Compare</button>
