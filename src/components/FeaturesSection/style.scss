@@ -22,14 +22,14 @@
 
   @media (max-width: 400px) {
     padding: 0.5rem;
-    gap: 0.1rem;
+    gap: 0.5rem;
+    display: flex;
+    .feature-card__title {
+      font-size: 0.5rem;
+    }
+
+    .feature-card__description {
+      font-size: 0.5rem;
+    }
   }
-}
-
-.feature-card__title {
-  font-size: 1rem;
-}
-
-.feature-card__description {
-  font-size: 0.9rem;
 }
