@@ -28,7 +28,7 @@
   }
 
   .crumb:last-child:after {
-    content: "";
+    content: ">";
     display: none;
   }
   .crumb:last-child::before {
@@ -40,3 +40,7 @@
     color: #3a3a3a;
   }
 }
+
+
+
+
