@@ -2,13 +2,13 @@
 
 .single-product {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around !important;
   padding: 20px;
   max-width: 1200px;
   margin: auto;
 
   .main-image {
-    width: 400px;
+    width: 450px;
     border-radius: 5px;
     box-shadow: 0 2px 15px rgba(0, 0, 0, 0.2);
   }
