@@ -2,9 +2,15 @@ import "./style.scss";
 import { Link, useLocation } from "react-router-dom";
 import right from "../../assets/images/right.png";
 
+function capitalizeFirstLetter(string) {
+  return string.charAt(0).toUpperCase() + string.slice(1);
+}
+
 const BreadCrumbComponent = () => {
   const location = useLocation();
-  const pageName = location.pathname.split("/").filter(Boolean).pop() || "Home";
+  const pageName = capitalizeFirstLetter(
+    location.pathname.split("/").filter(Boolean).pop() || "Home"
+  );
 
   return (
     <nav className="banner-navigate">
