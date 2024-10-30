@@ -5,9 +5,15 @@ import { useLocation } from "react-router-dom";
 import bannerLogo from "../../assets/images/bannerLogo.png";
 import BreadCrumbComponent from "../BreadCrumbComponent";
 
+function capitalizeFirstLetter(string) {
+  return string.charAt(0).toUpperCase() + string.slice(1);
+}
+
 const HeaderBanner = () => {
   const location = useLocation();
-  const pageTitle = location.pathname.split("/").filter(Boolean).pop() || "Home";
+  const pageTitle = capitalizeFirstLetter(
+    location.pathname.split("/").filter(Boolean).pop() || "Home"
+  );
 
   return (
     <div className={`banner-container`}>
