@@ -5,24 +5,31 @@ import "slick-carousel/slick/slick-theme.css";
 import test1 from "../../assets/carouselComponenet/Image.png";
 import test2 from "../../assets/carouselComponenet/Rectangle25.png";
 import test3 from "../../assets/carouselComponenet/Rectangle26.png";
-import ArrowImg from "../../assets/carouselComponenet/RightArrow.png"
+import ArrowImg from "../../assets/carouselComponenet/RightArrow.png";
+import { useState } from "react";
 
 const CarouselComponent = () => {
+  const [isTransitioning, setIsTransitioning] = useState(false);
   const settings = {
     dots: true,
     infinite: true,
     speed: 1000,
-    slidesToShow:2,
+    slidesToShow: 2,
     slidesToScroll: 1,
-    initialSlide:1,
+    initialSlide: 1,
     variableWidth: true,
     arrows: true,
-    nextArrow: <CustomArrow />, 
-    };
+    nextArrow: <CustomArrow />,
+    beforeChange: () => setIsTransitioning(true), // Kaydırma başlamadan önce
+    afterChange: () => setIsTransitioning(false), // Kaydırma sonrası
+  };
   return (
     <div className="container">
       <div className="test-div">
-        Test Div
+        <h5>
+          Test DivTest DivTest DivTest DivTest DivTest DivTest DivTest DivTest
+          DivTest DivTes
+        </h5>
       </div>
       <div className="carousel-container">
         <Slider className="carousel" {...settings}>
@@ -44,7 +51,7 @@ const CustomArrow = (props) => {
   const { onClick } = props;
   return (
     <div className="arrow-box" onClick={onClick}>
-      <img className="arrow-img" src={ArrowImg} alt="arrow-img"/>
+      <img className="arrow-img" src={ArrowImg} alt="arrow-img" />
     </div>
   );
 };

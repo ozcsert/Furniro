@@ -1,9 +1,14 @@
 .container {
   display: flex;
+  flex-wrap: wrap;
   gap: 24px;
   width: 100%;
   .test-div {
     width: 728px;
+    padding-left: 100px;
+    h5{
+      font-size: 40px;
+    }
   }
   .carousel-container {
     overflow: hidden;
@@ -49,3 +54,32 @@
     cursor: pointer;
   }
 }
+.slick-dots {
+  bottom: 50px !important;
+  left: 34px;
+  display: flex !important;
+  justify-content: center;
+  gap: 10px;
+
+  li {
+    width: 28px !important;
+    height: 28px !important;
+
+    button {
+      &:before {
+        font-size: 12px;
+        color: #acacac !important;
+      }
+    }
+
+    &.slick-active {
+      button {
+        &:before {
+          color: #B88E2F !important;
+          font-size: 14px;
+        }
+      }
+    }
+  }
+}
+
