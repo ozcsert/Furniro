@@ -1,0 +1,18 @@
+.productsall-container {
+  width: 100%;
+  gap: 50px;
+
+  .name {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    text-align: center;
+    font-family: "Poppins", sans-serif;
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 48px;
+    margin-bottom: 32px;
+  }
+
+}

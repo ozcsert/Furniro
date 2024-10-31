@@ -56,7 +56,7 @@ const ProductWithCard = () => {
 
   return (
     <div className="product-container">
-      <h2 className="name">Our Products</h2>
+      
       {loading ? (
         <p>Loading...</p>
       ) : error ? (
