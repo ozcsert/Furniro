@@ -1,7 +1,9 @@
+import HeaderBanner from "../../components/HeaderBanner";
+
 const CheckoutPage = () => {
   return (
     <>
-      <p> Checkout </p>
+      <HeaderBanner/>
     </>
   )
 

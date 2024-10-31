@@ -1,7 +1,9 @@
+import HeaderBanner from "../../components/HeaderBanner";
+
 const ComparisonPage = () => {
   return (
     <>
-      <p> Comparison </p>
+      <HeaderBanner/>
     </>
   )
 
