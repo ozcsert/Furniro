@@ -1,46 +1,71 @@
+
 import "./style.scss";
 import { Link } from "react-router-dom";
-
 import arrow from "../../assets/arrow.svg";
-import bedroom from "../../assets/bedroom.png";
 import vector from "../../assets/Vector-1.svg";
-import bedroom2 from "../../assets/Rectangle25.png"
-import bedroom3 from "../../assets/Rectangle26.png"
+import PropTypes from "prop-types";
 
-const ExploreCard = () => {
-  const images = [bedroom, bedroom2, bedroom3];
+import bedroom from "../../../src/assets/Rectangle26.png"
 
+const ExploreCard = ({ image, title, description, roomType }) => {
   return (
     <div className="explore-card-wrapper">
-      {images.map((image, index) => (
-        <div className="products-wrapper" key={index}>
-          <img src={image} alt={`bedroom-${index + 1}`} className="product-image" />
+      <div className="products-wrapper">
+        <img src={image} alt={title} className="product-image" />
 
-          <div className="info-container">
-            <div className="info-section">
-              <div className="info-top">
-                <h6>
-                  <span>{`0${index + 1}`}</span>
-                  <img src={vector} alt="vector divider" className="vector-divider" />
-                  <span>{`Bed Room ${index + 1}`}</span>
-                </h6>
-              </div>
-              <div className="info-bottom">
-                <h3>Inner Peace</h3>
-              </div>
+        <div className="info-container">
+          <div className="info-section">
+            <div className="info-top">
+              <h6>
+                <span>{roomType}</span>
+                <img src={vector} alt="vector divider" className="vector-divider" />
+                <span>{description}</span>
+              </h6>
             </div>
-
-            <div className="redirect-button">
-              <Link to="#">
-                <img src={arrow} alt="Arrow" />
-              </Link>
+            <div className="info-bottom">
+              <h3>{title}</h3>
             </div>
           </div>
+
+          <div className="redirect-button">
+            <Link to="#">
+              <img src={arrow} alt="Arrow" />
+            </Link>
+          </div>
         </div>
-      ))}
+      </div>
     </div>
   );
 };
 
 
-export default ExploreCard;
+
+const Card = () => {
+  const roomData = {
+    image: bedroom ,
+    title: "Inner Peace",
+    description: "Rectangle",
+    roomType: "01",
+  };
+
+  return (
+    <div>
+      <ExploreCard 
+        image={roomData.image}
+        title={roomData.title}
+        description={roomData.description}
+        roomType={roomData.roomType}
+      />
+    </div>
+  );
+};
+
+
+ExploreCard.propTypes = {
+  image: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
+  roomType: PropTypes.string.isRequired,
+};
+
+export default Card;
