@@ -11,9 +11,8 @@ function capitalizeFirstLetter(string) {
 
 const HeaderBanner = () => {
   const location = useLocation();
-  const pageTitle = capitalizeFirstLetter(
-    location.pathname.split("/").filter(Boolean).pop() || "Home"
-  );
+  const pathSegments = location.pathname.split("/").filter(Boolean);
+  const pageTitle = capitalizeFirstLetter(pathSegments[0] || "Home");
 
   return (
     <div className={`banner-container`}>
