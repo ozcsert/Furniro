@@ -1,7 +1,9 @@
+import HeaderBanner from "../../components/HeaderBanner";
+
 const ContactPage = () => {
   return (
     <>
-      <p> Contact </p>
+      <HeaderBanner/>
     </>
   )
 

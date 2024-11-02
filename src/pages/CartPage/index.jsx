@@ -1,7 +1,9 @@
+import HeaderBanner from "../../components/HeaderBanner";
+
 const CartPage = () => {
   return (
     <>
-      <p> Cart </p>
+      <HeaderBanner/>
     </>
   )
 
