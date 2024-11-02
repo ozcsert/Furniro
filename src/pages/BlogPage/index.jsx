@@ -1,9 +1,12 @@
+import FeaturesSection from "../../components/FeaturesSection/index";
+
 const BlogPage = () => {
-  return(
+  return (
     <>
       <p> Blog </p>
+      <FeaturesSection />
     </>
-  )
-}
+  );
+};
 
-export default BlogPage
+export default BlogPage;
