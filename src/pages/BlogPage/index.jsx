@@ -1,9 +1,11 @@
+import HeaderBanner from "../../components/HeaderBanner";
+
 import FeaturesSection from "../../components/FeaturesSection/index";
 
 const BlogPage = () => {
   return (
     <>
-      <p> Blog </p>
+      <HeaderBanner />
       <FeaturesSection />
     </>
   );
