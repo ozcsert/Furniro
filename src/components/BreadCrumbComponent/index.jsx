@@ -8,9 +8,8 @@ function capitalizeFirstLetter(string) {
 
 const BreadCrumbComponent = () => {
   const location = useLocation();
-  const pageName = capitalizeFirstLetter(
-    location.pathname.split("/").filter(Boolean).pop() || "Home"
-  );
+  const pathSegments = location.pathname.split("/").filter(Boolean);
+  const pageName = capitalizeFirstLetter(pathSegments[0] || "Home");
 
   return (
     <nav className="banner-navigate">
