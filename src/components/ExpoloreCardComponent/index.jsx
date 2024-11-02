@@ -40,25 +40,7 @@ const ExploreCard = ({ image, title, description, roomType }) => {
 
 
 
-const Card = () => {
-  const roomData = {
-    image: bedroom ,
-    title: "Inner Peace",
-    description: "Rectangle",
-    roomType: "01",
-  };
 
-  return (
-    <div>
-      <ExploreCard 
-        image={roomData.image}
-        title={roomData.title}
-        description={roomData.description}
-        roomType={roomData.roomType}
-      />
-    </div>
-  );
-};
 
 
 ExploreCard.propTypes = {
@@ -68,4 +50,4 @@ ExploreCard.propTypes = {
   roomType: PropTypes.string.isRequired,
 };
 
-export default Card;
+export default ExploreCard;
