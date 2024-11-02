@@ -1,7 +1,9 @@
+import HeaderBanner from "../../components/HeaderBanner";
+
 const BlogPage = () => {
   return(
     <>
-      <p> Blog </p>
+      <HeaderBanner/>
     </>
   )
 }

@@ -3,6 +3,8 @@ import ProfileForm from "../../components/ProfileForm"
 import "./style.scss"
 import profilephoto from "../../assets/profile/profilePhotoMock.png"
 
+import HeaderBanner from "../../components/HeaderBanner";
+
 const ProfilePage = () => {
   const [isEditing, setIsEditing] = useState(false)
   const [userData, setUserData] = useState({
@@ -49,6 +51,7 @@ const ProfilePage = () => {
 
   return (
     <div className="profile-page">
+      <HeaderBanner/>
       <ProfileForm
         userData={userData}
         isEditing={isEditing}
