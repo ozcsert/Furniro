@@ -86,7 +86,6 @@ const Dropdown = ({ type, closeModal }) => {
     case "Wishlist":
       modalContent = {
         title: "Wishlist",
-        buttons: ["See More"],
       }
   }
 
@@ -133,13 +132,15 @@ const Dropdown = ({ type, closeModal }) => {
           <div className="line-box">
             <img className="line-img" src={LineImg} alt="" />
           </div>
-          <div className="modal-btns">
-            {modalContent.buttons.map((button, index) => (
-              <button key={index} className="modal-btn">
-                {button}
-              </button>
-            ))}
-          </div>
+          {modalContent.buttons && (
+            <div className="modal-btns">
+              {modalContent.buttons.map((button, index) => (
+                <button key={index} className="modal-btn">
+                  {button}
+                </button>
+              ))}
+            </div>
+          )}
         </div>
       </div>
     </div>
