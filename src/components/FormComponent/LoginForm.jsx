@@ -1,13 +1,13 @@
-/* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
-
 import React from "react";
+import PropTypes from "prop-types"; 
 import InputField from "./InputField";
 
 const LoginForm = ({ formData, handleChange }) => (
   <>
     <InputField
       id="email"
+      name="email"
       label="Email Address"
       type="email"
       value={formData.email}
@@ -16,6 +16,7 @@ const LoginForm = ({ formData, handleChange }) => (
     />
     <InputField
       id="password"
+      name="password"
       label="Password"
       type="password"
       value={formData.password}
@@ -25,4 +26,12 @@ const LoginForm = ({ formData, handleChange }) => (
   </>
 );
 
-export default LoginForm; 
+LoginForm.propTypes = {
+  formData: PropTypes.shape({
+    email: PropTypes.string.isRequired,
+    password: PropTypes.string.isRequired,
+  }).isRequired,
+  handleChange: PropTypes.func.isRequired,
+};
+
+export default LoginForm;

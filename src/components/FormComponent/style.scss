@@ -10,8 +10,8 @@
     font-size: 16px;
     font-weight: 500;
     line-height: 24px;
-    text-align: left;
     color: #333;
+    text-align: left;
   }
 
   form {
@@ -24,56 +24,84 @@
     display: flex;
     flex-direction: column;
     gap: 5px;
+
+    select {
+      color: #333; 
+      width: 100%;
+      padding: 18px 20px;
+      border-radius: 15px;
+      border: 1px solid #acacac;
+      font-family: "Poppins", sans-serif;
+      font-size: 16px;
+      line-height: 1.5;
+      background-color: white;
+
+      &:focus {
+        outline: none;
+        border-color: #b88e2f;
+      }
+
+      option:disabled {
+        color: #acacac; 
+      }
+    }
   }
 
-  .input-field {
-    width: 100%;
-    max-width: 600px;
-    padding: 18px 20px;
-    border-radius: 15px;
-    border: 1px solid #7c838a;
-    opacity: 1;
-
-    &:focus {
-      outline: none;
-      border-color: #b88e2f;
-    }
-
-    &::placeholder {
-      color: #acacac;
-    }
-  }
-
+  .input-field,
   .input-about {
     width: 100%;
-    max-width: 600px;
-    height: 220px;
     padding: 18px 20px;
     border-radius: 15px;
     border: 1px solid #acacac;
     font-family: "Poppins", sans-serif;
     font-size: 16px;
     line-height: 1.5;
-    resize: none;
+
+    &::placeholder {
+      color: #acacac;
+    }
 
     &:focus {
       outline: none;
       border-color: #b88e2f;
     }
+  }
 
-    &::placeholder {
-      color: #acacac;
+  .input-about {
+    height: 220px;
+    resize: none;
+  }
+
+  .billing-details-container {
+    max-width: 100%;
+    margin: 0 auto;
+    gap: 44px;
+    display: flex;
+    flex-direction: column;
+
+    .name-fields {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+
+      .input-field {
+        width: 100%;
+        height: 60px;
+      }
+    }
+
+    .input-field {
+      width: 100%;
+      height: 60px;
     }
   }
 
-  // Responsive Styling
   @media (max-width: 768px) {
     width: 90%;
     padding: 15px;
 
     .input-field,
     .input-about {
-      width: 100%;
       font-size: 15px;
       padding: 15px;
     }

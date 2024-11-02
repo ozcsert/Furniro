@@ -1,6 +1,7 @@
-/* eslint-disable react/prop-types */
+
 /* eslint-disable no-unused-vars */
 import React from "react";
+import PropTypes from "prop-types"; 
 import InputField from "./InputField";
 
 const ContactForm = ({ formData, handleChange }) => (
@@ -21,23 +22,27 @@ const ContactForm = ({ formData, handleChange }) => (
       onChange={handleChange}
       placeholder="Enter your email"
     />
-    <InputField
-      id="subject"
-      label="Subject"
-      type="text"
-      value={formData.subject}
-      onChange={handleChange}
-      placeholder="This is optional"
-    />
-    <label htmlFor="subject">Subject</label>
-    <textarea
-      id="subject"
-      className="input-about"
-      placeholder="Hi! I’d like to ask about..."
-      value={formData.subject}
-      onChange={handleChange}
-    />
+    <div className="form-group stacked">
+      <label htmlFor="subject">Subject</label>
+      <textarea
+        id="subject"
+        className="input-about"
+        placeholder="Hi! I’d like to ask about..."
+        value={formData.subject}
+        onChange={handleChange}
+        name="subject" 
+      />
+    </div>
   </>
 );
+
+ContactForm.propTypes = {
+  formData: PropTypes.shape({
+    name: PropTypes.string.isRequired,
+    email: PropTypes.string.isRequired,
+    subject: PropTypes.string,
+  }).isRequired,
+  handleChange: PropTypes.func.isRequired,
+};
 
 export default ContactForm;
