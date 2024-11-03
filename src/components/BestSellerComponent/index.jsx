@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import  { useState, useEffect } from "react";
 import StarRating from "../StarRating/StarRating.jsx";
 import "./style.scss";
 import { Link } from "react-router-dom";
@@ -19,7 +19,7 @@ const BestSellers = () => {
   }, []);
 
   return (
-    <div className="best-sellers">
+    <div className="best-seller">
       <h2>Best Sellers</h2>
       <div className="clothes">
         {products.map((product) => (

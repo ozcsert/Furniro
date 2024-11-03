@@ -1,14 +1,7 @@
-.best-sellers {
-  width: 290px;
-  height: 459px;
-  padding: 10px 0;
-  gap: 10px;
-  position: absolute;
-  bottom: 0;
-  margin: 50px 0 80px 100px;
-  opacity: 1;
+.best-seller {
+  max-width: 273px;
   color: #3a3a3a;
-  
+  width: 100%;
 
   h2 {
     text-align: left;
@@ -19,79 +12,84 @@
   }
 
   .clothes {
+    width: 100%;
+    max-width: 273px;
     display: flex;
-    flex-direction: column;
-    gap: 10px;
+    flex-wrap: wrap;
+    gap: 15px;
 
-    .product {
-      width: 275px;
-      height: 90px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
+    a {
+      max-width: 273px;
+      width: 100%;
+      text-decoration: none;
+      color: inherit;
 
-      padding: 5px;
-      border-radius: 5px;
+      .product {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        padding: 5px;
+        border-radius: 5px;
 
-      .product-image {
-        width: 70px;
-        height: 70px;
-        object-fit: cover;
-      }
-
-      .product-info {
-        flex-grow: 1;
-
-        h3 {
-          font-size: 16px;
-          margin: 0;
+        .product-image {
+          width: 75px;
+          height: 75px;
         }
 
-        .price-info {
-          display: flex;
-          align-items: center;
-          gap: 10px;
-
-          .current-price {
-            font-size: 14px;
-            color: #333;
+        .product-info {
+          h3 {
+            font-size: 16px;
+            margin: 0;
           }
 
-          .original-price {
-            font-size: 12px;
-            color: #999;
-            text-decoration: line-through;
+          .price-info {
+            .current-price {
+              font-size: 14px;
+              color: #333;
+            }
+
+            .original-price {
+              font-size: 12px;
+              color: #999;
+              text-decoration: line-through;
+            }
           }
         }
       }
     }
   }
 
+  // Responsive adjustments
+
   @media (max-width: 1350px) {
     display: none;
   }
 
-  // Medium screens
   @media (min-width: 601px) and (max-width: 1024px) {
     width: 80%;
-    margin: 40px auto;
     padding: 15px;
 
     .clothes {
+      a {
+        max-width: 273px;
+      }
+
       .product {
-        width: 100%;
         .product-image {
           width: 80px;
           height: 80px;
         }
+
         .product-info {
           h3 {
             font-size: 15px;
           }
+
           .price-info {
             .current-price {
               font-size: 13px;
             }
+
             .original-price {
               font-size: 11px;
             }
@@ -101,26 +99,30 @@
     }
   }
 
-  // Large screens
   @media (min-width: 1025px) {
     width: 320px;
-    margin: 50px 0 80px 120px;
 
     .clothes {
+      a {
+        max-width: 273px;
+      }
+
       .product {
-        width: 300px;
         .product-image {
           width: 75px;
           height: 75px;
         }
+
         .product-info {
           h3 {
             font-size: 17px;
           }
+
           .price-info {
             .current-price {
               font-size: 15px;
             }
+
             .original-price {
               font-size: 13px;
             }
