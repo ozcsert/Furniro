@@ -6,7 +6,7 @@
   .test-div {
     width: 728px;
     padding-left: 100px;
-    h5{
+    h5 {
       font-size: 40px;
     }
   }
@@ -19,6 +19,7 @@
       .slick-slide {
         width: 460px !important;
         height: 650px !important;
+        transition: width 0.5s ease, height 0.3s ease;
         &.slick-active {
           &.slick-current {
             width: 560px !important;
@@ -26,15 +27,8 @@
           }
         }
       }
-
-      .first-img-box {
-        padding-right: 24px;
-      }
       .default-img-box {
         padding-right: 24px;
-      }
-      .imgs {
-        width: 100%;
       }
     }
   }
@@ -75,11 +69,10 @@
     &.slick-active {
       button {
         &:before {
-          color: #B88E2F !important;
+          color: #b88e2f !important;
           font-size: 14px;
         }
       }
     }
   }
 }
-

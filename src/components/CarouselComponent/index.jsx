@@ -2,14 +2,13 @@ import "./style.scss";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import test1 from "../../assets/carouselComponenet/Image.png";
-import test2 from "../../assets/carouselComponenet/Rectangle25.png";
-import test3 from "../../assets/carouselComponenet/Rectangle26.png";
+import Bedroom1 from "../../assets/carouselComponenet/Image.png";
+import Bedroom2 from "../../assets/carouselComponenet/Rectangle25.png";
+import Bedroom3 from "../../assets/carouselComponenet/Rectangle26.png";
 import ArrowImg from "../../assets/carouselComponenet/RightArrow.png";
-import { useState } from "react";
+import ExploreCard from "../ExpoloreCardComponent";
 
 const CarouselComponent = () => {
-  const [isTransitioning, setIsTransitioning] = useState(false);
   const settings = {
     dots: true,
     infinite: true,
@@ -20,8 +19,6 @@ const CarouselComponent = () => {
     variableWidth: true,
     arrows: true,
     nextArrow: <CustomArrow />,
-    beforeChange: () => setIsTransitioning(true), // Kaydırma başlamadan önce
-    afterChange: () => setIsTransitioning(false), // Kaydırma sonrası
   };
   return (
     <div className="container">
@@ -34,13 +31,28 @@ const CarouselComponent = () => {
       <div className="carousel-container">
         <Slider className="carousel" {...settings}>
           <div className="default-img-box">
-            <img className="imgs" src={test1} alt="" />
+            <ExploreCard
+              image={Bedroom3}
+              title="Inner Peace"
+              description="Bed Room"
+              roomType="03"
+            />
           </div>
           <div className="default-img-box">
-            <img className="imgs" src={test2} alt="" />
+            <ExploreCard
+              image={Bedroom1}
+              title="Inner Peace"
+              description="Bed Room"
+              roomType="01"
+            />
           </div>
           <div className="default-img-box">
-            <img className="imgs" src={test3} alt="" />
+            <ExploreCard
+              image={Bedroom2}
+              title="Inner Peace"
+              description="Bed Room"
+              roomType="02"
+            />
           </div>
         </Slider>
       </div>

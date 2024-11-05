@@ -10,7 +10,6 @@
 }
 
 .products-wrapper {
-  width: 370px;
   position: relative;
   display: flex;
   justify-content: center;
@@ -24,8 +23,8 @@
 
   .info-container {
     position: absolute;
-    top: 410px;
-    left: 45%;
+    bottom: -40px;
+    left: 36%;
     transform: translate(-50%, -50%);
     display: flex;
     align-items: center;
