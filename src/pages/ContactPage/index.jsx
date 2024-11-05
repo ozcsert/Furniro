@@ -1,7 +1,11 @@
+import ContactPageComponent from "../../components/ContactPageComponent";
+import FeatureCard from "../../components/FeatureCard";
+
 const ContactPage = () => {
   return (
     <>
-      <p> Contact </p>
+      <ContactPageComponent/>
+      <FeatureCard/>
     </>
   )
 
