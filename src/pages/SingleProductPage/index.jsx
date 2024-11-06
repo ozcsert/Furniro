@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react"
 import { Tab } from "../../components/Tab"
 import { useParams } from "react-router-dom"
 
