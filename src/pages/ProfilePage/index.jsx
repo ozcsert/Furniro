@@ -1,12 +1,9 @@
-import FeaturesSection from "../../components/FeaturesSection/index";
-
 import { useState, useEffect } from "react";
 import ProfileForm from "../../components/ProfileForm";
 import "./style.scss";
 import profilephoto from "../../assets/profile/profilePhotoMock.png";
-
 import HeaderBanner from "../../components/HeaderBanner";
-
+import FeaturesSection from "../../components/FeaturesSection/index";
 const ProfilePage = () => {
   const [isEditing, setIsEditing] = useState(false);
   const [userData, setUserData] = useState({
@@ -61,6 +58,7 @@ const ProfilePage = () => {
         onSubmit={handleSubmit}
         onImageChange={handleImageChange}
       />
+      <FeaturesSection />
     </div>
   );
 };
