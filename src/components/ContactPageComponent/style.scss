@@ -164,6 +164,12 @@
   }
 }
 
+@media (max-width: 425px) {
+  .contact-container {
+    margin-top: 175px;
+  }
+}
+
 @media (max-width: 375px) {
   .contact-container {
     .contact-info {
