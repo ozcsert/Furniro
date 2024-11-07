@@ -1,5 +1,4 @@
-/* eslint-disable no-unused-vars */
-import React, { useState } from "react";
+import { useState } from "react";
 import PropTypes from "prop-types";
 import InputField from "./InputField";
 
@@ -15,15 +14,21 @@ const BillingDetailsForm = ({ formData, handleChange }) => {
 
   const handleCountryChange = (e) => {
     const selectedCountry = e.target.value;
+    
+    console.log(e.target); 
     handleChange({ id: "country", value: selectedCountry });
 
-    // Set province options based on selected country
     switch (selectedCountry) {
       case "United States":
         setProvinceOptions(["California", "Texas", "Florida", "New York"]);
         break;
       case "Canada":
-        setProvinceOptions(["Ontario", "Quebec", "British Columbia", "Alberta"]);
+        setProvinceOptions([
+          "Ontario",
+          "Quebec",
+          "British Columbia",
+          "Alberta",
+        ]);
         break;
       case "Spain":
         setProvinceOptions(["Madrid", "Barcelona", "Valencia", "Seville"]);
@@ -99,7 +104,9 @@ const BillingDetailsForm = ({ formData, handleChange }) => {
       />
 
       {provinceOptions.length === 0 && formData.country && (
-        <p className="no-province-message">Please select a country to see provinces.</p>
+        <p className="no-province-message">
+          Please select a country to see provinces.
+        </p>
       )}
 
       <InputField

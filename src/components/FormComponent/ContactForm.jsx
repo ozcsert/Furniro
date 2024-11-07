@@ -1,4 +1,3 @@
-
 /* eslint-disable no-unused-vars */
 import React from "react";
 import PropTypes from "prop-types"; 
@@ -22,7 +21,7 @@ const ContactForm = ({ formData, handleChange }) => (
       onChange={handleChange}
       placeholder="Enter your email"
     />
-    <div className="form-group stacked">
+    <div className="input-field-container">
       <label htmlFor="subject">Subject</label>
       <textarea
         id="subject"
@@ -30,7 +29,7 @@ const ContactForm = ({ formData, handleChange }) => (
         placeholder="Hi! I’d like to ask about..."
         value={formData.subject}
         onChange={handleChange}
-        name="subject" 
+        name="subject"
       />
     </div>
   </>

@@ -1,9 +1,7 @@
-/* eslint-disable no-unused-vars */
-import React from "react";
-import PropTypes from "prop-types"; 
+import PropTypes from "prop-types";
 import InputField from "./InputField";
 
-const LoginForm = ({ formData, handleChange }) => (
+const LoginForm = ({ formData, handleChange, errors }) => (
   <>
     <InputField
       id="email"
@@ -13,6 +11,8 @@ const LoginForm = ({ formData, handleChange }) => (
       value={formData.email}
       onChange={handleChange}
       placeholder="Enter your email"
+      required
+      error={errors.email}  
     />
     <InputField
       id="password"
@@ -22,6 +22,8 @@ const LoginForm = ({ formData, handleChange }) => (
       value={formData.password}
       onChange={handleChange}
       placeholder="Enter your password"
+      required
+      error={errors.password} 
     />
   </>
 );
@@ -32,6 +34,7 @@ LoginForm.propTypes = {
     password: PropTypes.string.isRequired,
   }).isRequired,
   handleChange: PropTypes.func.isRequired,
+  errors: PropTypes.object.isRequired, 
 };
 
 export default LoginForm;

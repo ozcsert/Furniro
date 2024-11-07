@@ -1,10 +1,7 @@
-// eslint-disable-next-line no-unused-vars
-import React, { useState } from "react";
+/* eslint-disable react/prop-types */
 import FormComponent from "../FormComponent";
 
-const FormHandler = () => {
-  const [currentPage, ] = useState("billing");
-
+const FormHandler = ({ page }) => {
   const handleRegisterSubmit = (formData) => {
     console.log("Kayıt verileri:", formData);
   };
@@ -23,19 +20,19 @@ const FormHandler = () => {
 
   return (
     <div>
-      {currentPage === "register" && (
+      {page === "register" && (
         <FormComponent page="register" onSubmit={handleRegisterSubmit} />
       )}
 
-      {currentPage === "login" && (
+      {page === "login" && (
         <FormComponent page="login" onSubmit={handleLoginSubmit} />
       )}
 
-      {currentPage === "contact" && (
+      {page === "contact" && (
         <FormComponent page="contact" onSubmit={handleContactSubmit} />
       )}
 
-      {currentPage === "billing" && (
+      {page === "billing" && (
         <FormComponent page="billing" onSubmit={handleBillingSubmit} />
       )}
     </div>
