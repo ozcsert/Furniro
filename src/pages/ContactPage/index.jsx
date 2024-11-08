@@ -1,11 +1,9 @@
-import FormHandler from "../../../src/components/FormHandler/FormHandler";
+import FormHandler from "../../components/FormHandler/FormHandler"
 
 const ContactPage = () => {
   return (
     <>
-      <p> Contact </p> 
-      <FormHandler page="contact" />
-
+       <FormHandler page="contact" />
     </>
   )
 

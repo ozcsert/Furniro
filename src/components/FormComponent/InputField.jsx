@@ -7,25 +7,41 @@ const InputField = ({
   value,
   onChange,
   placeholder,
-  required,
-  error,
-  className = "",
-}) => (
-  <div className="input-field-container">
-    {label && <label htmlFor={id}>{label}</label>}
-    <input
-      id={id}
-      className={`input-field ${className}`}
-      type={type}
-      value={value}
-      onChange={onChange}
-      placeholder={placeholder}
-      name={id}
-      required={required}
-    />
-    {error && <span className="error-message">{error}</span>}
-  </div>
-);
+  options,
+}) => {
+  if (type === "select") {
+    return (
+      <div className="form-group">
+        <label htmlFor={id}>{label}</label>
+        <select id={id} value={value} onChange={onChange} className="input-field">
+          <option value="" disabled>
+            {placeholder}
+          </option>
+          {options &&
+            options.map((option, index) => (
+              <option key={index} value={option}>
+                {option}
+              </option>
+            ))}
+        </select>
+      </div>
+    );
+  }
+
+  return (
+    <div className="form-group">
+      <label htmlFor={id}>{label}</label>
+      <input
+        id={id}
+        type={type}
+        value={value}
+        onChange={onChange}
+        placeholder={placeholder}
+        className="input-field"
+      />
+    </div>
+  );
+};
 
 InputField.propTypes = {
   id: PropTypes.string.isRequired,
@@ -33,10 +49,8 @@ InputField.propTypes = {
   type: PropTypes.string.isRequired,
   value: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
-  placeholder: PropTypes.string,
-  required: PropTypes.bool,
-  error: PropTypes.string,
-  className: PropTypes.string, // Add className to propTypes
+  placeholder: PropTypes.string.isRequired,
+  options: PropTypes.array,
 };
 
 export default InputField;

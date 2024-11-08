@@ -29,6 +29,7 @@ const BillingDetailsForm = ({ formData, handleChange }) => {
           "British Columbia",
           "Alberta",
         ]);
+        setProvinceOptions(["Ontario", "Quebec", "British Columbia", "Alberta"]);
         break;
       case "Spain":
         setProvinceOptions(["Madrid", "Barcelona", "Valencia", "Seville"]);
@@ -38,6 +39,9 @@ const BillingDetailsForm = ({ formData, handleChange }) => {
         break;
       case "Germany":
         setProvinceOptions(["Berlin", "Bavaria", "Hamburg", "Hesse"]);
+        break;
+      case "Turkey":
+        setProvinceOptions(["Istanbul", "Ankara", "Izmir", "Antalya"]);
         break;
       default:
         setProvinceOptions([]);
@@ -51,7 +55,7 @@ const BillingDetailsForm = ({ formData, handleChange }) => {
           id="firstName"
           label="First Name"
           type="text"
-          value={formData.firstName}
+          value={formData.firstName || ""}
           onChange={(e) => handleChange({ id: "firstName", value: e.target.value })}
           placeholder="Enter your first name"
         />
@@ -59,7 +63,7 @@ const BillingDetailsForm = ({ formData, handleChange }) => {
           id="lastName"
           label="Last Name"
           type="text"
-          value={formData.lastName}
+          value={formData.lastName || ""}
           onChange={(e) => handleChange({ id: "lastName", value: e.target.value })}
           placeholder="Enter your last name"
         />
@@ -69,7 +73,7 @@ const BillingDetailsForm = ({ formData, handleChange }) => {
         id="country"
         label="Country/Region"
         type="select"
-        value={formData.country}
+        value={formData.country || ""}
         onChange={handleCountryChange}
         placeholder="Select your country"
         options={countryOptions}
@@ -79,7 +83,7 @@ const BillingDetailsForm = ({ formData, handleChange }) => {
         id="streetAddress"
         label="Street Address"
         type="text"
-        value={formData.streetAddress}
+        value={formData.streetAddress || ""}
         onChange={(e) => handleChange({ id: "streetAddress", value: e.target.value })}
         placeholder="Enter your street address"
       />
@@ -88,7 +92,7 @@ const BillingDetailsForm = ({ formData, handleChange }) => {
         id="city"
         label="Town/City"
         type="text"
-        value={formData.city}
+        value={formData.city || ""}
         onChange={(e) => handleChange({ id: "city", value: e.target.value })}
         placeholder="Enter your town or city"
       />
@@ -97,7 +101,7 @@ const BillingDetailsForm = ({ formData, handleChange }) => {
         id="province"
         label="Province"
         type="select"
-        value={formData.province}
+        value={formData.province || ""}
         onChange={(e) => handleChange({ id: "province", value: e.target.value })}
         placeholder="Select your province"
         options={provinceOptions}
@@ -113,7 +117,7 @@ const BillingDetailsForm = ({ formData, handleChange }) => {
         id="zipCode"
         label="ZIP Code"
         type="text"
-        value={formData.zipCode}
+        value={formData.zipCode || ""}
         onChange={(e) => handleChange({ id: "zipCode", value: e.target.value })}
         placeholder="Enter your ZIP code"
       />
@@ -122,7 +126,7 @@ const BillingDetailsForm = ({ formData, handleChange }) => {
         id="phone"
         label="Phone"
         type="text"
-        value={formData.phone}
+        value={formData.phone || ""}
         onChange={(e) => handleChange({ id: "phone", value: e.target.value })}
         placeholder="Enter your phone number"
       />
@@ -131,7 +135,7 @@ const BillingDetailsForm = ({ formData, handleChange }) => {
         id="email"
         label="Email Address"
         type="email"
-        value={formData.email}
+        value={formData.email || ""}
         onChange={(e) => handleChange({ id: "email", value: e.target.value })}
         placeholder="Enter your email address"
       />

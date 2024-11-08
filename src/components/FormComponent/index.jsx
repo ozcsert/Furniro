@@ -27,22 +27,15 @@ const FormComponent = ({ page, onSubmit }) => {
 
   const [errors, setErrors] = useState({});
 
-  const handleChange = (event) => {
-    const { id, value } = event.target;
+  const handleChange = ({ id, value }) => {
     setFormData((prevData) => ({
       ...prevData,
       [id]: value,
-    }));
-
-    setErrors((prevErrors) => ({
-      ...prevErrors,
-      [id]: "",
     }));
   };
 
   const validateForm = () => {
     const newErrors = {};
-
     for (const field in formData) {
       if (
         formData[field] === "" &&
@@ -51,7 +44,6 @@ const FormComponent = ({ page, onSubmit }) => {
         newErrors[field] = `${field} is required`;
       }
     }
-
     if (
       formData.password &&
       formData.confirmPassword &&
@@ -59,7 +51,6 @@ const FormComponent = ({ page, onSubmit }) => {
     ) {
       newErrors.confirmPassword = "Passwords do not match";
     }
-
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
@@ -78,6 +69,27 @@ const FormComponent = ({ page, onSubmit }) => {
       if (validateLoginForm()) onSubmit(formData);
     } else if (validateForm()) {
       onSubmit(formData);
+    }
+  };
+
+  const isFormValidForRegister = () => {
+    return (
+      formData.fullName &&
+      formData.email &&
+      formData.password &&
+      formData.confirmPassword &&
+      formData.password === formData.confirmPassword &&
+      !errors.confirmPassword
+    );
+  };
+
+  const isFormValidForLogin = () => {
+    return formData.email && formData.password && !errors.password;
+  };
+
+  const preventNavigation = (e, isFormValid) => {
+    if (!isFormValid) {
+      e.preventDefault();
     }
   };
 
@@ -109,18 +121,11 @@ const FormComponent = ({ page, onSubmit }) => {
               </Link>
             </div>
             <Link
-              to="/login"
+              to="/"
               className={`create-account-btn ${
-                !formData.fullName ||
-                !formData.email ||
-                !formData.password ||
-                !formData.confirmPassword ||
-                errors.confirmPassword ||
-                (formData.password &&
-                  formData.password !== formData.confirmPassword)
-                  ? "disabled"
-                  : ""
+                !isFormValidForRegister() ? "disabled" : ""
               }`}
+              onClick={(e) => preventNavigation(e, isFormValidForRegister())}
             >
               Create Account
             </Link>
@@ -147,9 +152,8 @@ const FormComponent = ({ page, onSubmit }) => {
             </div>
             <Link
               to="/"
-              className={`create-account-btn ${
-                !formData.email || !formData.password ? "disabled" : ""
-              }`}
+              className={`lgn-btn ${!isFormValidForLogin() ? "disabled" : ""}`}
+              onClick={(e) => preventNavigation(e, isFormValidForLogin())}
             >
               Log In
             </Link>
@@ -176,7 +180,10 @@ const FormComponent = ({ page, onSubmit }) => {
               handleChange={handleChange}
               errors={errors}
             />
-            <Link to="/billing/additional" className="billing-btn">
+            <Link
+              to="/billing/additional"
+              className=" billing-btn"
+            >
               Additional Information
             </Link>
           </>
