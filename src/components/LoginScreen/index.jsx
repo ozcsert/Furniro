@@ -2,13 +2,33 @@
 import "./style.scss"
 import Github from "../../assets/images/GitHub.png"
 import Google from "../../assets/images/Google.png"
-
-
-
+import { useState, useEffect } from 'react';
 
 
 
 const LoginScreen = ({ type = "login" }) => {
+
+    const [email, setEmail] = useState('');
+    const [emailList, setEmailList] = useState([]);
+
+    useEffect(() => {
+        const savedEmails = JSON.parse(localStorage.getItem('emailList'));
+        if (savedEmails) {
+            setEmailList(savedEmails);
+        }
+    }, []);
+
+    const saveEmailsToLocalStorage = (emails) => {
+        localStorage.setItem('emailList', JSON.stringify(emails));
+    };
+    const addEmail = () => {
+        if (email && !emailList.includes(email)) {
+            const updatedList = [...emailList, email];
+            setEmailList(updatedList);
+            saveEmailsToLocalStorage(updatedList);
+            setEmail('');
+        }
+    };
 
 
     return (
@@ -25,7 +45,7 @@ const LoginScreen = ({ type = "login" }) => {
                         )
                     }
                     <h3 className="login-form-main-input-title">Email adress</h3>
-                    <input className="login-form-main-input" name="email" placeholder="Please enter your email" />
+                    <input className="login-form-main-input" type="email" value={email} onChange={(e) => setEmail(e.target.value)} name="email" placeholder="Please enter your email" />
                     <h3 className="login-form-main-input-title">Password</h3>
                     <input className="login-form-main-input" name="password" placeholder="Please enter your password" />
                 </div>
@@ -50,7 +70,7 @@ const LoginScreen = ({ type = "login" }) => {
                         </div>
                     ) : (
                         <div className="sing-in-main-btn-div">
-                            <button className="sing-in-main-btn">Create Account</button>
+                            <button className="sing-in-main-btn" onClick={addEmail}>Create Account</button>
                         </div>
                     )
                 }
