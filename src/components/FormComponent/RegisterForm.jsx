@@ -45,7 +45,10 @@ const RegisterForm = ({ formData, handleChange, errors }) => (
       onChange={handleChange}
       placeholder="Confirm Password"
       required
-      error={errors.confirmPassword || (errors.password && !formData.password === formData.confirmPassword && "Passwords do not match")}
+      error={
+        errors.confirmPassword || 
+        (formData.password !== formData.confirmPassword && "Passwords do not match")
+      }
     />
   </div>
 );

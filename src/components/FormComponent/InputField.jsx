@@ -8,12 +8,18 @@ const InputField = ({
   onChange,
   placeholder,
   options,
+  error,
 }) => {
   if (type === "select") {
     return (
       <div className="form-group">
         <label htmlFor={id}>{label}</label>
-        <select id={id} value={value} onChange={onChange} className="input-field">
+        <select
+          id={id}
+          value={value}
+          onChange={(e) => onChange({ id, value: e.target.value })}
+          className="input-field"
+        >
           <option value="" disabled>
             {placeholder}
           </option>
@@ -24,6 +30,7 @@ const InputField = ({
               </option>
             ))}
         </select>
+        {error && <div className="error-text">{error}</div>}
       </div>
     );
   }
@@ -35,10 +42,11 @@ const InputField = ({
         id={id}
         type={type}
         value={value}
-        onChange={onChange}
+        onChange={(e) => onChange({ id, value: e.target.value })}
         placeholder={placeholder}
         className="input-field"
       />
+      {error && <div className="error-text">{error}</div>}
     </div>
   );
 };
@@ -51,6 +59,7 @@ InputField.propTypes = {
   onChange: PropTypes.func.isRequired,
   placeholder: PropTypes.string.isRequired,
   options: PropTypes.array,
+  error: PropTypes.string,
 };
 
 export default InputField;

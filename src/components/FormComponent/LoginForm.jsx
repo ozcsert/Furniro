@@ -12,7 +12,7 @@ const LoginForm = ({ formData, handleChange, errors }) => (
       onChange={handleChange}
       placeholder="Enter your email"
       required
-      error={errors.email}  
+      error={errors.email}
     />
     <InputField
       id="password"
@@ -23,7 +23,7 @@ const LoginForm = ({ formData, handleChange, errors }) => (
       onChange={handleChange}
       placeholder="Enter your password"
       required
-      error={errors.password} 
+      error={errors.password}
     />
   </>
 );
@@ -34,7 +34,7 @@ LoginForm.propTypes = {
     password: PropTypes.string.isRequired,
   }).isRequired,
   handleChange: PropTypes.func.isRequired,
-  errors: PropTypes.object.isRequired, 
+  errors: PropTypes.object.isRequired,
 };
 
 export default LoginForm;
