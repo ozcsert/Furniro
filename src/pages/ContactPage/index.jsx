@@ -4,8 +4,8 @@ import HeaderBanner from "../../components/HeaderBanner";
 const ContactPage = () => {
   return (
     <>
-       <FormHandler page="register" />
-      <HeaderBanner/>
+     <HeaderBanner/>
+       <FormHandler page="contact" />
     </>
   )
 
