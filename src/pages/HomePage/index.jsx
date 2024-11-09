@@ -1,7 +1,11 @@
+import bedroom from "../../../src/assets/Rectangle26.png"
+
+import ExploreCard from "../../components/ExpoloreCardComponent/index"
+
 const HomePage = () => {
   return (
     <>
-      <p> Home </p>
+     <ExploreCard image={bedroom} roomType="02" description="bedroom" title="Rectangle"  />
     </>
   )
 }
