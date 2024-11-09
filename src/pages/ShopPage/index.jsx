@@ -1,7 +1,9 @@
+import HeaderBanner from "../../components/HeaderBanner";
+
 const ShopPage = () => {
   return (
     <>
-      <p> Shop </p>
+      <HeaderBanner/>
     </>
   )
 
