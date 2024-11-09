@@ -1,0 +1,17 @@
+@import "../../styles/styles.scss";
+
+.ourProducts-section-container {
+  display: flex;
+  max-width: 1240px;
+  width: 90%;
+  margin: 0 auto;
+  padding: 10px;
+  justify-content: space-between;
+
+  .ourProducts__filter-side {
+    width: 24%;
+    max-width: 290px;
+    display: flex;
+    flex-direction: column;
+  }
+}
