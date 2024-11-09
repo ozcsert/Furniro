@@ -7,9 +7,7 @@ const ContactPage = () => {
     <>
       <HeaderBanner/>
       <ContactPageComponent />
-      <div style={{ marginBottom: "80px" }}>
-        <FeatureCard />
-      </div>
+      <FeatureCard />
     </>
   )
 
