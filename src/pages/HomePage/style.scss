@@ -20,7 +20,7 @@
   .content-wrapper {
     display: flex;
     width: 100%;
-    max-width: 1240px; 
+    max-width: 1240px;
     gap: 50px;
     flex-direction: row;
     justify-content: center;
@@ -30,8 +30,8 @@
       max-width: 900px;
       display: flex;
       flex-direction: column;
-      align-items: center; 
-      
+      align-items: center;
+
       .test {
         width: 290px;
         height: 304px;
@@ -40,7 +40,7 @@
         border-radius: 10px 0 0 0;
         border-top: 1px solid transparent;
         opacity: 0;
-        margin-bottom: 193px; 
+        margin-bottom: 193px;
       }
 
       .best-sellers {
@@ -57,19 +57,20 @@
       flex: 1;
       max-width: 900px;
       height: auto;
-      display: flex; 
-      justify-content: center; 
+      display: flex;
+      justify-content: center;
       align-items: center;
     }
   }
 
-  @media screen and (max-width: 1024px) {
+  @media screen and (max-width: 1280px)   {
     .card-left {
-      max-width: 100%;
+      display: none;
     }
 
     .card-right {
       max-width: 100%;
+      margin-right: 300px;
     }
   }
 
@@ -83,6 +84,8 @@
 
       .card-right {
         max-width: 100%;
+        margin-right: auto;
+        margin-left: auto;
       }
     }
   }
