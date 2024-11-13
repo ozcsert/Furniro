@@ -12,6 +12,8 @@
   "dependencies": {
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
+    "react-modal": "^3.16.1",
+    "react-router-dom": "^6.27.0",
     "sass": "^1.79.2",
     "sass-embedded": "^1.78.0",
     "swr": "^2.2.5"
