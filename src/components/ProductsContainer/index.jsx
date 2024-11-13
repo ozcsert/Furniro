@@ -17,7 +17,6 @@ const ProductsContainer = () => {
     `https://672b2ff4976a834dd025f8f2.mockapi.io/api/furniture/furnitures`,
     fetcher
   )
-  console.log(products)
 
   if (isLoading) return <p>Loading...</p>
   if (error) return <p>{error.message}</p>

@@ -7,9 +7,30 @@
   margin: 0 auto;
   padding: 10px;
   justify-content: space-between;
-
+  gap: clamp(12px, 4vw, 30px);
+  position: relative;
+  .hide-sidebar {
+    position: absolute;
+    cursor: pointer;
+    background-color: $clr-cream;
+    border-radius: 20px;
+    width: 30px;
+    z-index: 1;
+    height: 30px;
+    top: 0;
+    left: 0;
+    img {
+      width: 100%;
+      height: 100%;
+    }
+    :hover {
+      scale: 120%;
+      background-color: rgb(226, 206, 132);
+      border-radius: 20px;
+    }
+  }
   .ourProducts__filter-side {
-    width: 24%;
+    width: clamp(200px, 24%, 24%);
     max-width: 290px;
     display: flex;
     flex-direction: column;

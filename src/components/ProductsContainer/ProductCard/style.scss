@@ -6,7 +6,8 @@ $product-hover-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 $product-info-color: #a3a3a3;
 
 .product-card {
-  width: 190px;
+  flex: 1 1 23%;
+  min-width: 170px;
   height: 312px;
   border: $product-card-border;
   border-radius: $product-card-radius;
@@ -111,23 +112,6 @@ $product-info-color: #a3a3a3;
       color: $product-info-color;
       text-decoration: line-through;
       margin-left: 5px;
-    }
-  }
-}
-@media screen and (max-width: 1024px) {
-  .product-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-
-  .product-card {
-    width: 200px;
-    height: auto;
-
-    .product-image {
-      width: 100%;
-      height: auto;
-      max-height: 180px;
-      object-fit: cover;
     }
   }
 }
