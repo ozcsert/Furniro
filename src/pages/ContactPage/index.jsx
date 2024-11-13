@@ -1,16 +1,15 @@
 import HeaderBanner from "../../components/HeaderBanner";
 import ContactPageComponent from "../../components/ContactPageComponent";
-import FeatureCard from "../../components/FeatureCard";
+import FeaturesSection from "../../components/FeaturesSection/index";
 
 const ContactPage = () => {
   return (
     <>
-      <HeaderBanner/>
+      <HeaderBanner />
       <ContactPageComponent />
-      <FeatureCard />
+      <FeaturesSection />
     </>
-  )
-
-}
+  );
+};
 
 export default ContactPage;
