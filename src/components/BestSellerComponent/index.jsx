@@ -1,22 +1,34 @@
-import  { useState, useEffect } from "react";
-import StarRating from "../StarRating/StarRating.jsx";
-import "./style.scss";
-import { Link } from "react-router-dom";
+import { useState, useEffect } from "react"
+import StarRating from "../StarRating/StarRating.jsx"
+import "./style.scss"
+import { Link } from "react-router-dom"
+import useSWR from "swr"
+
+async function fetcher(url) {
+  const response = await fetch(url)
+  if (!response.ok) throw new Error("Product not found")
+  return response.json()
+}
 
 const BestSellers = () => {
-  const [products, setProducts] = useState([]);
+  const [products, setProducts] = useState([])
+
+  const { data, error, isLoading } = useSWR(
+    `https://672b2ff4976a834dd025f8f2.mockapi.io/api/furniture/furnitures`,
+    fetcher
+  )
 
   useEffect(() => {
-    fetch("../../../src/data/sample.json")
-      .then((response) => response.json())
-      .then((data) => {
-        const filteredProducts = data.filter(
-          (product) => product.id >= 13 && product.id <= 16
-        );
-        setProducts(filteredProducts);
-      })
-      .catch((error) => console.error("Error fetching products:", error));
-  }, []);
+    if (data) {
+      const filteredProducts = data.filter(
+        (product) => product.id >= 13 && product.id <= 16
+      )
+      setProducts(filteredProducts)
+    }
+  }, [data])
+
+  if (isLoading) return <p>Loading...</p>
+  if (error) return <p>{error.message}</p>
 
   return (
     <div className="best-seller">
@@ -26,7 +38,7 @@ const BestSellers = () => {
           <Link to={`/product/${product.id}`} key={product.id}>
             <div className="product">
               <img
-                src={product.image}
+                src={product.images[1]}
                 alt={product.name}
                 className="product-image"
               />
@@ -47,7 +59,7 @@ const BestSellers = () => {
         ))}
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default BestSellers;
+export default BestSellers
