@@ -113,5 +113,42 @@
     "image": "src/assets/image.svg",
     "description": "Stylish cafe chair",
     "rating": 3
+  },
+  {
+    "id": 13,
+    "name": "Syltherine",
+    "price": 120,
+    "originalPrice": 150,
+    "discount": 10,
+    "image": "src/assets/image.svg",
+    "rating": 3
+  },
+  {
+    "id": 14,
+    "name": "Syltherine",
+    "price": 120,
+    "originalPrice": 150,
+    "discount": 10,
+    "image": "src/assets/images/image-1.svg",
+    "rating": 3
+  },
+  {
+    "id": 15,
+    "name": "Syltherine",
+    "price": 120,
+    "originalPrice": 150,
+    "discount": 10,
+    "image": "src/assets/images/image-2.svg",
+
+    "rating": 3
+  },
+  {
+    "id": 16,
+    "name": "Syltherine",
+    "price": 120,
+    "originalPrice": 150,
+    "discount": 10,
+    "image": "src/assets/images/image-3.svg",
+    "rating": 3
   }
 ]

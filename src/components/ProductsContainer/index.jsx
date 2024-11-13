@@ -1,26 +1,8 @@
 import "./style.scss"
 import ProductCard from "./ProductCard/index.jsx"
-import useSWR from "swr"
+import PropTypes from "prop-types"
 
-async function fetcher(url) {
-  const response = await fetch(url)
-  if (!response.ok) throw new Error("Product not found")
-  return response.json()
-}
-
-const ProductsContainer = () => {
-  const {
-    data: products,
-    error,
-    isLoading,
-  } = useSWR(
-    `https://672b2ff4976a834dd025f8f2.mockapi.io/api/furniture/furnitures`,
-    fetcher
-  )
-
-  if (isLoading) return <p>Loading...</p>
-  if (error) return <p>{error.message}</p>
-
+const ProductsContainer = ({ products }) => {
   return (
     <div className="product-container">
       <div className="product-grid">
@@ -30,6 +12,19 @@ const ProductsContainer = () => {
       </div>
     </div>
   )
+}
+
+ProductsContainer.propTypes = {
+  products: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      image: PropTypes.string.isRequired,
+      name: PropTypes.string.isRequired,
+      rating: PropTypes.number.isRequired,
+      originalPrice: PropTypes.number.isRequired,
+      price: PropTypes.number.isRequired,
+    })
+  ).isRequired,
 }
 
 export default ProductsContainer
