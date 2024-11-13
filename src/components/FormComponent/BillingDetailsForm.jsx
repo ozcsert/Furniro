@@ -1,3 +1,4 @@
+// BillingDetailsForm.js
 import { useState } from "react";
 import PropTypes from "prop-types";
 import InputField from "./InputField";
@@ -9,26 +10,17 @@ const BillingDetailsForm = ({ formData, handleChange }) => {
     "Spain",
     "Italy",
     "Germany",
+    "Turkey",
   ]);
   const [provinceOptions, setProvinceOptions] = useState([]);
 
-  const handleCountryChange = (e) => {
-    const selectedCountry = e.target.value;
-    
-    console.log(e.target); 
-    handleChange({ id: "country", value: selectedCountry });
-
+  const handleCountryChange = (id, selectedCountry) => {
+    handleChange(id, selectedCountry); 
     switch (selectedCountry) {
       case "United States":
         setProvinceOptions(["California", "Texas", "Florida", "New York"]);
         break;
       case "Canada":
-        setProvinceOptions([
-          "Ontario",
-          "Quebec",
-          "British Columbia",
-          "Alberta",
-        ]);
         setProvinceOptions(["Ontario", "Quebec", "British Columbia", "Alberta"]);
         break;
       case "Spain":
@@ -56,7 +48,7 @@ const BillingDetailsForm = ({ formData, handleChange }) => {
           label="First Name"
           type="text"
           value={formData.firstName || ""}
-          onChange={(e) => handleChange({ id: "firstName", value: e.target.value })}
+          onChange={handleChange}
           placeholder="Enter your first name"
         />
         <InputField
@@ -64,7 +56,7 @@ const BillingDetailsForm = ({ formData, handleChange }) => {
           label="Last Name"
           type="text"
           value={formData.lastName || ""}
-          onChange={(e) => handleChange({ id: "lastName", value: e.target.value })}
+          onChange={handleChange}
           placeholder="Enter your last name"
         />
       </div>
@@ -74,7 +66,7 @@ const BillingDetailsForm = ({ formData, handleChange }) => {
         label="Country/Region"
         type="select"
         value={formData.country || ""}
-        onChange={handleCountryChange}
+        onChange={(id, value) => handleCountryChange(id, value)}
         placeholder="Select your country"
         options={countryOptions}
       />
@@ -84,59 +76,48 @@ const BillingDetailsForm = ({ formData, handleChange }) => {
         label="Street Address"
         type="text"
         value={formData.streetAddress || ""}
-        onChange={(e) => handleChange({ id: "streetAddress", value: e.target.value })}
+        onChange={handleChange}
         placeholder="Enter your street address"
       />
-
       <InputField
         id="city"
         label="Town/City"
         type="text"
         value={formData.city || ""}
-        onChange={(e) => handleChange({ id: "city", value: e.target.value })}
+        onChange={handleChange}
         placeholder="Enter your town or city"
       />
-
       <InputField
         id="province"
         label="Province"
         type="select"
         value={formData.province || ""}
-        onChange={(e) => handleChange({ id: "province", value: e.target.value })}
+        onChange={handleChange}
         placeholder="Select your province"
         options={provinceOptions}
       />
-
-      {provinceOptions.length === 0 && formData.country && (
-        <p className="no-province-message">
-          Please select a country to see provinces.
-        </p>
-      )}
-
       <InputField
         id="zipCode"
         label="ZIP Code"
         type="text"
         value={formData.zipCode || ""}
-        onChange={(e) => handleChange({ id: "zipCode", value: e.target.value })}
+        onChange={handleChange}
         placeholder="Enter your ZIP code"
       />
-
       <InputField
         id="phone"
         label="Phone"
         type="text"
         value={formData.phone || ""}
-        onChange={(e) => handleChange({ id: "phone", value: e.target.value })}
+        onChange={handleChange}
         placeholder="Enter your phone number"
       />
-
       <InputField
         id="email"
         label="Email Address"
         type="email"
         value={formData.email || ""}
-        onChange={(e) => handleChange({ id: "email", value: e.target.value })}
+        onChange={handleChange}
         placeholder="Enter your email address"
       />
     </div>

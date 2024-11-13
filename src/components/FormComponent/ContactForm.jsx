@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 import React from "react";
-import PropTypes from "prop-types"; 
+import PropTypes from "prop-types";
 import InputField from "./InputField";
 
 const ContactForm = ({ formData, handleChange }) => (
@@ -27,8 +27,8 @@ const ContactForm = ({ formData, handleChange }) => (
         id="subject"
         className="input-about"
         placeholder="Hi! I’d like to ask about..."
-        value={formData.subject}
-        onChange={handleChange}
+        value={formData.subject || ""}
+        onChange={(e) => handleChange({ id: "subject", value: e.target.value })}
         name="subject"
       />
     </div>

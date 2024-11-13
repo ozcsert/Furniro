@@ -12,24 +12,22 @@ import BillingDetailsForm from "./BillingDetailsForm";
 
 const FormComponent = ({ page, onSubmit }) => {
   const [formData, setFormData] = useState({
-    fullName: "",
-    email: "",
-    password: "",
-    confirmPassword: "",
-    subject: "",
-    name: "",
-    city: "",
-    postalCode: "",
+    firstName: "",
+    lastName: "",
     country: "",
+    streetAddress: "",
+    city: "",
     province: "",
-    expirationDate: "",
+    zipCode: "",
+    phone: "",
+    email: "",
   });
 
   const [errors, setErrors] = useState({});
 
-  const handleChange = ({ id, value }) => {
-    setFormData((prevData) => ({
-      ...prevData,
+  const handleChange = (id, value) => {
+    setFormData((prevState) => ({
+      ...prevState,
       [id]: value,
     }));
   };
@@ -180,10 +178,7 @@ const FormComponent = ({ page, onSubmit }) => {
               handleChange={handleChange}
               errors={errors}
             />
-            <Link
-              to="/billing/additional"
-              className=" billing-btn"
-            >
+            <Link to="#" className=" billing-btn">
               Additional Information
             </Link>
           </>

@@ -10,15 +10,21 @@ const InputField = ({
   options,
   error,
 }) => {
-  if (type === "select") {
-    return (
-      <div className="form-group">
-        <label htmlFor={id}>{label}</label>
+  const handleChange = (e) => {
+    const { value } = e.target;
+    onChange(id, value); 
+  };
+
+  return (
+    <div className="form-group">
+      <label htmlFor={id}>{label}</label>
+      {type === "select" ? (
         <select
           id={id}
-          value={value}
-          onChange={(e) => onChange({ id, value: e.target.value })}
+          value={value || ""}
+          onChange={handleChange}
           className="input-field"
+          autoComplete="off"
         >
           <option value="" disabled>
             {placeholder}
@@ -30,22 +36,17 @@ const InputField = ({
               </option>
             ))}
         </select>
-        {error && <div className="error-text">{error}</div>}
-      </div>
-    );
-  }
-
-  return (
-    <div className="form-group">
-      <label htmlFor={id}>{label}</label>
-      <input
-        id={id}
-        type={type}
-        value={value}
-        onChange={(e) => onChange({ id, value: e.target.value })}
-        placeholder={placeholder}
-        className="input-field"
-      />
+      ) : (
+        <input
+          id={id}
+          type={type}
+          value={value || ""}
+          onChange={handleChange}
+          placeholder={placeholder}
+          className="input-field"
+          autoComplete="off"
+        />
+      )}
       {error && <div className="error-text">{error}</div>}
     </div>
   );
@@ -57,7 +58,7 @@ InputField.propTypes = {
   type: PropTypes.string.isRequired,
   value: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
-  placeholder: PropTypes.string.isRequired,
+  placeholder: PropTypes.string,
   options: PropTypes.array,
   error: PropTypes.string,
 };
