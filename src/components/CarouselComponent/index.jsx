@@ -22,11 +22,13 @@ const CarouselComponent = () => {
   };
   return (
     <div className="container">
-      <div className="test-div">
-        <h5>
-          Test DivTest DivTest DivTest DivTest DivTest DivTest DivTest DivTest
-          DivTest DivTes
-        </h5>
+      <div className="content-box">
+        <h5>50+ Beautiful rooms inspiration</h5>
+        <p>
+          Our designer already made a lot of beautiful prototipe of rooms that
+          inspire you
+        </p>
+        <button className="content-btn">Explore More</button>
       </div>
       <div className="carousel-container">
         <Slider className="carousel" {...settings}>
