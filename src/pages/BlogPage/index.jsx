@@ -1,11 +1,16 @@
+import HeaderBanner from "../../components/HeaderBanner";
 import RecentPostsFunctionality from '../../components/RecentPostsFunctionality'
-const BlogPage = () => {
-  return(
-    <>
-      <p> Blog </p>
-      <RecentPostsFunctionality />
-    </>
-  )
-}
+import FeaturesSection from "../../components/FeaturesSection/index";
 
-export default BlogPage
+const BlogPage = () => {
+  return (
+    <>
+      <HeaderBanner />
+      <RecentPostsFunctionality />
+      <FeaturesSection />
+      
+    </>
+  );
+};
+
+export default BlogPage;

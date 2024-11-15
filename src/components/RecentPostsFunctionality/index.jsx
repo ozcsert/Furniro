@@ -1,4 +1,4 @@
-import "../RecentPostsFunctionality/style.scss";
+import "../RecentPostsFunctionality/style.scss"
 import useSWR from "swr"
 
 
@@ -29,10 +29,10 @@ const RecentPostsFunctionality = () => {
                             <p className="recent-post-info-right-text">{e.text}</p>
                             <p className="recent-post-info-right-calender">{e.date}</p>
                         </div>
-                    </div>)
-                )}
+                    </div>
+                ))}
             </div>
         </div>
-    );
+    )
 }
 export default RecentPostsFunctionality

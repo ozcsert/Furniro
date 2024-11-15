@@ -1,62 +1,62 @@
 .recent-post-main {
-    width: 100%;
-    max-width: 393px;
+  width: 100%;
+  max-width: 393px;
+  margin: 30px 0px;
 
-    .recent-post-include {
-        max-width: 269px;
-        margin: 16px auto;
-        padding: 10px;
 
-        .recent-post-text {
-            font-size: 24px;
-            font-weight: 500;
-            font-family: "Poppins", system-ui;
-            padding: 5px 0px;
-            color: #3A3A3A;
-        }
-
-        .recent-post-info {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            margin-top: 24px;
-            max-width: 259px;
-
-            .recent-post-info-right {
-
-                .recent-post-info-right-text {
-                    font-family: "Poppins", system-ui;
-                    font-size: 14px;
-                    font-weight: 400;
-                    color: #3A3A3A;
-                    padding: 8px 0px;
-                }
-
-                .recent-post-info-right-calender {
-                    font-family: "Poppins", system-ui;
-                    font-size: 12px;
-                    font-weight: 400;
-                    color: #ACACAC;
-                    padding: 3px 0px;
-                }
-            }
-        }
-    }
-}
-
-@media (max-width:600px) {
-    .recent-post-info-img {
-        width: 60px;
-        height: 60px;
+  .recent-post-include {
+    max-width: 269px;
+    // margin: 16px auto;
+    // padding: 10px;
+    .recent-post-text {
+      font-size: 24px;
+      font-weight: 500;
+      font-family: "Poppins", system-ui;
+      padding: 5px 0px;
+      color: #3a3a3a;
     }
 
-    .recent-post-info-right {
+    .recent-post-info {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-top: 24px;
+      max-width: 259px;
+
+      .recent-post-info-right {
         .recent-post-info-right-text {
-            font-size: 12px;
+          font-family: "Poppins", system-ui;
+          font-size: 14px;
+          font-weight: 400;
+          color: #3a3a3a;
+          padding: 8px 0px;
         }
 
         .recent-post-info-right-calender {
-            font-size: 10px;
+          font-family: "Poppins", system-ui;
+          font-size: 12px;
+          font-weight: 400;
+          color: #acacac;
+          padding: 3px 0px;
         }
+      }
     }
+  }
+}
+
+@media (max-width: 600px) {
+  .recent-post-info-img {
+    width: 60px;
+    height: 60px;
+  }
+
+  .recent-post-info-right {
+    .recent-post-info-right-text {
+      font-size: 12px;
+    }
+
+    .recent-post-info-right-calender {
+      font-size: 10px;
+    }
+  }
 }
