@@ -139,4 +139,5 @@ export const Tab = ({ id }) => {
 
 Tab.propTypes = {
   product: PropTypes.object,
+  id: PropTypes.number,
 }
