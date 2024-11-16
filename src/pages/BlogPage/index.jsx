@@ -1,9 +1,14 @@
-const BlogPage = () => {
-  return(
-    <>
-      <p> Blog </p>
-    </>
-  )
-}
+import HeaderBanner from "../../components/HeaderBanner";
 
-export default BlogPage
+import FeaturesSection from "../../components/FeaturesSection/index";
+
+const BlogPage = () => {
+  return (
+    <>
+      <HeaderBanner />
+      <FeaturesSection />
+    </>
+  );
+};
+
+export default BlogPage;

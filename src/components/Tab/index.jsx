@@ -1,11 +1,28 @@
 import "./style.scss"
 import PropTypes from "prop-types"
-import AsgardSofa from "../../assets/Product/extras/Asgaard-Sofa1.svg"
-import AsgardSofaL from "../../assets/Product/extras/Asgaard-SofaL.svg"
 import { useState } from "react"
+import useSWR from "swr"
 
-export const Tab = ({ product }) => {
+async function fetcher(url) {
+  const response = await fetch(url)
+  if (!response.ok) throw new Error("Product not found")
+  return response.json()
+}
+
+export const Tab = ({ id }) => {
   const [selectedTab, setSelectedTab] = useState("Description")
+
+  const {
+    data: product,
+    error,
+    isLoading,
+  } = useSWR(
+    `https://672b2ff4976a834dd025f8f2.mockapi.io/api/furniture/furnitures/${id}`,
+    fetcher
+  )
+
+  if (isLoading) return <p>Loading...</p>
+  if (error) return <p>{error.message}</p>
 
   const renderTabContent = () => {
     switch (selectedTab) {
@@ -109,10 +126,10 @@ export const Tab = ({ product }) => {
         {renderTabContent()}
         <div className="tab__images">
           <div className="img__wrapper">
-            <img src={AsgardSofa} alt="awd" />
+            <img src={product.extras.extraImages[0]} alt="awd" />
           </div>
           <div className="img__wrapper">
-            <img src={AsgardSofaL} alt="awd" />
+            <img src={product.extras.extraImages[1]} alt="awd" />
           </div>
         </div>
       </div>
@@ -122,4 +139,5 @@ export const Tab = ({ product }) => {
 
 Tab.propTypes = {
   product: PropTypes.object,
+  id: PropTypes.number,
 }
