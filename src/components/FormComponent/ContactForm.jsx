@@ -28,7 +28,7 @@ const ContactForm = ({ formData, handleChange }) => (
         className="input-about"
         placeholder="Hi! I’d like to ask about..."
         value={formData.subject || ""}
-        onChange={(e) => handleChange({ id: "subject", value: e.target.value })}
+        onChange={(e) => handleChange("subject", e.target.value)} 
         name="subject"
       />
     </div>
