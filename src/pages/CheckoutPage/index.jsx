@@ -1,10 +1,14 @@
+import HeaderBanner from "../../components/HeaderBanner";
+
+import FeaturesSection from "../../components/FeaturesSection/index";
+
 const CheckoutPage = () => {
   return (
     <>
-      <p> Checkout </p>
+      <HeaderBanner />
+      <FeaturesSection />
     </>
-  )
-
-}
+  );
+};
 
 export default CheckoutPage;
