@@ -27,7 +27,7 @@ const CartPageDesignChild = () => {
 
     const deleteProduct = (id) => {
         setProducts(products.filter(product => product.id !== id));
-        localStorage.setItem("cart",JSON.stringify(products));
+        localStorage.setItem("cart", JSON.stringify(products));
     };
     const handleDetail = (productId) => {
         navigate(`/product/${productId}`)
@@ -42,18 +42,17 @@ const CartPageDesignChild = () => {
                             handleDetail(product.id)
                         }} src={product.images[0]} alt="productimg" width={105} height={105} />
                         <div className='cart-page-design-section-info'>
-                            <Link to="/#" className='cart-page-design-section-info'>
+                            <Link to={`/product/${product.id}`} className='cart-page-design-section-info'>
                                 <p className='cart-page-design-section-name'>{product.name}</p>
                                 <p className='cart-page-design-section-price'>${product.price}</p>
                             </Link>
-                            <img onClick={() => deleteProduct(product.id)} src={icondust} alt="" width={28} height={28} />
+                            <img className='delete-btn' onClick={() => deleteProduct(product.id)} src={icondust} alt="" width={28} height={28} />
                         </div>
-                    </li>
+                    </li >
                 </>
-
-            ))}
-
-        </ul>
+            ))
+            }
+        </ul >
     )
 
 
