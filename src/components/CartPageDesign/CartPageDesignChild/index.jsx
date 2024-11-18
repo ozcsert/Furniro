@@ -26,33 +26,47 @@ const CartPageDesignChild = () => {
     console.log(products);
 
     const deleteProduct = (id) => {
-        setProducts(products.filter(product => product.id !== id));
-        localStorage.setItem("cart", JSON.stringify(products));
+        const updatedProducts = products.filter(product => product.id !== id);
+        setProducts(updatedProducts);
+
+        if (updatedProducts.length === 0) {
+            localStorage.removeItem("cart");
+        } else {
+            localStorage.setItem("cart", JSON.stringify(updatedProducts));
+        }
     };
+
     const handleDetail = (productId) => {
         navigate(`/product/${productId}`)
     }
 
     return (
-        <ul className='cart-page-design-container'>
-            {products.map((product) => (
-                <>
-                    <li className='cart-page-design-section'>
-                        <img className='cart-page-design-section-img' onClick={() => {
-                            handleDetail(product.id)
-                        }} src={product.images[0]} alt="productimg" width={105} height={105} />
-                        <div className='cart-page-design-section-info'>
-                            <Link to={`/product/${product.id}`} className='cart-page-design-section-info'>
-                                <p className='cart-page-design-section-name'>{product.name}</p>
-                                <p className='cart-page-design-section-price'>${product.price}</p>
-                            </Link>
-                            <img className='delete-btn' onClick={() => deleteProduct(product.id)} src={icondust} alt="" width={28} height={28} />
-                        </div>
-                    </li >
-                </>
-            ))
-            }
-        </ul >
+        <>
+            {products.length === 0 ? (
+                <p className='non-product-text'>Ürün bulunamadı.</p>
+            ) : (
+                <ul className='cart-page-design-container'>
+                    {products.map((product) => (
+                        <>
+                            <li className='cart-page-design-section'>
+                                <img className='cart-page-design-section-img' onClick={() => {
+                                    handleDetail(product.id)
+                                }} src={product.images[0]} alt="productimg" width={105} height={105} />
+                                <div className='cart-page-design-section-info'>
+                                    <Link to={`/product/${product.id}`} className='cart-page-design-section-info'>
+                                        <p className='cart-page-design-section-name'>{product.name}</p>
+                                        <p className='cart-page-design-section-price'>${product.price}</p>
+                                    </Link>
+                                    <img className='delete-btn' onClick={() => deleteProduct(product.id)} src={icondust} alt="" width={28} height={28} />
+                                </div>
+                            </li >
+                        </>
+                    ))
+                    }
+                </ul >
+            )}
+        </>
+
     )
 
 
