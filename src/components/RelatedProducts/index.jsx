@@ -15,14 +15,13 @@ function RelatedProducts() {
       .then((data) => setFurnitures(data));
   }, []);
 
- const handleShowMore=()=>{
-  if(limit < furnitures.length){
-    setLimit(furnitures.length);
-  }else
-  {
-setLimit(5);
-  }
- }
+  const handleShowMore = () => {
+    if (limit < furnitures.length) {
+      setLimit(furnitures.length);
+    } else {
+      setLimit(5);
+    }
+  };
 
   return (
     <div className="RelatedProductsCardContent">
@@ -33,21 +32,18 @@ setLimit(5);
         ))}
       </div>
       <Button
-       
-       btnName = "Show More"
-       width = "clamp(100px, 51.45px + 13.81vw, 245px)"
-       height = "clamp(30px, 24px + 1.714vw, 48px)"
-       backgroundColor = "#FFFFFF"
-       fontSize = "clamp(10px, 1.5vw, 16px)"
-       borderColor = "#b88e2f"
-       textColor = "#b88e2f"
-       responsiveStyles = {{}}
-       onClickCallback={handleShowMore}
-       />
+        btnName="Show More"
+        width="clamp(100px, 51.45px + 13.81vw, 245px)"
+        height="clamp(30px, 24px + 1.714vw, 48px)"
+        backgroundColor="#FFFFFF"
+        fontSize="clamp(10px, 1.5vw, 16px)"
+        borderColor="#b88e2f"
+        textColor="#b88e2f"
+        responsiveStyles={{}}
+        onClickCallback={handleShowMore}
+      />
     </div>
   );
 }
 
 export default RelatedProducts;
-
-
