@@ -1,14 +1,13 @@
-import "./style.scss";
-import React from "react";
-import { useState } from "react";
-import Modal from "react-modal";
-import UserImg from "../../assets/icons/user-icon.svg";
-import SearchImg from "../../assets/icons/search-icon.svg";
-import HeartImg from "../../assets/icons/heart-icon.svg";
-import CartImg from "../../assets/icons/cart-icon.svg";
-import CloseImg from "../../assets/icons/close-icon.svg";
-import LineImg from "../../assets/images/line.svg";
-import { NavLink } from "react-router-dom";
+import "./style.scss"
+import { useState } from "react"
+import Modal from "react-modal"
+import UserImg from "../../assets/icons/user-icon.svg"
+import SearchImg from "../../assets/icons/search-icon.svg"
+import HeartImg from "../../assets/icons/heart-icon.svg"
+import CartImg from "../../assets/icons/cart-icon.svg"
+import CloseImg from "../../assets/icons/close-icon.svg"
+import { NavLink } from "react-router-dom"
+import Dropdown from "../Dropdown"
 
 const customStyles = {
   overlay: {
@@ -19,95 +18,41 @@ const customStyles = {
     left: "auto",
     right: "0",
     bottom: "auto",
-    width: "422px",
-    height: "736px",
+    width: "clamp(250px, 50vw, 422px)",
+    height: "auto",
+    minHeight: "300px",
     padding: "0",
     border: "none",
     borderRadius: "0",
     background: "#FFFFFF",
   },
-};
+}
 
-Modal.setAppElement("#root");
+Modal.setAppElement("#root")
 
 const NavbarActions = () => {
-  const [modalIsOpen, setModalIsOpen] = useState(false);
-  const [selectedContent, setSelectedContent] = useState(null);
-  const [searchBarIsOpen, setSearchBarIsOpen] = useState(false);
+  const [modalIsOpen, setModalIsOpen] = useState(false)
+  const [selectedContent, setSelectedContent] = useState(null)
+  const [searchBarIsOpen, setSearchBarIsOpen] = useState(false)
 
   const openModal = (content) => {
-    setSelectedContent(content);
-    setModalIsOpen(true);
-  };
+    setSelectedContent(content)
+    setModalIsOpen(true)
+  }
 
   const closeModal = () => {
-    setModalIsOpen(false);
-    setSelectedContent(null);
-  };
+    setModalIsOpen(false)
+    setSelectedContent(null)
+  }
 
   const searchBarHandler = () => {
-    setSearchBarIsOpen(!searchBarIsOpen);
-  };
-
-  const modalContent = {
-    Heart: (
-      <div className="modal-content">
-        <div className="modal-header">
-          <h5 className="modal-title">Favourites</h5>
-          <div className="close-img-box">
-            <img
-              className="close-img"
-              src={CloseImg}
-              alt=""
-              onClick={closeModal}
-            />
-          </div>
-        </div>
-        <div className="line-box">
-          <img className="line-img" src={LineImg} alt="" />
-        </div>
-        <div></div>
-        <div className="line-box">
-          <img className="line-img" src={LineImg} alt="" />
-        </div>
-        <div className="modal-btns">
-          <button className="modal-btn">See More</button>
-        </div>
-      </div>
-    ),
-    Cart: (
-      <div className="modal-content">
-        <div className="modal-header">
-          <h5 className="modal-title">Shopping Cart</h5>
-          <div className="close-img-box">
-            <img
-              className="close-img"
-              src={CloseImg}
-              alt=""
-              onClick={closeModal}
-            />
-          </div>
-        </div>
-        <div className="line-box">
-          <img className="line-img" src={LineImg} alt="" />
-        </div>
-        <div></div>
-        <div className="line-box">
-          <img className="line-img" src={LineImg} alt="" />
-        </div>
-        <div className="modal-btns">
-          <button className="modal-btn">Cart</button>
-          <button className="modal-btn">Checkout</button>
-          <button className="modal-btn">Comparison</button>
-        </div>
-      </div>
-    ),
-  };
+    setSearchBarIsOpen(!searchBarIsOpen)
+  }
 
   return (
     <div className="navbar-actions">
-      <NavLink className="actions-btns" to="/profile" >
-        <img src={UserImg} alt="" onClick={() => openModal("User")} />
+      <NavLink className="actions-btns" to="/profile">
+        <img src={UserImg} alt="user" />
       </NavLink>
       {!searchBarIsOpen ? (
         <img
@@ -134,7 +79,7 @@ const NavbarActions = () => {
                   placeholder="What are you looking for?"
                 />
                 <div className="search-img-box">
-                  <img src={SearchImg} alt="" />
+                  <img src={SearchImg} alt="search" />
                 </div>
               </div>
             </div>
@@ -145,7 +90,7 @@ const NavbarActions = () => {
         className="actions-btns"
         src={HeartImg}
         alt=""
-        onClick={() => openModal("Heart")}
+        onClick={() => openModal("Wishlist")}
       />
       <img
         className="actions-btns"
@@ -159,10 +104,12 @@ const NavbarActions = () => {
         onRequestClose={closeModal}
         style={customStyles}
       >
-        {selectedContent && modalContent[selectedContent]}
+        {selectedContent && (
+          <Dropdown type={selectedContent} closeModal={closeModal} />
+        )}
       </Modal>
     </div>
-  );
-};
+  )
+}
 
-export default NavbarActions;
+export default NavbarActions

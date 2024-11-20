@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import "./styles.scss";
 
 function FilterComponent() {
@@ -7,11 +7,12 @@ function FilterComponent() {
   const [furnitureData, setFurnitureData] = useState([]);
 
   useEffect(() => {
-    fetch("https://672b2ff4976a834dd025f8f2.mockapi.io/api/furniture/furnitures")
-      .then(response => response.json())
-      .then(data => setFurnitureData(data));
+    fetch(
+      "https://672b2ff4976a834dd025f8f2.mockapi.io/api/furniture/furnitures"
+    )
+      .then((response) => response.json())
+      .then((data) => setFurnitureData(data));
   }, []);
-
 
   const toggleRoom = (room) => {
     setOpenRooms((prevState) => {
@@ -26,7 +27,6 @@ function FilterComponent() {
       return newOpenRooms;
     });
   };
-  
 
   const handleCheckboxChange = (room, furnitureItem, isChecked) => {
     setSelectedFurnitureCount((prevState) => {
