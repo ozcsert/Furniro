@@ -2,52 +2,55 @@
 import StarRating from "../../StarRating/StarRating"
 import PropTypes from "prop-types"
 import "./style.scss"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import Wishlist from "../../../assets/Product/wishlist-black.svg?react"
 import Detail from "../../../assets/Product/detail-group-empty.svg?react"
 import Cart from "../../../assets/Product/cart-empty.svg?react"
 import { useNavigate } from "react-router-dom"
 
+const LOCAL_STORAGE_UPDATED = "localStorageUpdated"
+
 const ProductCard = ({ product }) => {
   const navigate = useNavigate()
   const [colors, setColors] = useState({
-    wishlist: "transparent",
-    detail: "transparent",
-    cart: "transparent",
+    Wishlist: "transparent",
+    Cart: "transparent",
   })
 
-  const handleWishlist = (product) => {
-    const wishlist = JSON.parse(localStorage.getItem("wishlist") || "[]")
-    const existingItem = wishlist.find((item) => item.id === product.id)
+  const handleStorage = (key, product) => {
+    const storageData = JSON.parse(localStorage.getItem(key) || "[]")
+    const existingItem = storageData.find((item) => item.id === product.id)
 
     if (!existingItem) {
-      wishlist.push(product)
-      localStorage.setItem("wishlist", JSON.stringify(wishlist))
-      setColors((prev) => ({ ...prev, wishlist: "red" }))
-    } else {
-      const updatedWishlist = wishlist.filter((item) => item.id !== product.id)
-      localStorage.setItem("wishlist", JSON.stringify(updatedWishlist))
-      setColors((prev) => ({ ...prev, wishlist: "transparent" }))
-    }
-  }
+      const updatedData =
+        key === "Cart"
+          ? [...storageData, { ...product, quantity: 1 }]
+          : [...storageData, product]
 
-  const handleCart = (product) => {
-    const cart = JSON.parse(localStorage.getItem("cart") || "[]")
-    const existingItem = cart.find((item) => item.id === product.id)
-
-    if (!existingItem) {
-      cart.push({ ...product, quantity: 1 })
-      localStorage.setItem("cart", JSON.stringify(cart))
-      setColors((prev) => ({ ...prev, cart: "red" }))
+      localStorage.setItem(key, JSON.stringify(updatedData))
+      setColors((prev) => ({ ...prev, [key.toLowerCase()]: "red" }))
     } else {
-      const updatedCart = cart.filter((item) => item.id !== product.id)
-      localStorage.setItem("cart", JSON.stringify(updatedCart))
-      setColors((prev) => ({ ...prev, cart: "transparent" }))
+      const updatedData = storageData.filter((item) => item.id !== product.id)
+      localStorage.setItem(key, JSON.stringify(updatedData))
+      setColors((prev) => ({ ...prev, [key.toLowerCase()]: "transparent" }))
     }
+    // Dispatch custom event
+    window.dispatchEvent(
+      new CustomEvent(LOCAL_STORAGE_UPDATED, {
+        detail: { key },
+      })
+    )
   }
 
   const handleDetail = (productId) => {
     navigate(`/product/${productId}`)
+  }
+
+  const isInStorage = (storageKey, product) => {
+    let allStorageItems = JSON.parse(localStorage.getItem(storageKey) || "[]")
+    console.log(Boolean(allStorageItems.find((item) => item.id === product.id)))
+
+    return Boolean(allStorageItems.find((item) => item.id === product.id))
   }
 
   const toggleColor = (icon) => {
@@ -57,17 +60,54 @@ const ProductCard = ({ product }) => {
     }))
   }
 
+  useEffect(() => {
+    // Initial check
+    setColors({
+      Wishlist: isInStorage("Wishlist", product) ? "red" : "transparent",
+      Cart: isInStorage("Cart", product) ? "red" : "transparent",
+    })
+
+    // Storage event listener for cross-tab changes
+    const handleStorageChange = (e) => {
+      if (e.key === "Wishlist" || e.key === "Cart") {
+        setColors((prevColors) => ({
+          ...prevColors,
+          [e.key]: isInStorage(e.key, product) ? "red" : "transparent",
+        }))
+      }
+    }
+
+    const handleLocalChange = (e) => {
+      const { key, productId } = e.detail
+      if ((key === "Wishlist" || key === "Cart") && productId === product.id) {
+        setColors((prevColors) => ({
+          ...prevColors,
+          [key]: isInStorage(key, product) ? "red" : "transparent",
+        }))
+      }
+    }
+
+    window.addEventListener("storage", handleStorageChange)
+    window.addEventListener("localStorageChanged", handleLocalChange)
+
+    // Cleanup
+    return () => {
+      window.removeEventListener("storage", handleStorageChange)
+      window.removeEventListener("localStorageChanged", handleLocalChange)
+    }
+  }, [product])
+
   return (
     <div className="product-card">
       <div className="product-image-container">
         <div className="product-control">
           <Wishlist
             onClick={() => {
-              toggleColor("wishlist")
-              handleWishlist(product)
+              toggleColor("Wishlist")
+              handleStorage("Wishlist", product)
             }}
             style={{
-              fill: colors.wishlist,
+              fill: colors.Wishlist,
               cursor: "pointer",
               width: "30px",
               height: "30px",
@@ -75,11 +115,9 @@ const ProductCard = ({ product }) => {
           />
           <Detail
             onClick={() => {
-              toggleColor("detail")
               handleDetail(product.id)
             }}
             style={{
-              fill: colors.detail,
               cursor: "pointer",
               width: "30px",
               height: "30px",
@@ -87,11 +125,11 @@ const ProductCard = ({ product }) => {
           />
           <Cart
             onClick={() => {
-              toggleColor("cart")
-              handleCart(product)
+              toggleColor("Cart")
+              handleStorage("Cart", product)
             }}
             style={{
-              fill: colors.cart,
+              fill: colors.Cart,
               cursor: "pointer",
               width: "30px",
               height: "30px",
@@ -102,6 +140,9 @@ const ProductCard = ({ product }) => {
           src={product.images[0]}
           alt={product.name}
           className="product-image"
+          onClick={() => {
+            handleDetail(product.id)
+          }}
         />
         <div className="products-discount">
           {product.discount ? (

@@ -5,7 +5,7 @@ import arrow from "../../assets/arrow.svg";
 import vector from "../../assets/Vector-1.svg";
 import PropTypes from "prop-types";
 
-import bedroom from "../../../src/assets/Rectangle26.png"
+
 
 const ExploreCard = ({ image, title, description, roomType }) => {
   return (
