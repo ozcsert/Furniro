@@ -1,6 +1,6 @@
 import "./style.scss";
 import { useState } from "react";
-
+import FormHandler from "../FormHandler/FormHandler";
 function ProductCheckoutDetailsComponent() {
   const [selectedPayment, setSelectedPayment] = useState("bank-transfer");
 
@@ -20,7 +20,7 @@ function ProductCheckoutDetailsComponent() {
 
   return (
     <section className="product-summary">
-      <div className="billing-details"> Billing details </div>
+      <div className="billing-details">  <FormHandler page="billing" /> </div>
 
       <div className="product-detail">
         <div className="order-summary">
