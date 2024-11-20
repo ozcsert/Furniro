@@ -1,36 +1,36 @@
-import React, { useState } from "react";
-import "./styles.scss";
-import { furnitureData } from "../../data/furnitureData";
+import { useState } from "react"
+import "./styles.scss"
+import { furnitureData } from "../../data/furnitureData"
 
 function FilterComponent() {
-  const [selectedFurnitureCount, setSelectedFurnitureCount] = useState({});
-  const [openRooms, setOpenRooms] = useState({});
+  const [selectedFurnitureCount, setSelectedFurnitureCount] = useState({})
+  const [openRooms, setOpenRooms] = useState({})
 
   const toggleRoom = (roomIndex) => {
     setOpenRooms((prevState) => ({
       ...prevState,
       [roomIndex]: !prevState[roomIndex],
-    }));
-  };
+    }))
+  }
 
   const handleCheckboxChange = (roomIndex, furnitureItem, isChecked) => {
     setSelectedFurnitureCount((prevState) => {
-      const newCount = { ...prevState };
+      const newCount = { ...prevState }
       if (!newCount[roomIndex]) {
-        newCount[roomIndex] = 0;
+        newCount[roomIndex] = 0
       }
 
       if (isChecked) {
-        newCount[roomIndex]++;
+        newCount[roomIndex]++
       } else {
-        newCount[roomIndex]--;
+        newCount[roomIndex]--
       }
 
-      return newCount;
-    });
+      return newCount
+    })
 
-    console.log(`Furniture: ${furnitureItem}, Selected: ${isChecked}`);
-  };
+    console.log(`Furniture: ${furnitureItem}, Selected: ${isChecked}`)
+  }
 
   return (
     <div className="filter-component">
@@ -80,7 +80,7 @@ function FilterComponent() {
         </div>
       ))}
     </div>
-  );
+  )
 }
 
-export default FilterComponent;
+export default FilterComponent

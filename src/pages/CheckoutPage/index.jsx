@@ -1,16 +1,16 @@
-import HeaderBanner from "../../components/HeaderBanner";
+import HeaderBanner from "../../components/HeaderBanner"
 import ProductCheckoutDetailsComponent from "../../components/ProductCheckoutDetailsComponent";
-import FeatureCard from "../../components/FeatureCard";
+import FeaturesSection from "../../components/FeaturesSection/index"
+
 
 const CheckoutPage = () => {
   return (
     <>
-      <HeaderBanner/>
+      <HeaderBanner />
       <ProductCheckoutDetailsComponent/>
-      <FeatureCard />
+      <FeaturesSection />
     </>
   )
-
 }
 
-export default CheckoutPage;
+export default CheckoutPage
