@@ -52,7 +52,7 @@ const NavbarActions = () => {
   return (
     <div className="navbar-actions">
       <NavLink className="actions-btns" to="/profile">
-        <img src={UserImg} alt="" onClick={() => openModal("User")} />
+        <img src={UserImg} alt="user" />
       </NavLink>
       {!searchBarIsOpen ? (
         <img

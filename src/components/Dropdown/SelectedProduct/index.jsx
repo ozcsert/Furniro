@@ -1,13 +1,12 @@
 import "./style.scss"
 import cancelProduct from "../../../assets/SelectedProduct/selectedProductCancel.svg"
 import PropTypes from "prop-types"
-import sofa from "../../../assets/SelectedProduct/sofa.svg"
 
 const SelectedProduct = ({ type, product, deleteProduct }) => {
   return (
     <div className="selectedProduct-container">
       <div className="img-wrapper">
-        <img src={sofa} alt="sofa" />
+        <img src={product.images[0]} alt="sofa" />
       </div>
       <div className="product-info-container">
         <h4>{product.name}</h4>
@@ -15,12 +14,12 @@ const SelectedProduct = ({ type, product, deleteProduct }) => {
           <div className="product-subinfo">
             <p>{/*   product.quantity hesaplamasi gelecek  */}1</p>
             <p>X</p>
-            <p>Rs. {product.price}</p>
+            <p>$ {product.price}</p>
           </div>
         )}
       </div>
       <div className="product-delete">
-        <button onClick={deleteProduct}>
+        <button onClick={() => deleteProduct(product.id)}>
           <img src={cancelProduct} alt="" />
         </button>
       </div>
