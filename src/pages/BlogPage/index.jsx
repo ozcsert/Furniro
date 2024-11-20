@@ -1,0 +1,14 @@
+import HeaderBanner from "../../components/HeaderBanner";
+
+import FeaturesSection from "../../components/FeaturesSection/index";
+
+const BlogPage = () => {
+  return (
+    <>
+      <HeaderBanner />
+      <FeaturesSection />
+    </>
+  );
+};
+
+export default BlogPage;
