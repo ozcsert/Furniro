@@ -4,8 +4,6 @@
   justify-content: $justify;
   align-items: $align;
 }
-//ozellestirerek kullanmak icin
-// @include flex-center(column, space-between, center);
 
 @mixin center {
   margin: 0 auto;
@@ -33,14 +31,27 @@
     }
   }
 }
-//.h1{
 
-// @include respond-to(small) {
-//   font-size:$fnt-size-xs;
-// }
+@mixin scrollbars {
+  &::-webkit-scrollbar {
+    border-radius: 21px;
+    width: 10px;
+  }
 
-// @include respond-to(medium) {
-//   font-size: $fnt-size-s ;
-// }
+  &::-webkit-scrollbar-thumb {
+    background: #f1f1f1;
+    border-radius: 21px;
+    border: 2px solid #d1d1d1;
+    box-sizing: border-box;
+  }
 
-//}
+  &::-webkit-scrollbar-track {
+    border-radius: 21px;
+    background: #d1d1d1;
+  }
+
+  & {
+    scrollbar-face-color: #f1f1f1;
+    scrollbar-track-color: #d1d1d1;
+  }
+}

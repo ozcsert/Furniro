@@ -1,6 +1,5 @@
-import HeaderBanner from "../../components/HeaderBanner";
-
-import FeaturesSection from "../../components/FeaturesSection/index";
+import HeaderBanner from "../../components/HeaderBanner"
+import FeaturesSection from "../../components/FeaturesSection/index"
 
 const ComparisonPage = () => {
   return (
@@ -8,7 +7,7 @@ const ComparisonPage = () => {
       <HeaderBanner />
       <FeaturesSection />
     </>
-  );
-};
+  )
+}
 
-export default ComparisonPage;
+export default ComparisonPage

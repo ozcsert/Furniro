@@ -1,7 +1,6 @@
 @import "../../styles/styles.scss";
 
 .navbar-section {
-  max-width: 1440px;
   margin: 0 auto;
   height: 100px;
   display: flex;
@@ -10,7 +9,7 @@
   color: $text-primary;
   font-family: $fnt-poppins;
   text-align: center;
-  padding: 0px 40px;
+  padding: 0px 50px;
   .n-logo {
     display: flex;
     justify-content: center;

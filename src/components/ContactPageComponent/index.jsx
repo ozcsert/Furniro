@@ -2,7 +2,7 @@ import "./style.scss";
 import address from "../../assets/images/contact/address.png";
 import phone from "../../assets/images/contact/phone.png";
 import clock from "../../assets/images/contact/clock.png";
-
+import FromHandler from "../../components/FormHandler/FormHandler";
 const ContactPageComponent = () => {
   return (
     <section className="contact-container">
@@ -50,12 +50,8 @@ const ContactPageComponent = () => {
 
         <div className="contact-form">
           <div className="form-div">
-            <p>ContactForm</p>
+            <FromHandler page="contact" />
           </div>
-
-          <button type="submit" className="contact-button">
-            Submit
-          </button>
         </div>
       </div>
     </section>
