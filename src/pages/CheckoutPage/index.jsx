@@ -1,18 +1,6 @@
-import HeaderBanner from "../../components/HeaderBanner";
+import HeaderBanner from "../../components/HeaderBanner"
 
-<<<<<<< HEAD
-const CheckoutPage = () => {
-  return (
-    <>
-      <HeaderBanner/>
-    </>
-  )
-
-}
-
-export default CheckoutPage;
-=======
-import FeaturesSection from "../../components/FeaturesSection/index";
+import FeaturesSection from "../../components/FeaturesSection/index"
 
 const CheckoutPage = () => {
   return (
@@ -20,8 +8,7 @@ const CheckoutPage = () => {
       <HeaderBanner />
       <FeaturesSection />
     </>
-  );
-};
+  )
+}
 
-export default CheckoutPage;
->>>>>>> ozc/reset-branch
+export default CheckoutPage

@@ -1,52 +1,52 @@
-import { useState, useEffect } from "react";
-import ProfileForm from "../../components/ProfileForm";
-import "./style.scss";
-import profilephoto from "../../assets/profile/profilePhotoMock.png";
-import HeaderBanner from "../../components/HeaderBanner";
-import FeaturesSection from "../../components/FeaturesSection/index";
+import { useState, useEffect } from "react"
+import ProfileForm from "../../components/ProfileForm"
+import "./style.scss"
+import profilephoto from "../../assets/profile/profilePhotoMock.png"
+import HeaderBanner from "../../components/HeaderBanner"
+import FeaturesSection from "../../components/FeaturesSection/index"
 const ProfilePage = () => {
-  const [isEditing, setIsEditing] = useState(false);
+  const [isEditing, setIsEditing] = useState(false)
   const [userData, setUserData] = useState({
     name: "",
     email: "",
     password: "",
     image: profilephoto,
-  });
+  })
 
   useEffect(() => {
-    const storedUserData = localStorage.getItem("userData");
+    const storedUserData = localStorage.getItem("userData")
     if (storedUserData) {
-      setUserData(JSON.parse(storedUserData));
+      setUserData(JSON.parse(storedUserData))
     } else {
-      localStorage.setItem("userData", JSON.stringify(userData));
+      localStorage.setItem("userData", JSON.stringify(userData))
     }
-  }, []);
+  }, [])
 
   const handleImageChange = (e) => {
-    const file = e.target.files[0];
+    const file = e.target.files[0]
     if (file) {
-      const reader = new FileReader();
+      const reader = new FileReader()
       reader.onloadend = () => {
-        const base64String = reader.result;
-        setUserData((prevData) => ({ ...prevData, ["image"]: base64String }));
-        localStorage.setItem("userData", JSON.stringify(userData));
-      };
-      reader.readAsDataURL(file);
+        const base64String = reader.result
+        setUserData((prevData) => ({ ...prevData, ["image"]: base64String }))
+        localStorage.setItem("userData", JSON.stringify(userData))
+      }
+      reader.readAsDataURL(file)
     }
-  };
+  }
 
   const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setUserData((prevData) => ({ ...prevData, [name]: value }));
-  };
+    const { name, value } = e.target
+    setUserData((prevData) => ({ ...prevData, [name]: value }))
+  }
 
   const handleSubmit = (e) => {
-    e.preventDefault();
+    e.preventDefault()
     if (isEditing) {
-      localStorage.setItem("userData", JSON.stringify(userData));
+      localStorage.setItem("userData", JSON.stringify(userData))
     }
-    setIsEditing(!isEditing);
-  };
+    setIsEditing(!isEditing)
+  }
 
   return (
     <div className="profile-page">
@@ -58,17 +58,9 @@ const ProfilePage = () => {
         onSubmit={handleSubmit}
         onImageChange={handleImageChange}
       />
-<<<<<<< HEAD
+      <FeaturesSection />
     </div>
   )
 }
 
 export default ProfilePage
-=======
-      <FeaturesSection />
-    </div>
-  );
-};
-
-export default ProfilePage;
->>>>>>> ozc/reset-branch
