@@ -8,11 +8,11 @@ import { useNavigate } from "react-router-dom"
 
 
 const CartPageDesignChild = () => {
+
     const navigate = useNavigate()
     const [products, setProducts] = useState([]);
 
     useEffect(() => {
-
         const cartData = localStorage.getItem("cart");
         if (cartData) {
             try {
@@ -23,12 +23,10 @@ const CartPageDesignChild = () => {
             }
         }
     }, []);
-    console.log(products);
 
     const deleteProduct = (id) => {
         const updatedProducts = products.filter(product => product.id !== id);
         setProducts(updatedProducts);
-
         if (updatedProducts.length === 0) {
             localStorage.removeItem("cart");
         } else {
@@ -39,7 +37,7 @@ const CartPageDesignChild = () => {
     const handleDetail = (productId) => {
         navigate(`/product/${productId}`)
     }
-
+    
     return (
         <>
             {products.length === 0 ? (
@@ -66,12 +64,6 @@ const CartPageDesignChild = () => {
                 </ul >
             )}
         </>
-
     )
-
-
-
-
 }
-
 export default CartPageDesignChild

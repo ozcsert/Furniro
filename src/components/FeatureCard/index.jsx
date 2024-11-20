@@ -1,5 +1,5 @@
-import React from "react";
-import "./style.scss";
+import React from "react"
+import "./style.scss"
 
 const FeatureCard = ({ icon, title, description }) => {
   return (
@@ -10,7 +10,7 @@ const FeatureCard = ({ icon, title, description }) => {
         <p className="feature-card__description">{description}</p>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default FeatureCard;
+export default FeatureCard

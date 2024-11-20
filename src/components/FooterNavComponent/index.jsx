@@ -13,7 +13,7 @@ const FooterNavComponent = ({ title, links }) => {
         ))}
       </ul>
     </div>
-  );
-};
+  )
+}
 
-export default FooterNavComponent;
+export default FooterNavComponent

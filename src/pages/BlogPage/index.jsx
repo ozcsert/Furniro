@@ -1,6 +1,6 @@
-import HeaderBanner from "../../components/HeaderBanner";
-
-import FeaturesSection from "../../components/FeaturesSection/index";
+import HeaderBanner from "../../components/HeaderBanner"
+import RecentPostsFunctionality from "../../components/RecentPostsFunctionality"
+import FeaturesSection from "../../components/FeaturesSection/index"
 
 const BlogPage = () => {
   return (
@@ -8,7 +8,7 @@ const BlogPage = () => {
       <HeaderBanner />
       <FeaturesSection />
     </>
-  );
-};
+  )
+}
 
-export default BlogPage;
+export default BlogPage
