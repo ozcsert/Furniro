@@ -1,14 +1,14 @@
-import Breadcrumbs from "../../components/Breadcrumbs/index";
+import HeaderBanner from "../../components/HeaderBanner";
+
+import FeaturesSection from "../../components/FeaturesSection/index";
+
 const ShopPage = () => {
   return (
     <>
-    <Breadcrumbs/>
-      <p> Shop </p>
+      <HeaderBanner />
+      <FeaturesSection />
     </>
-  )
-
-}
+  );
+};
 
 export default ShopPage;
-
-
