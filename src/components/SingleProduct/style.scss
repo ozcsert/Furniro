@@ -1,0 +1,66 @@
+@import "../../styles/abstracts/colors";
+
+.single-product {
+  display: flex;
+  justify-content: space-around !important;
+  padding: 20px;
+  max-width: 1200px;
+  margin: auto;
+
+  .main-image {
+    width: 450px;
+    border-radius: 5px;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.2);
+  }
+}
+
+@media (max-width: 768px) {
+  .single-product {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .main-image {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  .product-details {
+    padding-left: 0;
+    text-align: center;
+    margin: 20px;
+  }
+}
+@media (max-width: 1020px) {
+  .product-details {
+    padding: 0px 20px;
+  }
+}
+@media (max-width: 400px) {
+  .product-album {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+  .thumbnail-container {
+    display: flex;
+    flex-direction: row !important;
+    flex-wrap: wrap;
+  }
+  .product-details {
+    h1 {
+      font-size: 24px !important;
+    }
+    .product.price {
+      font-size: 20px !important;
+    }
+    .reviews {
+      font-size: 12px !important;
+    }
+    .quantity-add-to-cart,
+    .add-to-cart,
+    .compare {
+      padding: 10px 5px !important;
+      font-size: 12px !important;
+    }
+  }
+}

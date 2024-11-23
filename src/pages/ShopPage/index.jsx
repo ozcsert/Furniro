@@ -1,10 +1,14 @@
+import HeaderBanner from "../../components/HeaderBanner";
+
+import FeaturesSection from "../../components/FeaturesSection/index";
+
 const ShopPage = () => {
   return (
     <>
-      <p> Shop </p>
+      <HeaderBanner />
+      <FeaturesSection />
     </>
-  )
-
-}
+  );
+};
 
 export default ShopPage;
