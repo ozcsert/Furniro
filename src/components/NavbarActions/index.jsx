@@ -8,6 +8,7 @@ import CartImg from "../../assets/icons/cart-icon.svg"
 import CloseImg from "../../assets/icons/close-icon.svg"
 import { NavLink } from "react-router-dom"
 import Dropdown from "../Dropdown"
+import { Drawer } from "./Drawer"
 
 const customStyles = {
   overlay: {
@@ -34,10 +35,12 @@ const NavbarActions = () => {
   const [modalIsOpen, setModalIsOpen] = useState(false)
   const [selectedContent, setSelectedContent] = useState(null)
   const [searchBarIsOpen, setSearchBarIsOpen] = useState(false)
+  const [drawerIsOpen, setDrawerIsOpen] = useState(false)
 
   const openModal = (content) => {
     setSelectedContent(content)
     setModalIsOpen(true)
+    setDrawerIsOpen(false)
   }
 
   const closeModal = () => {
@@ -47,12 +50,20 @@ const NavbarActions = () => {
 
   const searchBarHandler = () => {
     setSearchBarIsOpen(!searchBarIsOpen)
+    setDrawerIsOpen(false)
+  }
+
+  const openDrawer = () => {
+    setSearchBarIsOpen(false)
+
+    setDrawerIsOpen(!drawerIsOpen)
   }
 
   return (
     <div className="navbar-actions">
+      {drawerIsOpen && <Drawer />}
       <NavLink className="actions-btns" to="/profile">
-        <img src={UserImg} alt="user" />
+        <img src={UserImg} alt="user" onClick={() => openDrawer("profile")} />
       </NavLink>
       {!searchBarIsOpen ? (
         <img
