@@ -7,7 +7,7 @@ const SingleProductPage = () => {
   const { id } = useParams()
 
   return (
-    <>
+    <div>
       <div>
         <HeaderBanner />
       </div>
@@ -16,7 +16,7 @@ const SingleProductPage = () => {
         <ProductDetails id={id} />
         <Tab id={id} />
       </main>
-    </>
+    </div>
   )
 }
 
