@@ -28,7 +28,7 @@ function RelatedProducts() {
       <h2 className="RelatedProductsCardContentTitle">Related Products</h2>
       <div className="RelatedProductsCard">
         {furnitures.slice(0, limit).map((furniture) => (
-          <ProductCard key={furniture.id} {...furniture} />
+          <ProductCard key={furniture.id} product={furniture} />
         ))}
       </div>
       <Button
