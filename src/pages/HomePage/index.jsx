@@ -4,6 +4,8 @@ import bedroom from "../../../src/assets/Rectangle26.png";
 import ExploreCard from "../../components/ExpoloreCardComponent/index";
 import OurProductsSectionComponent from "../../components/OurProductsSectionComponent";
 import TopCategories from "../../components/TopCategories";
+import FurnitureShareSection from "../../components/FurnitureShareSection"
+
 
 const HomePage = () => {
   return (
@@ -22,6 +24,7 @@ const HomePage = () => {
           title="Rectangle"
         />
       </div>
+      <FurnitureShareSection/>
     </>
   );
 };
