@@ -1,58 +1,81 @@
-import React, { useState } from "react"
-import "./styles.scss"
-import { furnitureData } from "../../data/furnitureData"
+import React, { useState } from "react";
+import "./styles.scss";
 
 function FilterComponent() {
-  const [selectedFurnitureCount, setSelectedFurnitureCount] = useState({})
-  const [openRooms, setOpenRooms] = useState({})
+  const [selectedFurnitureCount, setSelectedFurnitureCount] = useState({});
+  const [openRooms, setOpenRooms] = useState({});
+  const [furnitureData, setFurnitureData] = useState([]);
 
-  const toggleRoom = (roomIndex) => {
-    setOpenRooms((prevState) => ({
-      ...prevState,
-      [roomIndex]: !prevState[roomIndex],
-    }))
-  }
+  useEffect(() => {
+    fetch(
+      "https://672b2ff4976a834dd025f8f2.mockapi.io/api/furniture/furnitures"
+    )
+      .then((response) => response.json())
+      .then((data) => setFurnitureData(data));
+  }, []);
 
-  const handleCheckboxChange = (roomIndex, furnitureItem, isChecked) => {
+  const toggleRoom = (room) => {
+    setOpenRooms((prevState) => {
+      const newOpenRooms = { ...prevState };
+      newOpenRooms[room] = !prevState[room];
+      if (!newOpenRooms[room]) {
+        setSelectedFurnitureCount((prevState) => ({
+          ...prevState,
+          [room]: 0,
+        }));
+      }
+      return newOpenRooms;
+    });
+  };
+
+  const handleCheckboxChange = (room, furnitureItem, isChecked) => {
     setSelectedFurnitureCount((prevState) => {
-      const newCount = { ...prevState }
-      if (!newCount[roomIndex]) {
-        newCount[roomIndex] = 0
+      const newCount = { ...prevState };
+      if (!newCount[room]) {
+        newCount[room] = 0;
       }
 
       if (isChecked) {
-        newCount[roomIndex]++
+        newCount[room]++;
       } else {
-        newCount[roomIndex]--
+        newCount[room]--;
       }
 
-      return newCount
-    })
+      return newCount;
+    });
 
-    console.log(`Furniture: ${furnitureItem}, Selected: ${isChecked}`)
-  }
+    console.log(`Furniture: ${furnitureItem}, Selected: ${isChecked}`);
+  };
+
+  const groupedFurniture = furnitureData.reduce((acc, item) => {
+    if (!acc[item.room]) {
+      acc[item.room] = [];
+    }
+    acc[item.room].push(item);
+    return acc;
+  }, {});
 
   return (
     <div className="filter-component">
-      {furnitureData.map((roomData, roomIndex) => (
+      {Object.keys(groupedFurniture).map((room, roomIndex) => (
         <div key={roomIndex} className="filter-component-section">
           <div className="filter-component-section-room">
             <div className="filter-component-section-room-title">
               <p>
-                {roomData.room}{" "}
-                {selectedFurnitureCount[roomIndex] > 0 && (
-                  <span>{selectedFurnitureCount[roomIndex]}</span>
+                {room}{" "}
+                {selectedFurnitureCount[room] > 0 && (
+                  <span>{selectedFurnitureCount[room]}</span>
                 )}
               </p>
             </div>
-            <span onClick={() => toggleRoom(roomIndex)}>
-              {openRooms[roomIndex] ? "-" : "+"}
+            <span onClick={() => toggleRoom(room)}>
+              {openRooms[room] ? "-" : "+"}
             </span>
           </div>
 
-          {openRooms[roomIndex] && (
+          {openRooms[room] && (
             <div className="filter-component-section-room-sub-title">
-              {roomData.furniture.map((furnitureItem, furnitureIndex) => (
+              {groupedFurniture[room].map((furnitureItem, furnitureIndex) => (
                 <div
                   key={furnitureIndex}
                   className="filter-component-section-room-checkbox"
@@ -63,7 +86,7 @@ function FilterComponent() {
                       type="checkbox"
                       onChange={(e) =>
                         handleCheckboxChange(
-                          roomIndex,
+                          room,
                           furnitureItem.name,
                           e.target.checked
                         )
@@ -76,11 +99,11 @@ function FilterComponent() {
             </div>
           )}
 
-          {roomIndex !== furnitureData.length - 1 && <hr />}
+          {roomIndex !== Object.keys(groupedFurniture).length - 1 && <hr />}
         </div>
       ))}
     </div>
-  )
+  );
 }
 
-export default FilterComponent
+export default FilterComponent;

@@ -1,13 +1,20 @@
-import "./style.scss"
+import "./style.scss";
 
-import bedroom from "../../../src/assets/Rectangle26.png"
-import ExploreCard from "../../components/ExpoloreCardComponent/index"
-import OurProductsSectionComponent from "../../components/OurProductsSectionComponent"
+import bedroom from "../../../src/assets/Rectangle26.png";
+import ExploreCard from "../../components/ExpoloreCardComponent/index";
+import OurProductsSectionComponent from "../../components/OurProductsSectionComponent";
+import TopCategories from "../../components/TopCategories";
 import CarouselComponent from "../../components/CarouselComponent"
+import FurnitureShareSection from "../../components/FurnitureShareSection"
+
 
 const HomePage = () => {
   return (
     <>
+      <div>
+        {" "}
+        <TopCategories />
+      </div>
       <div className="allproduct-container">
         <h1 className="title">Our Products</h1>
         <OurProductsSectionComponent />
@@ -19,11 +26,12 @@ const HomePage = () => {
         />
       </div>
       <CarouselComponent/>
+      <FurnitureShareSection/>
     </>
-  )
-}
+  );
+};
 
-export default HomePage
+export default HomePage;
 
 // <div className="best-sellers">
 // <BestSellers />
