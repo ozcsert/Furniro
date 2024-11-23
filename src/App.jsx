@@ -9,6 +9,7 @@ import ProfilePage from "./pages/ProfilePage";
 import ShopPage from "./pages/ShopPage";
 import SingleProductPage from "./pages/SingleProductPage";
 import { Layout } from "./Layout";
+import LoginPage from "./pages/LoginPage";
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
             <Route path="/profile" element={<ProfilePage />} />
             <Route path="/shop" element={<ShopPage />} />
             <Route path="/product/:id" element={<SingleProductPage />} />
+            <Route path="/login" element={<LoginPage />} />
           </Route>
         </Routes>
       </Router>
