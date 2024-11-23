@@ -6,6 +6,7 @@ import OurProductsSectionComponent from "../../components/OurProductsSectionComp
 import TopCategories from "../../components/TopCategories";
 import CarouselComponent from "../../components/CarouselComponent"
 import FurnitureShareSection from "../../components/FurnitureShareSection"
+import Herosection from "../../components/Herosection";
 
 
 const HomePage = () => {
@@ -13,17 +14,12 @@ const HomePage = () => {
     <>
       <div>
         {" "}
+        <Herosection />
         <TopCategories />
       </div>
       <div className="allproduct-container">
         <h1 className="title">Our Products</h1>
         <OurProductsSectionComponent />
-        <ExploreCard
-          image={bedroom}
-          roomType="02"
-          description="bedroom"
-          title="Rectangle"
-        />
       </div>
       <CarouselComponent/>
       <FurnitureShareSection/>
@@ -32,35 +28,3 @@ const HomePage = () => {
 };
 
 export default HomePage;
-
-// <div className="best-sellers">
-// <BestSellers />
-// </div>
-
-// import BestSellers from "../../components/BestSellerComponent";
-// import ProductWithCard from "../../components/OurProductsComponent";
-// import "./style.scss";
-
-// const HomePage = () => {
-//   return (
-//     <div className="allproduct-container">
-//       <h1 className="title">Our Products</h1>
-//       <div className="content-wrapper">
-//         <div className="card-left">
-//           <div className="test">
-
-//           </div>
-//           <div className="best-sellers">
-//             <BestSellers />
-//           </div>
-//         </div>
-
-//         <div className="card-right">
-//           <ProductWithCard />
-//         </div>
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default HomePage;
