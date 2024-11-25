@@ -1,86 +1,124 @@
-import React, { useState } from "react";
-import "./style.scss";
+import "./style.scss"
+import useSWR from "swr"
+import PropTypes from "prop-types"
+import StarRating from "../StarRating/StarRating"
+import { ImageGallery } from "./ImagesContainer"
 
-const ProductDetails = () => {
-  const [quantity, setQuantity] = useState(1);
+async function fetcher(url) {
+  const response = await fetch(url)
+  if (!response.ok) throw new Error("Product not found")
+  return response.json()
+}
 
-  const increaseQuantity = () => {
-    setQuantity((prevQuantity) => prevQuantity + 1);
-  };
+const ProductDetails = ({ id }) => {
+  // const [quantity, setQuantity] = useState(1)
 
-  const decreaseQuantity = () => {
-    setQuantity((prevQuantity) => (prevQuantity > 1 ? prevQuantity - 1 : 1));
-  };
+  const {
+    data: product,
+    error,
+    isLoading,
+  } = useSWR(
+    `https://672b2ff4976a834dd025f8f2.mockapi.io/api/furniture/furnitures/${id}`,
+    fetcher
+  )
+
+  if (isLoading) return <p>Loading...</p>
+  if (error) return <p>{error.message}</p>
+
+  // const increaseQuantity = () => {
+  //   setQuantity((prevQuantity) => prevQuantity + 1)
+  // }
+
+  // const decreaseQuantity = () => {
+  //   setQuantity((prevQuantity) => (prevQuantity > 1 ? prevQuantity - 1 : 1))
+  // }
+
+  const calculateReviewCount = () => {
+    const reviews = product.extras.reviews
+    let reviewCount = 0
+
+    reviews.forEach(() => {
+      reviewCount += 1
+    })
+
+    return reviewCount
+  }
+
+  const handleStorage = (key, product) => {
+    const storageData = JSON.parse(localStorage.getItem(key) || "[]")
+
+    const updatedData = [...storageData, product]
+
+    localStorage.setItem(key, JSON.stringify(updatedData))
+  }
 
   return (
     <div className="product-details">
-      <h1 className="product-title">Asgaard sofa</h1>
-      <p className="product-price">$250.000</p>
-      <div className="reviews">
-        <div className="rating">
-          <img
-            src="src/assets/Furniture/productStars.svg"
-            alt="Stars"
-            style={{ width: "100px", height: "20px" }}
-          />
+      <div className="product-images">
+        <ImageGallery productImages={product.images} />
+      </div>
+      <div className="product-content">
+        <h1 className="product-title">{product.name}</h1>
+        <p className="product-price">{product.price}</p>
+        <div className="reviews">
+          <div className="rating">
+            <StarRating rating={product.rating} />
+          </div>
+          <span className="bracket"></span>
+          <span className="customer-review">
+            {calculateReviewCount()} Customer Reviews
+          </span>
         </div>
-        <span className="bracket"></span>
-        <span>5 Customer Review</span>
-      </div>
-      <p className="description">
-        Setting the bar as one of the loudest speakers in its class, the Kilburn
-        is a compact, stout-hearted hero with a well-balanced audio which boasts
-        a clear midrange and extended highs for a sound.
-      </p>
-      <p className="color-label">Color</p>
-      <div className="color-options">
-        <span
-          className="color-option"
-          style={{ backgroundColor: "#7B61FF" }}
-        ></span>
-        <span
-          className="color-option"
-          style={{ backgroundColor: "#333" }}
-        ></span>
-        <span
-          className="color-option"
-          style={{ backgroundColor: "#b88e2f" }}
-        ></span>
-      </div>
-      <div className="quantity-add-to-cart">
-        <div className="quantity-control">
-          <button onClick={decreaseQuantity}>-</button>
-          <span>{quantity}</span>
-          <button onClick={increaseQuantity}>+</button>
+        <p className="description">{product.description}</p>
+        <p className="color-label">Color</p>
+        <div className="color-options">
+          <span
+            className="color-option"
+            style={{ backgroundColor: "#7B61FF" }}
+          ></span>
+          <span
+            className="color-option"
+            style={{ backgroundColor: "#333" }}
+          ></span>
+          <span
+            className="color-option"
+            style={{ backgroundColor: "#b88e2f" }}
+          ></span>
         </div>
-        <button className="add-to-cart">Add To Cart</button>
-        <button className="compare">+ Compare</button>
-      </div>
-      <div className="product-meta">
-        <p>
-          <strong>SKU:</strong> SS001
-        </p>
-        <p>
-          <strong>Category:</strong> Sofas
-        </p>
-        <p>
-          <strong>Tags:</strong> Sofa, Chair, Home, Shop
-        </p>
-      </div>
-      <div className="socials">
-        <span>Share:</span>
-        <a href="https://www.facebook.com/">
-          <img src="src/assets/Furniture/facebook.svg" alt="Facebook" />
-        </a>
-        <a href="https://www.linkedin.com/">
-          <img src="src/assets/Furniture/linkedin.svg" alt="LinkedIn" />
-        </a>
-        <a href="https://x.com/?lang=tr">
-          <img src="src/assets/Furniture/twitter.svg" alt="Twitter" />
-        </a>
+        <div className="quantity-add-to-cart">
+          {/* <div className="quantity-control">
+            <button onClick={decreaseQuantity}>-</button>
+            <span>{quantity}</span>
+            <button onClick={increaseQuantity}>+</button>
+          </div> */}
+          <button
+            className="add-to-cart"
+            onClick={() => handleStorage("Cart", product)}
+          >
+            Add To Cart
+          </button>
+          {/* <button className="compare">+ Compare</button> */}
+        </div>
+        <div className="product-meta">
+          <p>
+            <strong>SKU: </strong> <span> {product.SKU}</span>
+          </p>
+          <p>
+            <strong>Category: </strong> {product.Category}
+          </p>
+          <p>
+            <strong> Sofa, Chair, Home, Shop: </strong>
+            {product.Tags}
+          </p>
+        </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default ProductDetails;
+export default ProductDetails
+
+ProductDetails.propTypes = {
+  product: PropTypes.object,
+  id: PropTypes.string,
+}

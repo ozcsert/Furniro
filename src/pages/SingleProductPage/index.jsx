@@ -1,18 +1,23 @@
-import { Tab } from "../../components/Tab";
-import { useParams } from "react-router-dom";
-import SingleProduct from "../../components/SingleProduct/index";
+import ProductDetails from "../../components/SingleProductDetails"
+import { Tab } from "../../components/Tab"
+import { useParams } from "react-router-dom"
+import "./style.scss"
+import HeaderBanner from "../../components/HeaderBanner"
 const SingleProductPage = () => {
-  const { id } = useParams();
+  const { id } = useParams()
 
   return (
-    <>
-      <p>Product</p>
+    <div>
       <div>
-        <SingleProduct />
+        <HeaderBanner />
       </div>
-      <Tab id={id} />
-    </>
-  );
-};
 
-export default SingleProductPage;
+      <main>
+        <ProductDetails id={id} />
+        <Tab id={id} />
+      </main>
+    </div>
+  )
+}
+
+export default SingleProductPage
