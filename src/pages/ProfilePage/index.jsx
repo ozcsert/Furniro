@@ -49,17 +49,20 @@ const ProfilePage = () => {
   }
 
   return (
-    <div className="profile-page">
+    <>
       <HeaderBanner />
-      <ProfileForm
-        userData={userData}
-        isEditing={isEditing}
-        onInputChange={handleInputChange}
-        onSubmit={handleSubmit}
-        onImageChange={handleImageChange}
-      />
-      <FeaturesSection />
-    </div>
+
+      <div className="profile-page">
+        <ProfileForm
+          userData={userData}
+          isEditing={isEditing}
+          onInputChange={handleInputChange}
+          onSubmit={handleSubmit}
+          onImageChange={handleImageChange}
+        />
+        <FeaturesSection />
+      </div>
+    </>
   )
 }
 

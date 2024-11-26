@@ -9,7 +9,7 @@ import ProfilePage from "./pages/ProfilePage"
 import ShopPage from "./pages/ShopPage"
 import SingleProductPage from "./pages/SingleProductPage"
 import { Layout } from "./Layout"
-import LoginPage from "./pages/LoginPage"
+import AuthPage from "./pages/AuthPage"
 
 function App() {
   return (
@@ -26,7 +26,7 @@ function App() {
             <Route path="/profile" element={<ProfilePage />} />
             <Route path="/shop" element={<ShopPage />} />
             <Route path="/product/:id" element={<SingleProductPage />} />
-            <Route path="/login" element={<LoginPage />} />
+            <Route path="/auth" element={<AuthPage />} />
           </Route>
         </Routes>
       </Router>

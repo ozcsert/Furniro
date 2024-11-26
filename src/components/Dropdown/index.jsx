@@ -63,7 +63,7 @@ const Dropdown = ({ type, closeModal }) => {
   }
 
   return (
-    <div>
+    <div className="dropdown-wrapper">
       <div className="modal-content">
         <div className="modal-header">
           <h5 className="modal-title">{modalContent.title}</h5>

@@ -2,7 +2,6 @@
   font-family: "Poppins", sans-serif;
   width: 100%;
   text-align: start;
-  padding-top: 100px;
   position: relative;
   padding-bottom: 100px;
 
@@ -12,11 +11,9 @@
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    z-index: 1;
   }
 
   .herosection-info {
-    z-index: 2;
     max-width: 570px;
     position: absolute;
     top: 38%;
