@@ -1,59 +1,61 @@
-import React, { useState, useEffect } from "react";
-import "./styles.scss";
+import { useState, useEffect } from "react"
+import "./styles.scss"
+import PropTypes from "prop-types"
 
-function FilterComponent() {
-  const [selectedFurnitureCount, setSelectedFurnitureCount] = useState({});
-  const [openRooms, setOpenRooms] = useState({});
-  const [furnitureData, setFurnitureData] = useState([]);
+const FilterComponent = ({ onFilterStateChange }) => {
+  const [selectedFurnitureCount, setSelectedFurnitureCount] = useState({})
+  const [openRooms, setOpenRooms] = useState({})
+  const [furnitureData, setFurnitureData] = useState([])
 
   useEffect(() => {
     fetch(
       "https://672b2ff4976a834dd025f8f2.mockapi.io/api/furniture/furnitures"
     )
       .then((response) => response.json())
-      .then((data) => setFurnitureData(data));
-  }, []);
+      .then((data) => setFurnitureData(data))
+  }, [])
 
   const toggleRoom = (room) => {
     setOpenRooms((prevState) => {
-      const newOpenRooms = { ...prevState };
-      newOpenRooms[room] = !prevState[room];
+      const newOpenRooms = { ...prevState }
+      newOpenRooms[room] = !prevState[room]
       if (!newOpenRooms[room]) {
         setSelectedFurnitureCount((prevState) => ({
           ...prevState,
           [room]: 0,
-        }));
+        }))
       }
-      return newOpenRooms;
-    });
-  };
+      return newOpenRooms
+    })
+  }
 
   const handleCheckboxChange = (room, furnitureItem, isChecked) => {
+    // Update the selected furniture count
     setSelectedFurnitureCount((prevState) => {
-      const newCount = { ...prevState };
+      const newCount = { ...prevState }
       if (!newCount[room]) {
-        newCount[room] = 0;
+        newCount[room] = 0
       }
 
       if (isChecked) {
-        newCount[room]++;
+        newCount[room]++
       } else {
-        newCount[room]--;
+        newCount[room]--
       }
+      return newCount
+    })
 
-      return newCount;
-    });
-
-    console.log(`Furniture: ${furnitureItem}, Selected: ${isChecked}`);
-  };
+    // Call the parent's filter state change handler
+    onFilterStateChange(room, furnitureItem, isChecked)
+  }
 
   const groupedFurniture = furnitureData.reduce((acc, item) => {
     if (!acc[item.room]) {
-      acc[item.room] = [];
+      acc[item.room] = []
     }
-    acc[item.room].push(item);
-    return acc;
-  }, {});
+    acc[item.room].push(item)
+    return acc
+  }, {})
 
   return (
     <div className="filter-component">
@@ -75,27 +77,33 @@ function FilterComponent() {
 
           {openRooms[room] && (
             <div className="filter-component-section-room-sub-title">
-              {groupedFurniture[room].map((furnitureItem, furnitureIndex) => (
-                <div
-                  key={furnitureIndex}
-                  className="filter-component-section-room-checkbox"
-                >
-                  <label className="filter-component-section-container">
-                    <p>{furnitureItem.name}</p>
-                    <input
-                      type="checkbox"
-                      onChange={(e) =>
-                        handleCheckboxChange(
-                          room,
-                          furnitureItem.name,
-                          e.target.checked
-                        )
-                      }
-                    />
-                    <span className="checkmark"></span>
-                  </label>
-                </div>
-              ))}
+              {groupedFurniture[room]
+                .filter(
+                  (furnitureItem, index, self) =>
+                    index ===
+                    self.findIndex((item) => item.type === furnitureItem.type)
+                )
+                .map((furnitureItem, furnitureIndex) => (
+                  <div
+                    key={furnitureIndex}
+                    className="filter-component-section-room-checkbox"
+                  >
+                    <label className="filter-component-section-container">
+                      <p>{furnitureItem.type}</p>
+                      <input
+                        type="checkbox"
+                        onChange={(e) =>
+                          handleCheckboxChange(
+                            room,
+                            furnitureItem.type,
+                            e.target.checked
+                          )
+                        }
+                      />
+                      <span className="checkmark"></span>
+                    </label>
+                  </div>
+                ))}
             </div>
           )}
 
@@ -103,7 +111,10 @@ function FilterComponent() {
         </div>
       ))}
     </div>
-  );
+  )
+}
+FilterComponent.propTypes = {
+  onFilterStateChange: PropTypes.func,
 }
 
-export default FilterComponent;
+export default FilterComponent

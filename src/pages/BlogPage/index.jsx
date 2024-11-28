@@ -1,11 +1,11 @@
-import HeaderBanner from "../../components/HeaderBanner";
-import RecentPostsFunctionality from "../../components/RecentPostsFunctionality";
-import "./style.scss";
-import BlogPostComponent from "../../components/BlogPostComponent";
-import image1 from "../../assets/blogImage/image1.png";
-import image2 from "../../assets/blogImage/image2.png";
-import image3 from "../../assets/blogImage/image3.png";
-import FeaturesSection from "../../components/FeaturesSection/index";
+import HeaderBanner from "../../components/HeaderBanner"
+import RecentPostsFunctionality from "../../components/RecentPostsFunctionality"
+import "./style.scss"
+import BlogPostComponent from "../../components/BlogPostComponent"
+import image1 from "../../assets/blogImage/image1.png"
+import image2 from "../../assets/blogImage/image2.png"
+import image3 from "../../assets/blogImage/image3.png"
+import FeaturesSection from "../../components/FeaturesSection/index"
 
 const BlogPage = () => {
   return (
@@ -41,23 +41,15 @@ const BlogPage = () => {
           </div>
 
           <div className="right-div">
-            <div className="filter-div">
-              <p>FİLTER DİV</p>
-            </div>
-
             <div className="resent-post-div">
               <RecentPostsFunctionality />
             </div>
           </div>
         </div>
-
-        <div className="page-div">
-          <p>PAGE DİV</p>
-        </div>
       </div>
       <FeaturesSection />
     </>
-  );
-};
+  )
+}
 
-export default BlogPage;
+export default BlogPage

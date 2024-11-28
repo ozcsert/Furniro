@@ -1,6 +1,6 @@
 .category-card {
   max-width: 1200px;
-  margin: 4rem auto;
+  margin: 0 auto;
   padding: 2rem;
   color: white;
 
@@ -58,10 +58,6 @@
 
 @media (max-width: 768px) {
   .category-card {
-    &__grid {
-      flex-direction: column;
-    }
-
     &__item {
       margin-bottom: 2rem;
     }

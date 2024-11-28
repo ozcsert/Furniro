@@ -1,18 +1,17 @@
-import "./style.scss";
-import React from "react";
-import { useLocation } from "react-router-dom";
+import "./style.scss"
+import { useLocation } from "react-router-dom"
 
-import bannerLogo from "../../assets/images/bannerLogo.png";
-import BreadCrumbComponent from "../BreadCrumbComponent";
+import bannerLogo from "../../assets/images/bannerLogo.png"
+import BreadCrumbComponent from "../BreadCrumbComponent"
 
 function capitalizeFirstLetter(string) {
-  return string.charAt(0).toUpperCase() + string.slice(1);
+  return string.charAt(0).toUpperCase() + string.slice(1)
 }
 
 const HeaderBanner = () => {
-  const location = useLocation();
-  const pathSegments = location.pathname.split("/").filter(Boolean);
-  const pageTitle = capitalizeFirstLetter(pathSegments[0] || "Home");
+  const location = useLocation()
+  const pathSegments = location.pathname.split("/").filter(Boolean)
+  const pageTitle = capitalizeFirstLetter(pathSegments[0] || "Home")
 
   return (
     <div className={`banner-container`}>
@@ -22,7 +21,7 @@ const HeaderBanner = () => {
         <BreadCrumbComponent />
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default HeaderBanner;
+export default HeaderBanner
