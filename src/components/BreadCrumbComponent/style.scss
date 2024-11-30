@@ -16,8 +16,20 @@
   .banner-pagename {
     font-weight: 300;
     cursor: auto;
-  }
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    .separator {
+      margin: 0 5px; 
+     font-size: 35px;
+     color: #ACACAC;
 
+    }
+    
+  
+    
+  }
+ 
   img {
     width: 20px;
     height: 20px;

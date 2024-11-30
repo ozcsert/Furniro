@@ -1,12 +1,11 @@
 import "./styles.scss";
 import BreadCrumbComponent from "../BreadCrumbComponent/index";
 
-function ProductNavigation({ productTitle }) {
+function ProductNavigation({ id }) {
   return (
     <div className="product-navigation-content">
-      <BreadCrumbComponent productTitle={productTitle} />
+      <BreadCrumbComponent id={id} type="subBreadCrumbs" />
     </div>
   );
 }
-
 export default ProductNavigation;
