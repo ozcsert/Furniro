@@ -1,5 +1,5 @@
-import PropTypes from "prop-types";
-import InputField from "./InputField";
+import PropTypes from "prop-types"
+import InputField from "./InputField"
 
 const RegisterForm = ({ formData, handleChange, errors }) => (
   <div>
@@ -15,7 +15,7 @@ const RegisterForm = ({ formData, handleChange, errors }) => (
       error={errors.fullName}
     />
     <InputField
-      id="email"
+      id="email2"
       name="email"
       label="Email"
       type="email"
@@ -46,22 +46,23 @@ const RegisterForm = ({ formData, handleChange, errors }) => (
       placeholder="Confirm Password"
       required
       error={
-        errors.confirmPassword || 
-        (formData.password !== formData.confirmPassword && "Passwords do not match")
+        errors.confirmPassword ||
+        (formData.password !== formData.confirmPassword &&
+          "Passwords do not match")
       }
     />
   </div>
-);
+)
 
 RegisterForm.propTypes = {
   formData: PropTypes.shape({
-    fullName: PropTypes.string.isRequired,
-    email: PropTypes.string.isRequired,
-    password: PropTypes.string.isRequired,
-    confirmPassword: PropTypes.string.isRequired,
+    fullName: PropTypes.string,
+    email: PropTypes.string,
+    password: PropTypes.string,
+    confirmPassword: PropTypes.string,
   }).isRequired,
-  handleChange: PropTypes.func.isRequired,
-  errors: PropTypes.object.isRequired,
-};
+  handleChange: PropTypes.func,
+  errors: PropTypes.object,
+}
 
-export default RegisterForm;
+export default RegisterForm

@@ -1,5 +1,12 @@
+import { useNavigate } from "react-router-dom"
 import "../Herosection/style.scss"
-function Herosection() {
+const Herosection = () => {
+  const navigate = useNavigate()
+
+  const handleNavigation = (authType) => {
+    navigate(authType)
+  }
+
   return (
     <div className="herosection-main">
       <div className="herosection-background"></div>
@@ -13,7 +20,13 @@ function Herosection() {
           Redefine your home with the latest trends and timeless classics. Shop
           now!
         </p>
-        <button className="herosection-info-btn">BUY NOW</button>
+        <button
+          className="herosection-info-btn"
+          onClick={() => handleNavigation("/shop")}
+        >
+          {" "}
+          BUY NOW
+        </button>
       </div>
     </div>
   )

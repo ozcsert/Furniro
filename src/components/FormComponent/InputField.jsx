@@ -1,4 +1,4 @@
-import PropTypes from "prop-types";
+import PropTypes from "prop-types"
 
 const InputField = ({
   id,
@@ -11,9 +11,9 @@ const InputField = ({
   error,
 }) => {
   const handleChange = (e) => {
-    const { value } = e.target;
-    onChange(id, value); 
-  };
+    const { value } = e.target
+    onChange(id, value)
+  }
 
   return (
     <div className="form-group">
@@ -49,18 +49,18 @@ const InputField = ({
       )}
       {error && <div className="error-text">{error}</div>}
     </div>
-  );
-};
+  )
+}
 
 InputField.propTypes = {
-  id: PropTypes.string.isRequired,
-  label: PropTypes.string.isRequired,
-  type: PropTypes.string.isRequired,
-  value: PropTypes.string.isRequired,
-  onChange: PropTypes.func.isRequired,
+  id: PropTypes.string,
+  label: PropTypes.string,
+  type: PropTypes.string,
+  value: PropTypes.string,
+  onChange: PropTypes.func,
   placeholder: PropTypes.string,
   options: PropTypes.array,
-  error: PropTypes.string,
-};
+  error: PropTypes.bool,
+}
 
-export default InputField;
+export default InputField

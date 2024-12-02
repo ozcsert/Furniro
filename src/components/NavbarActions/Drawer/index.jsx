@@ -4,7 +4,7 @@ export const Drawer = () => {
   const navigate = useNavigate()
 
   const handleAuthNavigation = (authType) => {
-    navigate(`/auth?type=${authType}`)
+    navigate(authType)
   }
 
   return (
@@ -14,9 +14,13 @@ export const Drawer = () => {
         <div className="notification-container">
           <div className="notification">
             <ul>
-              <li onClick={() => handleAuthNavigation("login")}>Login</li>
-              <li onClick={() => handleAuthNavigation("register")}>Register</li>
-              <li>Log Out</li>
+              <li onClick={() => handleAuthNavigation("/auth?type=login")}>
+                Login
+              </li>
+              <li onClick={() => handleAuthNavigation("/auth?type=register")}>
+                Register
+              </li>
+              <li onClick={() => handleAuthNavigation("/")}>Log Out</li>
             </ul>
           </div>
         </div>

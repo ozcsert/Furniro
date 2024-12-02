@@ -1,4 +1,3 @@
-// ProductCard/index.jsx
 import StarRating from "../../StarRating/StarRating"
 import PropTypes from "prop-types"
 import "./style.scss"
@@ -48,7 +47,6 @@ const ProductCard = ({ product }) => {
 
   const isInStorage = (storageKey, product) => {
     let allStorageItems = JSON.parse(localStorage.getItem(storageKey) || "[]")
-    console.log(Boolean(allStorageItems.find((item) => item.id === product.id)))
 
     return Boolean(allStorageItems.find((item) => item.id === product.id))
   }

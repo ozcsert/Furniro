@@ -1,5 +1,5 @@
-import PropTypes from "prop-types";
-import InputField from "./InputField";
+import PropTypes from "prop-types"
+import InputField from "./InputField"
 
 const LoginForm = ({ formData, handleChange, errors }) => (
   <>
@@ -26,15 +26,15 @@ const LoginForm = ({ formData, handleChange, errors }) => (
       error={errors.password}
     />
   </>
-);
+)
 
 LoginForm.propTypes = {
   formData: PropTypes.shape({
-    email: PropTypes.string.isRequired,
-    password: PropTypes.string.isRequired,
+    email: PropTypes.string,
+    password: PropTypes.string,
   }).isRequired,
-  handleChange: PropTypes.func.isRequired,
-  errors: PropTypes.object.isRequired,
-};
+  handleChange: PropTypes.func,
+  errors: PropTypes.object,
+}
 
-export default LoginForm;
+export default LoginForm

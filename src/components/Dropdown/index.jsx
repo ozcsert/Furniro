@@ -31,7 +31,7 @@ const Dropdown = ({ type, closeModal }) => {
     case "Cart":
       modalContent = {
         title: "Shopping Cart",
-        buttons: ["Cart", "Checkbox", "Comparison"],
+        buttons: ["Cart", "Checkout"],
         subtotal: ["Subtotal", totalPrice],
       }
       break
