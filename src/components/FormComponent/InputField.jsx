@@ -60,7 +60,7 @@ InputField.propTypes = {
   onChange: PropTypes.func,
   placeholder: PropTypes.string,
   options: PropTypes.array,
-  error: PropTypes.string,
+  error: PropTypes.bool,
 }
 
 export default InputField

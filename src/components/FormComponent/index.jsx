@@ -1,14 +1,14 @@
-import { useState } from "react";
-import PropTypes from "prop-types";
-import { Link } from "react-router-dom";
-import "./style.scss";
-import GoogleIcon from "../../../src/assets/Google.svg";
-import GitHubIcon from "../../../src/assets/GitHub.svg";
+import { useState } from "react"
+import PropTypes from "prop-types"
+import { Link } from "react-router-dom"
+import "./style.scss"
+import GoogleIcon from "../../../src/assets/Google.svg"
+import GitHubIcon from "../../../src/assets/GitHub.svg"
 
-import RegisterForm from "./RegisterForm";
-import LoginForm from "./LoginForm";
-import ContactForm from "./ContactForm";
-import BillingDetailsForm from "./BillingDetailsForm";
+import RegisterForm from "./RegisterForm"
+import LoginForm from "./LoginForm"
+import ContactForm from "./ContactForm"
+import BillingDetailsForm from "./BillingDetailsForm"
 
 const FormComponent = ({ page, onSubmit }) => {
   const [formData, setFormData] = useState({
@@ -21,25 +21,25 @@ const FormComponent = ({ page, onSubmit }) => {
     zipCode: "",
     phone: "",
     email: "",
-  });
+  })
 
-  const [errors, setErrors] = useState({});
+  const [errors, setErrors] = useState({})
 
   const handleChange = (id, value) => {
     setFormData((prevState) => ({
       ...prevState,
       [id]: value,
-    }));
-  };
+    }))
+  }
 
   const validateForm = () => {
-    const newErrors = {};
+    const newErrors = {}
     for (const field in formData) {
       if (
         formData[field] === "" &&
         (field !== "confirmPassword" || formData.password !== "")
       ) {
-        newErrors[field] = `${field} is required`;
+        newErrors[field] = `${field} is required`
       }
     }
     if (
@@ -47,28 +47,28 @@ const FormComponent = ({ page, onSubmit }) => {
       formData.confirmPassword &&
       formData.password !== formData.confirmPassword
     ) {
-      newErrors.confirmPassword = "Passwords do not match";
+      newErrors.confirmPassword = "Passwords do not match"
     }
-    setErrors(newErrors);
-    return Object.keys(newErrors).length === 0;
-  };
+    setErrors(newErrors)
+    return Object.keys(newErrors).length === 0
+  }
 
   const validateLoginForm = () => {
-    const loginErrors = {};
-    if (!formData.email) loginErrors.email = "Email is required";
-    if (!formData.password) loginErrors.password = "Password is required";
-    setErrors(loginErrors);
-    return Object.keys(loginErrors).length === 0;
-  };
+    const loginErrors = {}
+    if (!formData.email) loginErrors.email = "Email is required"
+    if (!formData.password) loginErrors.password = "Password is required"
+    setErrors(loginErrors)
+    return Object.keys(loginErrors).length === 0
+  }
 
   const handleSubmit = (e) => {
-    e.preventDefault();
+    e.preventDefault()
     if (page === "login") {
-      if (validateLoginForm()) onSubmit(formData);
+      if (validateLoginForm()) onSubmit(formData)
     } else if (validateForm()) {
-      onSubmit(formData);
+      onSubmit(formData)
     }
-  };
+  }
 
   const isFormValidForRegister = () => {
     return (
@@ -78,18 +78,18 @@ const FormComponent = ({ page, onSubmit }) => {
       formData.confirmPassword &&
       formData.password === formData.confirmPassword &&
       !errors.confirmPassword
-    );
-  };
+    )
+  }
 
   const isFormValidForLogin = () => {
-    return formData.email && formData.password && !errors.password;
-  };
+    return formData.email && formData.password && !errors.password
+  }
 
   const preventNavigation = (e, isFormValid) => {
     if (!isFormValid) {
-      e.preventDefault();
+      e.preventDefault()
     }
-  };
+  }
 
   return (
     <div className="form-container">
@@ -185,12 +185,12 @@ const FormComponent = ({ page, onSubmit }) => {
         )}
       </form>
     </div>
-  );
-};
+  )
+}
 
 FormComponent.propTypes = {
-  page: PropTypes.oneOf(["register", "login", "contact", "billing"]).isRequired,
-  onSubmit: PropTypes.func.isRequired,
-};
+  page: PropTypes.oneOf(["register", "login", "contact", "billing"]),
+  onSubmit: PropTypes.func,
+}
 
-export default FormComponent;
+export default FormComponent
