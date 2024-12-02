@@ -18,7 +18,7 @@ ProductsContainer.propTypes = {
   products: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.string.isRequired,
-      image: PropTypes.string.isRequired,
+      image: PropTypes.string,
       name: PropTypes.string.isRequired,
       rating: PropTypes.number.isRequired,
       originalPrice: PropTypes.number.isRequired,

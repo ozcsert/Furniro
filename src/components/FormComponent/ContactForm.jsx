@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
-import React from "react";
-import PropTypes from "prop-types";
-import InputField from "./InputField";
+import React from "react"
+import PropTypes from "prop-types"
+import InputField from "./InputField"
 
 const ContactForm = ({ formData, handleChange }) => (
   <>
@@ -28,20 +28,20 @@ const ContactForm = ({ formData, handleChange }) => (
         className="input-about"
         placeholder="Hi! I’d like to ask about..."
         value={formData.subject || ""}
-        onChange={(e) => handleChange("subject", e.target.value)} 
+        onChange={(e) => handleChange("subject", e.target.value)}
         name="subject"
       />
     </div>
   </>
-);
+)
 
 ContactForm.propTypes = {
   formData: PropTypes.shape({
-    name: PropTypes.string.isRequired,
-    email: PropTypes.string.isRequired,
+    name: PropTypes.string,
+    email: PropTypes.string,
     subject: PropTypes.string,
   }).isRequired,
-  handleChange: PropTypes.func.isRequired,
-};
+  handleChange: PropTypes.func,
+}
 
-export default ContactForm;
+export default ContactForm
