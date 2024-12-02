@@ -1,74 +1,102 @@
-import { useState, useRef, useEffect } from "react";
-import { useLocation } from "react-router-dom";
-import FilterComponent from "../Filter";
-import ProductsContainer from "../ProductsContainer";
-import "./style.scss";
-import showEye from "../../assets/icons/show-eye.svg";
-import hideEye from "../../assets/icons/hide-eye.svg";
-import GeneralButtons from "../../components/ButtonComponent/GeneralButtons";
-import BestSellers from "../BestSellerComponent";
-import useSWR from "swr";
+import { useState, useRef, useEffect } from "react"
+import { useLocation } from "react-router-dom"
+import FilterComponent from "../Filter"
+import ProductsContainer from "../ProductsContainer"
+import "./style.scss"
+import showEye from "../../assets/icons/show-eye.svg"
+import hideEye from "../../assets/icons/hide-eye.svg"
+import GeneralButtons from "../../components/ButtonComponent/GeneralButtons"
+import BestSellers from "../BestSellerComponent"
+import useSWR from "swr"
 
 const fetcher = async (url) => {
-  const response = await fetch(url);
-  if (!response.ok) throw new Error("Product not found");
-  return response.json();
-};
+  const response = await fetch(url)
+  if (!response.ok) throw new Error("Product not found")
+  return response.json()
+}
 
 const OurProductsSectionComponent = () => {
-  const location = useLocation();
-  const isShopPage = location.pathname === "/shop";
-  const filterSideRef = useRef(null);
-  const imgRef = useRef(null);
-  const [currentPage, setCurrentPage] = useState(1);
-  const [showAllProducts, setShowAllProducts] = useState(false);
-  const [filterData, setFilterData] = useState([]);
-  const itemsPerPage = 12;
+  const location = useLocation()
+  const isShopPage = location.pathname === "/shop"
+  const filterSideRef = useRef(null)
+  const imgRef = useRef(null)
+  const [currentPage, setCurrentPage] = useState(1)
+  const [showAllProducts, setShowAllProducts] = useState(false)
+  const [filterState, setFilterState] = useState({})
+  const itemsPerPage = 12
 
   const { data, error, isLoading } = useSWR(
     `https://672b2ff4976a834dd025f8f2.mockapi.io/api/furniture/furnitures`,
     fetcher
-  );
+  )
 
   useEffect(() => {
     if (window.innerWidth < 700 && filterSideRef.current) {
-      filterSideRef.current.style.display = "none";
+      filterSideRef.current.style.display = "none"
     }
-
-    if (data) {
-      setFilterData(data);
-    }
-  }, [data]);
+  }, [])
 
   const toggleSidebar = () => {
     if (filterSideRef.current && imgRef.current) {
-      const isHidden = filterSideRef.current.style.display === "none";
-      filterSideRef.current.style.display = isHidden ? "flex" : "none";
-      imgRef.current.src = isHidden ? hideEye : showEye;
+      const isHidden = filterSideRef.current.style.display === "none"
+      filterSideRef.current.style.display = isHidden ? "flex" : "none"
+      imgRef.current.src = isHidden ? hideEye : showEye
     }
-  };
+  }
 
   const handleShowMoreClick = () => {
-    setShowAllProducts(!showAllProducts);
-  };
+    setShowAllProducts(!showAllProducts)
+  }
 
-  const handleFilterData = (filteredData) => {
-    setFilterData(filteredData);
-    setCurrentPage(1);
-  };
+  const handleFilterStateChange = (room, furnitureItem, isChecked) => {
+    setFilterState((prevFilterState) => {
+      const newFilterState = { ...prevFilterState }
 
-  const totalPages = Math.ceil(filterData.length / itemsPerPage);
-  const paginatedProducts = filterData.slice(
-    (currentPage - 1) * itemsPerPage,
-    currentPage * itemsPerPage
-  );
+      setCurrentPage(1)
+      if (!newFilterState[room]) {
+        newFilterState[room] = new Set()
+      }
+
+      if (isChecked) {
+        newFilterState[room].add(furnitureItem)
+      } else {
+        newFilterState[room].delete(furnitureItem)
+      }
+
+      return newFilterState
+    })
+  }
+
+  const applyFilters = (data) => {
+    if (Object.values(filterState).every((types) => types.size === 0)) {
+      return data
+    } else {
+      return data.filter((item) => {
+        return Object.entries(filterState).some(([room, types]) => {
+          return item.room === room && types.size > 0 && types.has(item.type)
+        })
+      })
+    }
+  }
+
+  const filteredFurnitureData = applyFilters(data)
+
+  const totalPages =
+    filteredFurnitureData &&
+    Math.ceil(filteredFurnitureData.length / itemsPerPage)
+  const paginatedProducts =
+    filteredFurnitureData &&
+    filteredFurnitureData.slice(
+      (currentPage - 1) * itemsPerPage,
+      currentPage * itemsPerPage
+    )
 
   const handlePageChange = (page) => {
-    setCurrentPage(page);
-  };
+    setCurrentPage(page)
+  }
 
-  if (isLoading) return <p>Loading...</p>;
-  if (error) return <p>{error.message}</p>;
+  if (isLoading) return <p>Loading...</p>
+  if (error) return <p>{error.message}</p>
 
   return (
     <>
@@ -78,7 +106,7 @@ const OurProductsSectionComponent = () => {
         </div>
 
         <div className="ourProducts__filter-side" ref={filterSideRef}>
-          <FilterComponent onFilterChange={handleFilterData} />
+          <FilterComponent onFilterStateChange={handleFilterStateChange} />
           <BestSellers />
         </div>
 
@@ -87,8 +115,8 @@ const OurProductsSectionComponent = () => {
             isShopPage
               ? paginatedProducts
               : showAllProducts
-              ? filterData
-              : filterData.slice(0, 12)
+              ? filteredFurnitureData
+              : filteredFurnitureData.slice(0, 12)
           }
         />
       </div>
@@ -115,7 +143,7 @@ const OurProductsSectionComponent = () => {
         />
       )}
     </>
-  );
-};
+  )
+}
 
-export default OurProductsSectionComponent;
+export default OurProductsSectionComponent

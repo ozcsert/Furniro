@@ -4,7 +4,6 @@ import CartPage from "./pages/CartPage"
 import ContactPage from "./pages/ContactPage"
 import BlogPage from "./pages/BlogPage"
 import CheckoutPage from "./pages/CheckoutPage"
-import ComparisonPage from "./pages/ComparisonPage"
 import ProfilePage from "./pages/ProfilePage"
 import ShopPage from "./pages/ShopPage"
 import SingleProductPage from "./pages/SingleProductPage"
@@ -24,7 +23,6 @@ function App() {
             <Route path="/cart" element={<CartPage />} />
             <Route path="/blog" element={<BlogPage />} />
             <Route path="/checkout" element={<CheckoutPage />} />
-            <Route path="/comparison/:ids" element={<ComparisonPage />} />
             <Route path="/profile" element={<ProfilePage />} />
             <Route path="/shop" element={<ShopPage />} />
             <Route path="/about" element={<AboutPage />} />

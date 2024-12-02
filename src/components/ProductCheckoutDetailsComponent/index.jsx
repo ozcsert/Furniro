@@ -1,26 +1,53 @@
-import "./style.scss";
-import { useState } from "react";
-import FormHandler from "../FormHandler/FormHandler";
+import "./style.scss"
+import { useState, useEffect } from "react"
+import FormHandler from "../FormHandler/FormHandler"
 function ProductCheckoutDetailsComponent() {
-  const [selectedPayment, setSelectedPayment] = useState("bank-transfer");
-
+  const [selectedPayment, setSelectedPayment] = useState("bank-transfer")
+  const [products, setProducts] = useState()
   const getPaymentNote = () => {
     if (selectedPayment === "bank-transfer") {
-      return "Make your payment directly into our bank account. Please use your Order ID as the payment reference. Your order will not be shipped until the funds have cleared in our account.";
+      return "Make your payment directly into our bank account. Please use your Order ID as the payment reference. Your order will not be shipped until the funds have cleared in our account."
     } else if (selectedPayment === "cash-on-delivery") {
-      return "Please have the exact amount ready. Your payment will be collected upon delivery.";
+      return "Please have the exact amount ready. Your payment will be collected upon delivery."
     }
-  };
+  }
 
   const getPaymentTitle = () => {
     return selectedPayment === "bank-transfer"
       ? "Direct Bank Transfer"
-      : "Cash On Delivery";
-  };
+      : "Cash On Delivery"
+  }
+
+  useEffect(() => {
+    const cartData = localStorage.getItem("Cart")
+    if (cartData) {
+      try {
+        const parsedData = JSON.parse(cartData)
+        setProducts(parsedData)
+      } catch (error) {
+        console.error("Cart verisi parse edilemedi:", error)
+      }
+    }
+  }, [])
+
+  const calculateTotal = () => {
+    return (
+      products &&
+      products
+        .reduce((total, product) => {
+          return total + product.price * (product.quantity || 1)
+        }, 0)
+        .toFixed(2)
+        .toLocaleString()
+    )
+  }
 
   return (
     <section className="product-summary">
-      <div className="billing-details">  <FormHandler page="billing" /> </div>
+      <div className="billing-details">
+        {" "}
+        <FormHandler page="billing" />{" "}
+      </div>
 
       <div className="product-detail">
         <div className="order-summary">
@@ -28,19 +55,26 @@ function ProductCheckoutDetailsComponent() {
             <h2>Product</h2>
             <h2>Subtotal</h2>
           </div>
-          <div className="detail-item">
-            <span className="product-name">
-              Asgaard sofa <span className="product-amount"> x 1</span>
-            </span>
-            <span>$ 250,000</span>
+
+          <div className="detail-item-container">
+            {products &&
+              products.map((product, index) => (
+                <div key={index} className="detail-item">
+                  <span className="product-name">
+                    {product.name} <span className="product-amount"> x 1</span>
+                  </span>
+                  <span>$ {product.price.toLocaleString()}</span>
+                </div>
+              ))}
           </div>
+
           <div className="subtotal">
             <span>Subtotal</span>
-            <span>$ 250,000</span>
+            <span>{calculateTotal()}</span>
           </div>
           <div className="total">
             <span>Total</span>
-            <span className="total-price">$ 250,000</span>
+            <span className="total-price">$ {calculateTotal()}</span>
           </div>
         </div>
 
@@ -90,7 +124,7 @@ function ProductCheckoutDetailsComponent() {
         <button className="place-order">Place order</button>
       </div>
     </section>
-  );
+  )
 }
 
-export default ProductCheckoutDetailsComponent;
+export default ProductCheckoutDetailsComponent

@@ -20,7 +20,6 @@
     flex-direction: column;
     flex: 1;
     max-width: 529px;
-    max-height: 562px;
     gap: 31px;
 
     .order-summary {
@@ -189,8 +188,6 @@
 @media (max-width: 425px) {
   .product-summary {
     .product-detail {
-      max-height: 610px;
-
       .place-order {
         cursor: pointer;
         max-width: 200px;
@@ -203,8 +200,6 @@
 @media (max-width: 375px) {
   .product-summary {
     .product-detail {
-      max-height: 690px;
-
       .place-order {
         cursor: pointer;
         max-width: 150px;
