@@ -1,10 +1,9 @@
-import React from "react";
-import FeatureCard from "../FeatureCard";
-import trophyIcon from "../images/Featureİmg/trophy.svg";
-import guaranteeIcon from "../images/Featureİmg/guarantee.svg";
-import shippingIcon from "../images/Featureİmg/Shipping.svg";
-import supportIcon from "../images/Featureİmg/customer-support.svg";
-import "./style.scss";
+import FeatureCard from "../FeatureCard"
+import trophyIcon from "../images/FeatureImg/trophy.svg"
+import guaranteeIcon from "../images/FeatureImg/guarantee.svg"
+import shippingIcon from "../images/FeatureImg/shipping.svg"
+import supportIcon from "../images/FeatureImg/customer-support.svg"
+import "./style.scss"
 
 const data = [
   {
@@ -27,7 +26,7 @@ const data = [
     title: "24 / 7 Support",
     description: "Dedicated support",
   },
-];
+]
 
 const FeatureSection = () => {
   return (
@@ -41,7 +40,7 @@ const FeatureSection = () => {
         />
       ))}
     </div>
-  );
-};
+  )
+}
 
-export default FeatureSection;
+export default FeatureSection
